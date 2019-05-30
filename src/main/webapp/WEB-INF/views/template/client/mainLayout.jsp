@@ -163,8 +163,7 @@
 
       <!-- /END THE FEATURETTES -->
 
-
-    </div><!-- /.container -->
+ 	 </div><!-- /.container -->
 
     <footer class="footer">
       <tiles:insertAttribute name="footer" />
