@@ -57,65 +57,16 @@
 				<div class="depth2_bg"></div>
 				<div class="logo"><h3><a href=""><img src="" alt="호텔 로고"></a></h3></div>
 				<ul>
+					<li class="line"></li>
+					
 					<li class="depth1_1">
-						<a href="">더 플라자</a>
-						<div class="depth2">
-							<div class="depth2_1_1"><a href="">소개</a></div>
-							<div class="depth2_1_3"><a href="">오시는 길</a></div>
-							<div class="depth2_1_4"><a href="">여행 가이드</a></div>
-							<div class="depth2_1_5"><a href="">공지사항</a></div>
-						</div>
+						<a href="">더 플라자 관리자 모드</a>
 					</li>
 	
 					<li class="line"></li>
 	
-					<li class="depth1_3">
-						<a href="">객실</a>
-						<div class="depth2">
-							<div class="depth2_3_1"><a href="">전체보기</a></div>
-							<div class="depth2_3_2"><a href="">디럭스</a></div>
-							<div class="depth2_3_3"><a href="">프리미어</a></div>
-							<div class="depth2_3_3"><a href="">스위트</a></div>
-						</div>
-					</li>
-	
-					<li class="line"></li>
-	
-					<li class="depth1_5">
-						<a href="">예약</a>
-						<div class="depth2">
-							<div class="depth2_5_1"><a href="">예약하기</a></div>
-							<div class="depth2_5_3"><a href="">예약조회</a></div>
-						</div>
-					</li>
-	
-					<li class="line"></li>
-	
-					<li class="depth1_6">
-						<a href="">부대시설</a>
-						<div class="depth2">
-							<div class="depth2_6_3"><a href="">휘트니스클럽</a></div>
-							<div class="depth2_6_4"><a href="">스파</a></div>
-							<div class="depth2_6_5"><a href="">수영장</a></div>
-						</div>
-					</li>
-	
-					<li class="line"></li>
-	
-					<li class="depth1_7"><a href="">멤버십</a></li>
-	
-					<li class="line"></li>
-	
-					<li class="depth1_8">
-						<a href="">컨시어지</a>
-						<div class="depth2">
-							<div class="depth2_8_2"><a href="">층별 안내</a></div>
-							<div class="depth2_8_4"><a href="">자주하는 질문</a></div>
-							<div class="depth2_8_3"><a href="">문의하기</a></div>
-						</div>
-					</li>
+					
 				</ul>
-				<div class="reservation"><a href="" target="_blank" id="btn_reservation">예약하기</a></div>
 			</div>
 		</div>
 	</div>
