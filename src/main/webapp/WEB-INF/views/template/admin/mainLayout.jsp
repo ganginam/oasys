@@ -9,19 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="/resources/images/icon.png">
 
-    <title>Dashboard Template for Bootstrap</title>
+   <title><tiles:getAsString name="title"/></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/include/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="dashboard.css" rel="stylesheet">
+    <link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -36,19 +36,20 @@
       <tiles:insertAttribute name="header" />
     </nav>
     
-    <nav class="nav">
-      <tiles:insertAttribute name="nav" />
-    </nav>
+    
 	
     <div class="container-fluid">
       <div class="row">
-     
+     	<nav class="nav">
+	      <tiles:insertAttribute name="nav" />
+	    </nav>
+	    
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">관리자 모드</h1>
-   			<p>점검 중 입니다...</p>
-          </div>
+          <h1 class="page-header">관리자모드입니다.</h1>
+          
         </div>
       </div>
+     </div>
 	 
 	 <footer class="footer">
       <tiles:insertAttribute name="footer" />
@@ -58,9 +59,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/js/docs.min.js"></script>
+    <script src="/resources/include/dist/js/bootstrap.min.js"></script>
+    <script src="/resources/include/dist/assets/js/docs.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
