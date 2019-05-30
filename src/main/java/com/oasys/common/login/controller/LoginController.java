@@ -23,6 +23,4 @@ public class LoginController {
 	public LoginVO login() {
 		return new LoginVO();
 	}
-	
-	
 }
