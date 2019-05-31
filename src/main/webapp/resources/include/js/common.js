@@ -69,7 +69,4 @@ function chkFile(item){
 	}else{
 		return true;
 	}
-	
-	
-	
 }
