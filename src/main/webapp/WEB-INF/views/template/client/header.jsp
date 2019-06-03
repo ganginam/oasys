@@ -55,7 +55,7 @@
 		<div id="gnb">
 			<div class="depth1_box active">
 				<div class="depth2_bg"></div>
-				<div class="logo"><h3><a href=""><img src="" alt="호텔 로고"></a></h3></div>
+				<div class="logo"><h3><a href=""><img src="/resources/images/hotelImages/logo2.png" alt="호텔 로고" width="45%"></a></h3></div>
 				<ul>
 					<li class="depth1_1">
 						<a href="">더 플라자</a>

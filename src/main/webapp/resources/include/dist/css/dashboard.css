@@ -57,6 +57,9 @@ body {
   margin-bottom: 20px;
   margin-left: -20px;
 }
+.mainDepth{
+  font-weight: bold;
+}
 .nav-sidebar > li > a {
   padding-right: 20px;
   padding-left: 20px;

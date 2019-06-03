@@ -2,7 +2,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ page trimDirectiveWhitespaces="true" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,8 +45,9 @@
 	    </nav>
 	    
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <br/>
           <h1 class="page-header">관리자모드입니다.</h1>
-          
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
       </div>
      </div>
