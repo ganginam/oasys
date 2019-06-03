@@ -37,10 +37,4 @@ public class HomeController {
 	public String main() {
 		return "index";
 	}
-	
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public String adminMain() {
-		return "admin";
-	}
-	
 }
