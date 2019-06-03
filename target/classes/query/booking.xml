@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oasys.common.booking.dao.BookingDao">
+	
+	<select id="bookingList" parameterType="booking" resultType="booking">		
+		SELECT
+			b_num, to_char(b_date, 'YYYY-MM-DD') as b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade
+		FROM booking	
+	</select>	
+	
+</mapper>
