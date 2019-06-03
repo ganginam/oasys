@@ -2,7 +2,7 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ page trimDirectiveWhitespaces="true" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,10 +11,16 @@
     <meta name="author" content="">
     <link rel="icon" href="/resources/images/icon.png">
 
-   <title><tiles:getAsString name="title"/></title>
+
+    <title><tiles:getAsString name="title"/></title>
+
+    <!-- Custom styles for this template -->
+    <link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
+
 
     <!-- Bootstrap core CSS -->
     <link href="/resources/include/dist/css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Custom styles for this template -->
     <link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
@@ -31,6 +37,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- Custom styles for this template -->
+    <link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
   </head>
 
   <body>
@@ -39,6 +47,7 @@
       <tiles:insertAttribute name="header" />
     </nav>
     
+
     
 	
     <div class="container-fluid">
@@ -47,18 +56,18 @@
 	      <tiles:insertAttribute name="nav" />
 	    </nav>
 	    
-           <!-- Begin page content -->
-    <div class="container">
-      <div class="page-header">
-        <h1><tiles:getAsString name="title"/></h1>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <br/>
+         <%--  <h1 class="page-header"><tiles:getAsString name="title"/></h1> --%>
+          <tiles:insertAttribute name="body" />
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        </div>
+
       </div>
-      <tiles:insertAttribute name="body" />
-    
-    </div>
-      </div>
+
      </div>
-	 
-	 <footer class="footer">
+
+    <footer class="footer">
       <tiles:insertAttribute name="footer" />
     </footer>
 
