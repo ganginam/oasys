@@ -27,19 +27,43 @@
       <script type="text/javascript" src="/resources/include/js/common.js"></script>
       <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
-		function errorCodeCheck(){
-			var codeNumber = "<c:out value='${codeNumber}'/>";
-			if(codeNumber != ""){
-				switch(parseInt(codeNumber)){
-				case 1:
-					alert("아이디 또는 비밀번호가 일치하지않습니다.");
-					break;
+			function errorCodeCheck(){
+				var codeNumber = "<c:out value='${codeNumber}'/>";
+				if(codeNumber != ""){
+					switch(parseInt(codeNumber)){
+					case 1:
+						alert("아이디 또는 비밀번호가 일치하지않습니다.");
+						break;
+					}
 				}
 			}
-		}
+			
 			$(function(){
-				
-			})
+				errorCodeCheck();
+				$("#btn_login").click(function(){
+					if(!chkData("#m_id", "아이디를")) return;
+					else if(!chkData("#m_pwd", "비밀번호를")) return;
+					else{
+						$("#frm_login").attr({
+							"method":"post",
+							"action":"/common/login"
+						});
+						$("#frm_login").submit();
+					}
+				});
+				$("#btn_join").click(function(){
+					location.href="/common/check";
+				});
+				$("#btn_home").click(function(){
+					location.href="/";
+				});
+				$("#btn_logout").click(function(){
+					location.href="/common/logout";
+				});
+				$("#btn_updateForm").click(function(){
+					location.href="/common/update";
+				});
+			});
 		</script>
    </head>
 	<body>
@@ -66,6 +90,7 @@
 						<div class="form-group">
 							<input type="button" id="btn_login" name="btn_login" value="로그인" class="btn btn-default"/>
 							<input type="button" id="btn_join" name="btn_join" value="회원가입" class="btn btn-default"/>
+							<input type="button" id="btn_search" name="btn_search" value="아이디/패스워드 찾기" class="btn btn-default"/>
 						</div>	
 					</form>
 				</c:if>
@@ -75,9 +100,9 @@
 						<legend>
 							<strong>${login.m_name }님 환영합니다.</strong>
 						</legend>
-						<input type="button" id="btn_logout" name="btn_logout" value="로그아웃"/>
-						<input type="button" id="btn_update" name="btn_update" value="회원 정보 수정"/>
-						<input type="button" id="btn_home" name="btn_home" value="홈"/>
+						<input type="button" id="btn_logout" name="btn_logout" value="로그아웃" class="btn btn-default"/>
+						<input type="button" id="btn_updateForm" name="btn_updateForm" value="회원 정보 수정" class="btn btn-default"/>
+						<input type="button" id="btn_home" name="btn_home" value="홈" class="btn btn-default"/>
 					</fieldset>
 				</c:if>
 			</div>

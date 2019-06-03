@@ -1,3 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="query.member"></mapper>
+<mapper namespace="com.oasys.common.member.dao.MemberDAO">
+
+	<select id="memberSelect" parameterType="String" resultType="member">
+		select m_no, m_id, m_pwd, m_name, m_phone, m_email, m_birth, m_gender from member where m_id = #{m_id}
+	</select>
+	
+	<!-- 회원가입 처리 쿼리 -->
+	<insert id="memberInsert" parameterType="com.oasys.common.member.vo.MemberVO">
+		insert into member(m_no, m_id, m_pwd, m_name, m_phone, m_email, m_birth, m_gender)
+values(member_seq.nextval, #{m_id}, #{m_pwd}, #{m_name}, #{m_phone}, #{m_email}, #{m_birth}, #{m_gender})
+	</insert>
+	
+	<!-- 아이디 중복체크 쿼리 -->
+	<select id="idCheck" resultType="int" parameterType="member">
+		select nvl((select 1 from member where m_id = #{m_id}), 0) as state from dual
+	</select>
+	
+	<!-- 회원수정 -->
+	<update id="memberUpdate" parameterType="member">
+		update member set m_pwd = #{m_pwd}, m_phone = #{m_phone}, m_email = #{m_email}, m_pwdchanged = sysdate
+		where m_id = #{m_id}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="memberDelete" parameterType="login">
+		delete from member where m_id = #{m_id}
+	</delete>
+</mapper>

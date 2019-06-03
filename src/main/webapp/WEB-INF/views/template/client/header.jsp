@@ -46,7 +46,7 @@
 					</a>
 				</div>
 				<div class="login join">
-					<a href="">
+					<a href="/common/join">
 						<span class="login_str">JOIN</span>
 					</a>
 				</div>
