@@ -21,11 +21,10 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-<<<<<<< HEAD
-    <script src="/resources/include/assets/js/ie-emulation-modes-warning.js"></script>
-=======
+
+  
     <script src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
->>>>>>> refs/remotes/origin/master
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -50,7 +49,7 @@
 	    
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">관리자모드입니다.</h1>
-          
+          	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         </div>
       </div>
      </div>

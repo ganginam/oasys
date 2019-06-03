@@ -11,17 +11,20 @@
     <meta name="author" content="">
     <link rel="icon" href="/resources/images/icon.png">
 
-    <title>스프링 사이트</title>
+   <title><tiles:getAsString name="title"/></title>
 
     <!-- Bootstrap core CSS -->
     <link href="/resources/include/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/resources/include/css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+  
     <script src="/resources/include/dist/assets/js/ie-emulation-modes-warning.js"></script>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -31,34 +34,40 @@
   </head>
 
   <body>
-
-    <!-- Fixed navbar -->
+	 <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <tiles:insertAttribute name="header" />
     </nav>
     
-    <nav class="nav">
-      <tiles:insertAttribute name="nav" />
-    </nav>
-
-    <!-- Begin page content -->
+    
+	
+    <div class="container-fluid">
+      <div class="row">
+     	<nav class="nav">
+	      <tiles:insertAttribute name="nav" />
+	    </nav>
+	    
+           <!-- Begin page content -->
     <div class="container">
       <div class="page-header">
         <h1><tiles:getAsString name="title"/></h1>
       </div>
       <tiles:insertAttribute name="body" />
+    
     </div>
-
-    <footer class="footer">
+      </div>
+     </div>
+	 
+	 <footer class="footer">
       <tiles:insertAttribute name="footer" />
     </footer>
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="/resources/include/dist/js/bootstrap.min.js"></script>
+    <script src="/resources/include/dist/assets/js/docs.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>

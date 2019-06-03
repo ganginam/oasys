@@ -6,25 +6,26 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-		<!-- <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" /> -->
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
 		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.115:1521:orcl" />
 		<property name="username" value="oasys" />
 		<property name="password" value="oasys1234" />
 	</bean>
-	<!-- <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
 		<constructor-arg ref="hikariConfig" />
-	</bean> -->
-	<!-- <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	</bean>
+	
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:config/mybatis-config.xml" />
 		<property name="mapperLocations" value="classpath:query/*.xml" />
-	</bean> -->
-	<!-- <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	</bean>
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage">
 			<value>com.oasys.**.**.dao</value>
 		</property>
-	</bean> -->
-	<!-- <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
+	</bean>
+	<bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
 		<property name="dataSource" ref="dataSource"/>
-	</bean> -->
+	</bean>
 </beans>
