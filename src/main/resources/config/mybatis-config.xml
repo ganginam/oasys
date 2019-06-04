@@ -2,6 +2,8 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-	
+		<typeAlias type="com.oasys.admin.faq.vo.FaqVO" alias="faq" />
+		<typeAlias type= alias="reply" />
+		<typeAlias type="com.oasys.client.qna.vo.QnaVO" alias="qna" />
 	</typeAliases>
 </configuration>
