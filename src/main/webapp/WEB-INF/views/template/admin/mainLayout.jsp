@@ -51,7 +51,7 @@
           <br/>
           <h1 class="page-header">관리자모드입니다.</h1>
 
-          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
         </div>
       </div>

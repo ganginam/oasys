@@ -3,14 +3,15 @@
 <%@ page trimDirectiveWhitespaces="true" %>
 <link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
 <div class="col-sm-3 col-md-2 sidebar">
+
 		<ul class="nav nav-sidebar">
          <li class="active mainDepth"><a href="/admin">관리자 Home<span class="sr-only">(current)</span></a></li>
        </ul>
        <ul class="nav nav-sidebar">
          <li class="mainDepth"><a href="#">객실</a></li>
 
-         <li><a href="">객실관리</a></li>
-         <li><a href="">객실등급관리</a></li>
+         <li><a href="/room/roomList">객실관리</a></li>
+         <li><a href="/roomGrade/roomGradeList">객실등급관리</a></li>
 
        </ul>
        <ul class="nav nav-sidebar">
