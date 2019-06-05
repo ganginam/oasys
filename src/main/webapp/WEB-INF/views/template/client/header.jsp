@@ -41,12 +41,12 @@
 					setInterval( nowTime, 1000 * 60 );
 				</script>
 				<div class="login">
-					<a href="">
+					<a href="/common/login">
 						<span class="login_str">LOGIN</span>
 					</a>
 				</div>
 				<div class="login join">
-					<a href="">
+					<a href="/common/join">
 						<span class="login_str">JOIN</span>
 					</a>
 				</div>

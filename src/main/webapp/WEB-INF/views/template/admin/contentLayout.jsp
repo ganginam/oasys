@@ -12,11 +12,11 @@
     <link rel="icon" href="/resources/images/icon.png">
 
 
+
     <title><tiles:getAsString name="title"/></title>
 
     <!-- Custom styles for this template -->
     <link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
-
 
     <!-- Bootstrap core CSS -->
     <link href="/resources/include/dist/css/bootstrap.min.css" rel="stylesheet">

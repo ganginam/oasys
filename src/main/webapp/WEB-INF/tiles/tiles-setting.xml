@@ -18,7 +18,6 @@
 		<put-attribute name="footer" value="/WEB-INF/views/template/client/footer.jsp"/>
 	</definition>
 	
-
 	<definition name="admin/booking/*" extends="a_content">
 		<put-attribute name="title" value="예약 관리" />
 		<put-attribute name="body" value="/WEB-INF/views/admin/booking/{1}.jsp" />
@@ -44,4 +43,9 @@
 		<put-attribute name="body" value="/WEB-INF/views/admin/member/{1}.jsp"></put-attribute>
 	</definition>
 
+
+	<definition name="common/*" extends="content">
+		<put-attribute name="title" value="로그인"/>
+		<put-attribute name="body" value="/WEB-INF/views/common/{1}.jsp"/>
+	</definition>
 </tiles-definitions>

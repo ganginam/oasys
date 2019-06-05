@@ -11,12 +11,13 @@
     <meta name="author" content="">
     <link rel="icon" href="/resources/images/icon.png">
 
-    <title>스프링 사이트</title>
+    <title>3조_프로젝트</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/resources/include/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+
     <!-- <link href="/resources/include/css/sticky-footer-navbar.css" rel="stylesheet"> -->
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->

@@ -58,4 +58,42 @@
 			</trim>
 		</where>
 	</select>
+	
+	<!-- 로그인 처리 -->
+	<select id="loginCheck" resultType="member" parameterType="member">
+		select m_id, m_pwd, m_name from member where m_id = #{m_id} and m_pwd = #{m_pwd}
+	</select>
+	
+	<select id="memberSelect" parameterType="String" resultType="member">
+		select m_no, m_id, m_pwd, m_name, m_phone, m_email, m_birth, m_gender from member where m_id = #{m_id}
+	</select>
+	
+	<select id="memberNo" resultType="int">
+		select member_seq.nextval from dual
+	</select>
+	<!-- 회원가입 처리 쿼리 -->
+	<insert id="memberInsert" parameterType="com.oasys.common.member.vo.MemberVO">
+		insert into member(m_no, m_id, m_pwd, m_name, m_phone, m_email, m_birth, m_gender)
+		values(#{m_no}, #{m_id}, #{m_pwd}, #{m_name}, #{m_phone}, #{m_email}, #{m_birth}, #{m_gender})
+	</insert>
+	
+	<insert id="memberGradeInsert" parameterType="member">
+		insert into membergrade(m_no) values(#{m_no})
+	</insert>
+	
+	<!-- 아이디 중복체크 쿼리 -->
+	<select id="idCheck" resultType="int" parameterType="member">
+		select nvl((select 1 from member where m_id = #{m_id}), 0) as state from dual
+	</select>
+	
+	<!-- 회원수정 -->
+	<update id="memberUpdate" parameterType="member">
+		update member set m_pwd = #{m_pwd}, m_phone = #{m_phone}, m_email = #{m_email}, m_pwdchanged = sysdate
+		where m_id = #{m_id}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="memberDelete" parameterType="member">
+		delete from member where m_id = #{m_id}
+	</delete>
 </mapper>

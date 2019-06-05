@@ -4,13 +4,14 @@
 	<typeAliases>
 
 
+
 		<typeAlias type="com.oasys.common.booking.vo.BookingVO" alias="booking" />
 
 		<typeAlias type="com.oasys.common.member.vo.MemberVO" alias="member"/>
 
 
 		<typeAlias type="com.oasys.admin.roomgrade.vo.RoomGradeVO" alias="roomGrade"/>
-		<typeAlias type="com.oasys.admin.room.vo.RoomVO" alias="room"/>
-
+		<typeAlias type="com.oasys.admin.room.vo.RoomVO" alias="room"/>	
+<!-- 		<typeAlias alias="login" type="com.oasys.common.login.vo.LoginVO"/> -->
 	</typeAliases>
 </configuration>
