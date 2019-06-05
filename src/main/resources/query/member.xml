@@ -2,4 +2,60 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oasys.common.member.dao.MemberDao">
 
+	<sql id="memberSearch">
+		<if test="search=='m_name'">
+			<![CDATA[ m_name LIKE '%' || #{keyword} || '%' ]]>
+		</if>
+		<if test="search=='m_phone'">
+			<![CDATA[ m_phone LIKE '%' || #{keyword} || '%' ]]>
+		</if>
+		<if test="search=='m_id'">
+			<![CDATA[ m_id LIKE '%' || #{keyword} || '%' ]]>
+		</if>
+		<if test="search=='m_email'">
+			<![CDATA[ m_email LIKE '%' || #{keyword} || '%' ]]>
+		</if>
+	</sql>
+	
+	<select id="memberList" resultType="member">
+		SELECT m_type, m_no, mg_grade, m_name, m_gender, m_id, m_pwd, 
+			m_pwdchanged, m_phone, m_email, m_birth, m_total, m_joindate
+		FROM (
+			SELECT m_type, m.m_no, mg_grade, m_name, m_gender, m_id, m_pwd,
+				to_char(m_pwdchanged, 'yyyy.mm.dd') m_pwdchanged,
+				m_phone, m_email, to_char(m_birth, 'yyyy.mm.dd') m_birth, m_total,
+    			to_char(m_joindate, 'yyyy.mm.dd') m_joindate 
+    		FROM member m, membergrade mg 
+			WHERE m.m_no=mg.m_no
+			) memberlist
+		<where>
+			<trim>
+				<include refid="memberSearch"></include>
+			</trim>
+		</where>
+	</select>
+	
+	<select id="adminList" resultType="member">
+		SELECT m_type,m_no, m_name, m_gender, m_id, m_pwd,
+			m_phone, m_email, to_char(m_birth, 'yyyy.mm.dd') m_birth, 
+			to_char(m_joindate, 'yyyy.mm.dd') m_joindate 
+		FROM member where m_type='관리자'
+	</select>
+	
+	<select id="memberListCnt" parameterType="member" resultType="int">
+		SELECT count(*) 
+		FROM (
+			SELECT m_type, m.m_no, mg_grade, m_name, m_gender, m_id, m_pwd,
+				to_char(m_pwdchanged, 'yyyy.mm.dd') m_pwdchanged,
+				m_phone, m_email, to_char(m_birth, 'yyyy.mm.dd') m_birth, m_total,
+    			to_char(m_joindate, 'yyyy.mm.dd') m_joindate 
+    		FROM member m, membergrade mg 
+			WHERE m.m_no=mg.m_no
+		) memberlist
+		<where>
+			<trim>
+				<include refid="memberSearch"></include>
+			</trim>
+		</where>
+	</select>
 </mapper>

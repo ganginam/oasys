@@ -9,5 +9,11 @@ textarea{resize:none;}
 .gap{margin-right:8px;}
 .cnt{font-size:10px; color:red;}
 .inline{display:inline;}
-.msg_error, .required{color:red;}
+.msg_error{color:red;}
+.required{background-color: PaleGreen;}
 .msg_default{font-weight:bold;}
+
+/* 멤버 검색 div */
+#memberSearch{
+	padding-bottom: 5px;
+}
