@@ -2,10 +2,53 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oasys.common.booking.dao.BookingDao">
 	
+	<!-- sql 정의 -->
+	<sql id="bookingSearch">
+		<if test="search == 'b_num'">
+			<![CDATA[ b_num LIKE '%' || #{keyword} ||'%' ]]>
+		</if>
+		<if test="search == 'b_name'">
+			<![CDATA[ b_name LIKE '%' || #{keyword} ||'%' ]]>
+		</if>
+	</sql>
+	
+	
+	
+	<!--  리스트 조회 -->
 	<select id="bookingList" parameterType="booking" resultType="booking">		
+		<![CDATA[
 		SELECT
 			b_num, to_char(b_date, 'YYYY-MM-DD') as b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade
-		FROM booking	
+		FROM (
+				select /*+ INDEX_DESC(spring_board spring_board_pk)*/
+					rownum as rnum, b_num, b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade
+				FROM booking
+				WHERE]]>
+				<trim prefix="(" suffix=") AND " prefixOverrides="AND">
+					<include refid="bookingSearch"></include>
+				</trim>
+				<![CDATA[ rownum <= #{pageNum} * #{amount}
+			) bookList
+			WHERE rnum > (#{pageNum} - 1) * #{amount}
+			]]>
 	</select>	
 	
+	<!--  전체 레코드 조회 -->
+	<select id="bookingListCnt" parameterType="booking" resultType="int">
+		SELECT count(*) FROM booking
+	</select>
+	
+	<!-- 상세페이지를 위한 게시물 조회 -->
+	<select id="bookingDetail" parameterType="int" resultType="booking">
+		SELECT
+			b_num, to_char(b_date, 'YYYY-MM-DD') as b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade
+		FROM booking
+		WHERE b_num = #{b_num}	
+	</select>
+	
+	
+	<!-- 데이터 삭제 -->
+	<delete id="bookingDelete" parameterType="booking">
+	DELETE FROM booking WHERE b_num = #{b_num}
+	</delete>
 </mapper>

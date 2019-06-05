@@ -2,12 +2,14 @@ package com.oasys.common.booking.vo;
 
 
 
+import com.oasys.common.vo.CommonVO;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class BookingVO {
+public class BookingVO extends CommonVO{
 	private int b_num = 0;
 	private String b_date ="";
 	private String b_indate = "";
@@ -19,5 +21,5 @@ public class BookingVO {
 	private String b_payment ="";
 	private String b_state = "";
 	private int m_no;
-	private int rg_number;
+	private String rg_grade;
 }

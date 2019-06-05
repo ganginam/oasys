@@ -21,11 +21,30 @@ public class BookingServiceImpl implements BookingService{
 	//조회 목록 구현
 	@Override
 	public List<BookingVO> bookingList(BookingVO bvo) {
+		
 		List<BookingVO> myList = null;
 		myList = bookingDao.bookingList(bvo);
 		
-		return myList;
-	
+		return myList;		
+	}
+
+	@Override
+	public int bookingListCnt(BookingVO bvo) {
+		return bookingDao.bookingListCnt(bvo);
+	}
+
+	@Override
+	public BookingVO bookingDetail(BookingVO bvo) {
+		BookingVO detail = null;
+		detail = bookingDao.bookingDetail(bvo);
 		
+		return detail;
+	}
+
+	@Override
+	public int bookingDelete(int b_num) {
+		int result = 0;
+		result = bookingDao.bookingDelete(b_num);
+		return result;
 	}
 }
