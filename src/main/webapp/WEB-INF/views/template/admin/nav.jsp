@@ -8,6 +8,8 @@
        </ul>
        <ul class="nav nav-sidebar">
          <li class="mainDepth"><a href="#">객실</a></li>
+         <li><a href="">객실관리</a></li>
+         <li><a href="">객실등급관리</a></li>
        </ul>
        <ul class="nav nav-sidebar">
          <li class="mainDepth"><a href="#">예약</a></li>
@@ -15,7 +17,7 @@
        <ul class="nav nav-sidebar">
          <li class="mainDepth"><a href="/admin/member/memberList">회원</a></li>
          <li><a href="/admin/member/memberList">회원관리</a></li>
-         <li><a href="/admin/member/mgrade">등급관리</a></li>
+         <li><a href="/admin/member/mgrade">회원등급관리</a></li>
        </ul>
        <ul class="nav nav-sidebar">
          <li class="mainDepth"><a href="">게시판</a></li>

@@ -25,7 +25,7 @@
       
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
-		<!-- <link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/> -->
+		<link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
 		
 		<!-- Custom styles for this template -->
     	<link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
@@ -36,14 +36,17 @@
 		<script type="text/javascript">
 
 		</script>
-		
-		
 	</head>
 	<body>
 		<div class="contentContainer container-fluidA">
-			<div class="contentTit page-header"><h3 class="text-center">회원 등급 관리</h3></div>
+			<div class="contentTit page-header"><h3 class="text-center">관리자 컨텐츠 샘플</h3></div>
 			
-			
+			<h3>관리자 컨텐츠 JSP파일 샘플입니다.</h3>
+			<h3>tiles-setting에서 경로 설정하시고 쓰시면 됩니다.</h3>
+			<h3>추가하고 싶은 css는 default.css에 해주세요.</h3>
+			<h3>내용을 채우면 footer는 자동으로 내려갑니다 일단 br로 채워놓을게요.</h3>
+			<h1>3조 화이팅ㅋ</h1>
+			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 		</div>
 	</body>
 </html>

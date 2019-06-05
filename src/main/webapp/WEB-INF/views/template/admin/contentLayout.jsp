@@ -40,20 +40,20 @@
       <tiles:insertAttribute name="header" />
     </nav>
     
-    <div class="container-fluid">
+    <div class="container-fluid content">
       <div class="row">
      	<nav class="nav">
 	      <tiles:insertAttribute name="nav" />
 	    </nav>
 	    
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
           <br/>
-         <%--  <h1 class="page-header"><tiles:getAsString name="title"/></h1> --%>
+          <%-- <h1 class="page-header"><tiles:getAsString name="title"/></h1> --%>
           <tiles:insertAttribute name="body" />
-          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-        </div>
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       </div>
      </div>
+    </div>
 
     <footer class="footer">
       <tiles:insertAttribute name="footer" />
@@ -63,9 +63,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> -->
     <script src="/resources/include/dist/js/bootstrap.min.js"></script>
-    <script src="/resources/include/dist/assets/js/docs.min.js"></script>
+    <!-- <script src="/resources/include/dist/assets/js/docs.min.js"></script> -->
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/resources/include/dist/assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
