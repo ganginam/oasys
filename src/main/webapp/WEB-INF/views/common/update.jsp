@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="email" value="${fn:split(member.m_email, '@') }"/>
+<%-- <c:set var="phone" value="${fn:split(member.m_phone, '-' }"/> --%>
 <!DOCTYPE html>
 <html>
    <head>
@@ -27,13 +28,31 @@
       <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
       <script type="text/javascript">
       	$(function(){
+      		//비밀번호 값
       		var passwd = $("#m_pwd").val();
+      		//비밀번호 확인 값
 			var passwd2 = $("#m_pwd2").val();
+		
+      		//핸드폰번호 나누기
+      		var beforeStr = "${member.m_phone}";
+      		var afterStr = beforeStr.split("-");
+      		
+      		//기존 비밀번호 값
+			var oldPwd = "${member.m_pwd}";
+		
+			var sum_phone = $("#first").val()+"-"+$("#middle").val()+"-"+$("#last").val();
+			$("#sum_phone").val(sum_phone);
 			
 			var email = "${email[1]}";
       		$("#selectEmail").val(email).prop("selected", "true");
 			
 			$("#m_pwd").keyup(function(){
+				//아이디 값
+	      		/* var userId = "${login.m_id}";
+				if(passwd.indexOf(userId) > -1){
+					$("#check").html("비밀번호에 아이디를 포함할  수 없습니다.");
+					$("#check").attr("color", "#FF0000");
+				} */
 				$("#chkNotice").html("");
 			});
 			
@@ -46,6 +65,17 @@
 					$("#chkNotice").attr("color", "#0054FF");
 				}
 			});
+			
+			$("#m_oldPwd").keyup(function(){
+				if($("#m_oldPwd").val() != oldPwd){
+					$("#chkOld").html("기존 비밀번호가 일치하지 않습니다.");
+					$("#chkOld").attr("color", "#FF0000");
+				}else{
+					$("#chkOld").html("기존 비밀번호가 일치합니다.");
+					$("#chkOld").attr("color", "#0054FF");
+				}
+			});
+			
 			//email select
 			$("#selectEmail").change(function(){
 		 		if($(this).val()==1){
@@ -75,7 +105,7 @@
       				$("#frm_update").submit();
       			}
       		});
-      		
+      		 
       		
 			
       		$("#btn_back").click(function(){
@@ -87,8 +117,14 @@
       		});
       		
       	
-      	});
-      	
+      	});	//최상위 $종료
+    	
+      	function idPwdCheck(){
+      		
+      		if(userPwd.indexOf(userId) > -1){
+      			alert("비밀번호에 아이디를 포함할 수 없습니다.");
+      		}
+      	}
    </script>
    </head>
 	<body>
@@ -99,15 +135,19 @@
    					<table class="table">
    						<tr> 
    							<td>아이디</td>
-   							<td><input type="text" value="${login.m_id }" readonly="readonly"/></td> 
+   							<td><input type="text" value="${member.m_id }" readonly="readonly"/></td> 
    						</tr>
    						<tr>
    							<td>기존 비밀번호</td>
    							<td><input type="password" id="m_oldPwd" name="m_oldPwd" placeholder="기존 비밀번호를 입력해주세요"/>
+   								<font id="chkOld" size="2"></font>
+   							</td>
    						</tr>
    						<tr>
    							<td>변경할 비밀번호</td>
-   							<td><input type="password" id="m_pwd" name="m_pwd" placeholder="비밀번호를 입력해주세요"/></td>
+   							<td><input type="password" id="m_pwd" name="m_pwd" placeholder="비밀번호를 입력해주세요"/>
+   								<font id="check" size="2"></font>
+   							</td>
    						</tr>
    						<tr>
    							<td>비밀번호 확인</td>
@@ -117,11 +157,18 @@
    						</tr>
    						<tr>
    							<td>이름</td>
-   							<td><input type="text" value="${login.m_name }" readonly="readonly"/></td>
+   							<td><input type="text" value="${member.m_name }" readonly="readonly"/></td>
    						</tr> 
    						<tr>
    							<td>핸드폰</td>
-   							<td><input type="text" name="m_phone" id="m_phone" maxlength="11" value="${member.m_phone }" placeholder="숫자만 입력해주세요" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"/></td>
+   							<td>
+   								<%-- <input type="text" id="first" name="first" value="${phone[0]}"/>
+   								<label>-</label>
+   								<input type="text" id="middle" name="middle" value="${phone[1]}"/>
+   								<label>-</label>
+   								<input type="text" id="last" name="last" value="${phone[2]}"/> --%>
+   								<input type="text" id="m_phone" name="m_phone" value="${member.m_phone }"/>
+   							</td>
    						</tr>
    						<tr>
    							<td>이메일</td>

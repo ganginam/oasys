@@ -1,4 +1,4 @@
-package com.oasys.common.login.controller;
+package com.oasys.common.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -8,24 +8,23 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.oasys.common.login.service.LoginService;
-import com.oasys.common.login.vo.LoginVO;
+import com.oasys.client.member.service.MemberClientService;
+import com.oasys.common.member.vo.MemberVO;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-@AllArgsConstructor
-@SessionAttributes("login")
 @RequestMapping(value="/common/*")
-
+@SessionAttributes("member")
+@AllArgsConstructor
 public class LoginController {
-	private LoginService loginService;
+	private MemberClientService memberClientService;
 	
-	@ModelAttribute("login")
-	public LoginVO login() {
-		return new LoginVO();
+	@ModelAttribute("member")
+	public MemberVO member() {
+		return new MemberVO();
 	}
 	
 	//로그인 화면
@@ -38,20 +37,20 @@ public class LoginController {
 	
 	//로그인 처리
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public ModelAndView loginCheck(@ModelAttribute LoginVO lvo, ModelAndView mav) {
+	public ModelAndView loginCheck(@ModelAttribute MemberVO mvo, ModelAndView mav) {
 		log.info("login post 호출 성공");
 		
-		String m_id = lvo.getM_id();
-		String m_pwd = lvo.getM_pwd();
+		String m_id = mvo.getM_id();
+		String m_pwd = mvo.getM_pwd();
 		
-		LoginVO loginCheckResult = loginService.loginCheck(m_id, m_pwd);
+		MemberVO loginCheckResult = memberClientService.loginCheck(m_id, m_pwd);
 		
 		if(loginCheckResult == null) {
 			mav.addObject("codeNumber", 1);
 			mav.setViewName("common/login");
 			return mav;
 		}else {
-			mav.addObject("login", loginCheckResult);
+			mav.addObject("member", loginCheckResult);
 			mav.setViewName("common/login");
 			return mav;
 		}

@@ -4,6 +4,6 @@
 	<typeAliases>
 		<typeAlias alias="member" type="com.oasys.common.member.vo.MemberVO"/>
 		
-		<typeAlias alias="login" type="com.oasys.common.login.vo.LoginVO"/>
+<!-- 		<typeAlias alias="login" type="com.oasys.common.login.vo.LoginVO"/> -->
 	</typeAliases>
 </configuration>

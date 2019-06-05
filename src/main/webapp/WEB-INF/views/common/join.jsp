@@ -51,9 +51,12 @@
 					else if(!chkData("#m_pwd", "비밀번호를")) return;
 					else if(!chkData("#m_pwd2", "변경할 비밀번호를")) return;
 					else if(!chkData("#m_name", "이름을")) return;
-					else if(!chkData("#m_phone", "핸드폰 번호를")) return;
+					else if(!chkData("#first", "핸드폰 번호 앞자리를")) return;
+					else if(!chkData("#middle", "핸드폰 번호 중간자리를")) return;
+					else if(!chkData("#last", "핸드폰 번호 마지막 자리를")) return;
 					else if(!chkData("#m_email", "이메일을")) return;
 					else if(!chkData("#m_emailTail", "이메일 뒷 주소를")) return;
+		
 					else if($("#selectYear").val()==""){
 						alert("태어난 연도를 선택해주세요");
 						return;
@@ -84,6 +87,9 @@
 					
 					var sum_email = $("#m_email").val()+"@"+$("#m_emailTail").val();
 					$("#sum_email").val(sum_email);
+					
+					var sum_phone = $("#first").val()+"-"+$("#middle").val()+"-"+$("#last").val();
+					$("#sum_phone").val(sum_phone);
 					
 					var m_birthday = $("#selectYear").val()+"/"+$("#selectMonth").val()+"/"+$("#selectDay").val();
 					$("#m_birthday").val(m_birthday);
@@ -140,6 +146,9 @@
 					location.href="/common/login"
 				});
 				
+				$("#emailCheck").click(function(){
+					location.href="/common/joinConfirm"
+				});
 			}); //최상위 $종료
    		</script>
    </head>
@@ -171,7 +180,14 @@
    						</tr> 
    						<tr>
    							<td>핸드폰</td>
-   							<td><input type="text" name="m_phone" id="m_phone" maxlength="11" placeholder="숫자만 입력해주세요" onkeyup="this.value=this.value.replace(/[^0-9]/g,'');"/></td>
+   							<td>
+   								<input type="text" id="first" name="first" maxlength="3" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
+   								<label>-</label>
+   								<input type="text" id="middle" name="middle" maxlength="4" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
+   								<label>-</label>
+   								<input type="text" id="last" name="last" maxlength="4" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
+   								<input type="hidden" id="sum_phone" name="m_phone"/>
+   							</td>
    						</tr>
    						<tr>
    							<td>이메일</td>
@@ -221,8 +237,8 @@
    						</tr>
    						<tr>
    							<td>성별</td>
-   							<td><input type="radio" name="m_gender" value="male">남자
-   								<input type="radio" name="m_gender" value="female">여자
+   							<td><input type="radio" name="m_gender" value="남자">남자
+   								<input type="radio" name="m_gender" value="여자">여자
    							</td>
    						</tr>
    					</table>

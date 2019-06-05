@@ -14,4 +14,12 @@ public interface MemberClientService {
 
 	public int memberDelete(String m_id);
 
+	//public void create(MemberVO mvo) throws Exception;
+
+	//public void updateAuthstatus(MemberVO mvo);
+
+	public int memberGradeInsert(MemberVO mvo);
+	public int memberNo();
+
+	public MemberVO loginCheck(String m_id, String m_pwd);
 }

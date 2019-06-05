@@ -63,6 +63,9 @@
 				$("#btn_updateForm").click(function(){
 					location.href="/common/update";
 				});
+				$("#btn_search").click(function(){
+					location.href="/common/idpwdSearch";
+				});
 			});
 		</script>
    </head>
@@ -70,7 +73,7 @@
 		<div class="container">
 			<h1>로그인</h1>
 			<div>
-				<c:if test="${login.m_id == null or login.m_id == '' }">
+				<c:if test="${member.m_id == null or member.m_id == '' }">
 					<form id="frm_login" class="form-horizontal">
 					
 						<div class="form-group">
@@ -95,10 +98,10 @@
 					</form>
 				</c:if>
 				
-				<c:if test="${login.m_id != null and login.m_id != '' }">
+				<c:if test="${member.m_id != null and member.m_id != '' }">
 					<fieldset>
 						<legend>
-							<strong>${login.m_name }님 환영합니다.</strong>
+							<strong>${member.m_name }님 환영합니다.</strong>
 						</legend>
 						<input type="button" id="btn_logout" name="btn_logout" value="로그아웃" class="btn btn-default"/>
 						<input type="button" id="btn_updateForm" name="btn_updateForm" value="회원 정보 수정" class="btn btn-default"/>

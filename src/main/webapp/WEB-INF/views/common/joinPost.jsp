@@ -28,47 +28,6 @@
    </script>
    </head>
 	<body>
-		<div>
-			<h1>아이디패스워드 찾기</h1>
-			
-			<div>			
-				<form>
-					<h4>아이디 찾기</h4>
-					<table>
-						<tr>
-							<td>이름</td>
-							<td><input type="text" name="searchId_name" id="searchId_name" placeholder="이름을 입력하세요"/></td>
-						</tr>
-						<tr>
-							<td>이메일</td>
-							<td><input type="text" name="searchId_email" id="searchId_email" placeholder="이메일을 입력해주세요"/></td>
-						</tr>
-					</table>
-					<input type="button" id="btn_searchId" name="btn_searchId" value="확인"/>
-				</form>
-			</div>
-			
-			<div>			
-				<form>
-					<h4>패스워드 찾기</h4>
-					<table>
-						<tr>
-							<td>이름</td>
-							<td><input type="text" name="searchPw_name" id="searchPw_name" placeholder="이름을 입력하세요"/></td>
-						</tr>
-						<tr>
-							<td>아이디</td>
-							<td><input type="text" name="searchPw_id" id="searchPw_id" placeholder="아이디를 입력해주세요"/></td>
-						</tr>
-						<tr>
-							<td>이메일</td>
-							<td><input type="text" name="searchPw_email" id="searchPw_email" placeholder="이메일을 입력해주세요"/></td>
-						</tr>
-					</table>
-					<input type="button" id="btn_pwSearch" name="btn_pwsearch" value="확인"/>
-				</form>
-			</div>
-			
-		</div>
+		<h1>이메일</h1>		
 	</body>
 </html>
