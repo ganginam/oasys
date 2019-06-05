@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oasys.admin.room.dao.RoomDao">
+	<select id="roomList" parameterType="room" resultType="room">
+		<!-- select rg_grade , r_number , r_view , r_strange , r_used , r_date from room -->
+		select rg.rg_grade , r.r_number , r.r_view ,rg.rg_price,r.r_used,r.r_strange,r.r_date from roomgrade rg ,room r where rg.rg_grade = r.rg_grade
+	</select>
+</mapper>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oasys.admin.roomgrade.dao.RoomGradeDao">
+	<insert id="roomGradeInsert" parameterType="roomGrade">
+		INSERT INTO roomgrade (rg_grade,rg_price,rg_peoples,rg_area,rg_explain,image1,image2,image3,image4,image5) 
+		VALUES (#{rg_grade},#{rg_price},#{rg_peoples},#{rg_area},#{rg_explain},#{image1},#{image2},#{image3},#{image4},#{image5})
+	</insert>
+	
+	<select id="roomGradeList" parameterType="roomGrade" resultType="roomGrade">
+		select rg_grade,rg_price,rg_peoples,rg_area,rg_explain,rg_date,image1 from roomGrade
+	</select>
+	
+	<select id="roomGradeDetail" parameterType="roomGrade" resultType="roomGrade">
+	 Select rg_grade,rg_price,rg_peoples,rg_area,rg_explain,image1,image2,image3,image4,image5,rg_date 
+	 from roomGrade where rg_price=#{rg_price}
+	</select>
+	
+	<delete id="roomGradeDelete" parameterType="int">
+		delete from roomGrade where rg_price=#{rg_price}
+	</delete>
+	
+	<update id="roomGradeUpdate" parameterType="roomGrade">
+		update roomGrade set  
+			rg_grade = #{rg_grade}
+			,rg_price = #{rg_price}
+			,rg_explain = #{rg_explain}
+			,rg_peoples = #{rg_peoples}
+			,rg_area = #{rg_area}
+			<if	test="image1!=''">
+				,image1=#{image1}
+			</if>
+			<if	test="image2!=''">
+				,image2=#{image2}
+			</if>
+			<if	test="image3!=''">
+				,image3=#{image3}
+			</if>
+			<if	test="image4!=''">
+				,image4=#{image4}
+			</if>
+			<if	test="image5!=''">
+				,image5=#{image5}
+			</if>
+			,rg_date=sysdate 
+			where rg_price = #{rg_price}
+	</update>
+	<!-- <select id="roomGradeUpdateForm" parameterType="roomGrade" resultType="roomGrade">
+	 Select rg_grade,rg_price,rg_peoples,rg_area,rg_explain,image1,image2,image3,image4,image5,rg_date 
+	 from roomGrade where rg_price=#{rg_price}
+	</select> -->
+	
+</mapper>

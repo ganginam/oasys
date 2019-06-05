@@ -2,6 +2,7 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-	
+		<typeAlias type="com.oasys.admin.roomgrade.vo.RoomGradeVO" alias="roomGrade"/>
+		<typeAlias type="com.oasys.admin.room.vo.RoomVO" alias="room"/>
 	</typeAliases>
 </configuration>

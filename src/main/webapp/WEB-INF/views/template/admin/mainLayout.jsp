@@ -46,7 +46,7 @@
 	    
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">관리자모드입니다.</h1>
-          
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
       </div>
      </div>
