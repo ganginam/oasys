@@ -114,6 +114,9 @@ public class MemberClientController {
 		
 		ModelAndView mav = new ModelAndView();
 		
+		int m_no = memberClientService.memberNo();
+		mvo.setM_no(m_no);
+		
 		int result = 0;
 		result = memberClientService.memberInsert(mvo);
 		//result = memberClientService.memberGradeInsert(mvo);
@@ -126,6 +129,7 @@ public class MemberClientController {
 			case 3:
 				mav.addObject("codeNumber", 3);
 				mav.setViewName("common/joinSuccess");	//페이지이동
+				memberClientService.memberGradeInsert(mvo);
 				break;
 			default:
 				mav.addObject("codeNumber", 2);		//실패

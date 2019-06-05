@@ -105,8 +105,8 @@ public class MemberClientServiceImpl implements MemberClientService {
 	
 	@Override
 	public int memberNo() {
-		// TODO Auto-generated method stub
-		return 0;
+		int m_no = memberDAO.memberNo();
+		return m_no;
 	}
 	
 	
@@ -123,8 +123,8 @@ public class MemberClientServiceImpl implements MemberClientService {
 
 	@Override
 	public int memberGradeInsert(MemberVO mvo) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = memberDAO.memberGradeInsert(mvo);
+		return result;
 	}
 
 //	@Autowired
