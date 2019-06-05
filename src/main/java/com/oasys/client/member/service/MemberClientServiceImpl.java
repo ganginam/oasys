@@ -105,7 +105,11 @@ public class MemberClientServiceImpl implements MemberClientService {
 	
 	@Override
 	public int memberNo() {
+<<<<<<< Upstream, based on origin/hoo
 		int m_no = memberDao.memberNo();
+=======
+		int m_no = memberDAO.memberNo();
+>>>>>>> efb4338 회원등급 등록 수정
 		return m_no;
 	}
 	
@@ -123,7 +127,11 @@ public class MemberClientServiceImpl implements MemberClientService {
 
 	@Override
 	public int memberGradeInsert(MemberVO mvo) {
+<<<<<<< Upstream, based on origin/hoo
 		int result = memberDao.memberGradeInsert(mvo);
+=======
+		int result = memberDAO.memberGradeInsert(mvo);
+>>>>>>> efb4338 회원등급 등록 수정
 		return result;
 	}
 
