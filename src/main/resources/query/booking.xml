@@ -18,10 +18,10 @@
 	<select id="bookingList" parameterType="booking" resultType="booking">		
 		<![CDATA[
 		SELECT
-			b_num, to_char(b_date, 'YYYY-MM-DD') as b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade
+			b_num, to_char(b_date, 'YYYY-MM-DD') as b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade,r_number
 		FROM (
 				select /*+ INDEX_DESC(spring_board spring_board_pk)*/
-					rownum as rnum, b_num, b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade
+					rownum as rnum, b_num, b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade,r_number
 				FROM booking
 				WHERE]]>
 				<trim prefix="(" suffix=") AND " prefixOverrides="AND">
@@ -41,7 +41,7 @@
 	<!-- 상세페이지를 위한 게시물 조회 -->
 	<select id="bookingDetail" parameterType="int" resultType="booking">
 		SELECT
-			b_num, to_char(b_date, 'YYYY-MM-DD') as b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade
+			b_num, to_char(b_date, 'YYYY-MM-DD') as b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade, r_number
 		FROM booking
 		WHERE b_num = #{b_num}	
 	</select>

@@ -35,7 +35,7 @@ public class RoomGradeController {
 	}
 	@RequestMapping(value="/roomGradeInsert",method=RequestMethod.POST)
 	public String roomGradeInsert(@ModelAttribute RoomGradeVO gvo) {
-		log.info("roomGradeInsert È£Ãâ");
+		log.info("roomGradeInsert È£ï¿½ï¿½");
 		log.info(gvo);
 
 		int result = 0 ;
@@ -57,7 +57,7 @@ public class RoomGradeController {
 	}
 	@RequestMapping(value="/roomGradeList",method=RequestMethod.GET)
 	public String roomGradeList(@ModelAttribute("data") RoomGradeVO gvo, Model model) {
-		log.info("roomGradedList È£Ãâ ¼º°ø");
+		log.info("roomGradedList È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		
 		List<RoomGradeVO> roomGradeList = roomGradeService.roomGradeList(gvo);
 		model.addAttribute("roomGradeList", roomGradeList);
@@ -66,7 +66,7 @@ public class RoomGradeController {
 	}
 	@RequestMapping(value="/roomGradeDetail",method=RequestMethod.GET)
 	public String roomGradeDetail(@ModelAttribute("data") RoomGradeVO gvo,Model model) {
-		log.info("roomGradeDetail È£Ãâ ¼º°ø");
+		log.info("roomGradeDetail È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		
 		RoomGradeVO detail = roomGradeService.roomGradeDetail(gvo);
 		model.addAttribute("detail",detail);
@@ -81,15 +81,15 @@ public class RoomGradeController {
 		String value = "";
 		result=roomGradeService.roomGradeDelete(gvo);
 		if(result==1) {
-			value="¼º°ø";
+			value="ì„±ê³µ";
 		}else {
-			value="½ÇÆÐ";
+			value="ì‹¤íŒ¨";
 		}
 		return value;
 	}
 	/*@RequestMapping(value="/roomGradeUpdateForm",method=RequestMethod.POST)
 	public String roomGradeUpdateForm(@ModelAttribute RoomGradeVO gvo,Model model) {
-		log.info("roomGradeUpdateForm È£Ãâ");
+		log.info("roomGradeUpdateForm È£ï¿½ï¿½");
 		
 		RoomGradeVO detail = roomGradeService.roomGradeUpdateForm(gvo);
 		model.addAttribute("detail",detail);
@@ -97,7 +97,7 @@ public class RoomGradeController {
 	}*/
 	@RequestMapping(value="/roomGradeUpdateForm",method=RequestMethod.GET)
 	public String roomGradeUpdateForm(@ModelAttribute("data") RoomGradeVO gvo,Model model) {
-		log.info("roomGradeUpdateForm È£Ãâ");
+		log.info("roomGradeUpdateForm È£ï¿½ï¿½");
 		
 		RoomGradeVO detail = roomGradeService.roomGradeUpdateForm(gvo);
 		model.addAttribute("detail",detail);
@@ -108,7 +108,7 @@ public class RoomGradeController {
 	
 	@RequestMapping(value="/roomGradeUpdate",method=RequestMethod.POST)
 	public String roomGradeUpdat(@ModelAttribute RoomGradeVO gvo) {
-		log.info("roomGradeupdateÈ£Ãâ");
+		log.info("roomGradeupdateÈ£ï¿½ï¿½");
 		String value = "";
 		int result = 0;
 		result = roomGradeService.roomGradeUpdate(gvo);

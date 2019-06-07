@@ -12,4 +12,6 @@ public interface BookingDao {
 	public BookingVO bookingDetail(BookingVO bvo);
 	
 	public int bookingDelete(int b_num);
+	
+	
 }

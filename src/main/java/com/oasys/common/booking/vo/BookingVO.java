@@ -22,4 +22,5 @@ public class BookingVO extends CommonVO{
 	private String b_state = "";
 	private int m_no;
 	private String rg_grade;
+	private int r_number = 0;
 }
