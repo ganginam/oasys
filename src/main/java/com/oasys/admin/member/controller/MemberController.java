@@ -39,6 +39,18 @@ public class MemberController {
 		return "admin/member/memberList";
 	}
 	
+	@RequestMapping(value="/memberDetail")
+	public String memberDetail(String m_no, Model model) {
+		log.info("memberDetail 호출...");
+		log.info("m_no : " + m_no);
+		
+		
+		MemberVO mvo = memberService.memberDetail(Integer.parseInt(m_no));
+		model.addAttribute("mData", mvo);
+		
+		return "admin/member/memberDetail";
+	}
+	
 	
 	@RequestMapping(value="/mgrade")
 	public String memberGrade() {

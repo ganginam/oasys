@@ -47,4 +47,11 @@ public class MemberServiceImpl implements MemberService{
 		
 		return total;
 	}
+
+	@Override
+	public MemberVO memberDetail(int m_no) {
+		MemberVO mvo = memberDao.memberDetail(m_no);
+		
+		return mvo;
+	}
 }

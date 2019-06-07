@@ -12,4 +12,6 @@ public interface MemberService {
 
 	public int memberListCnt(MemberVO mvo);
 
+	public MemberVO memberDetail(int m_no);
+
 }

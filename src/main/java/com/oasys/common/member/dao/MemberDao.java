@@ -27,9 +27,14 @@ public interface MemberDao {
 
 	public MemberVO loginCheck(MemberVO mvo);
 	
+	
+	
+	//관리자페이지
 	public List<MemberVO> memberList(MemberVO mvo);
 	
 	public List<MemberVO> adminList(MemberVO mvo);
 	
 	public int memberListCnt(MemberVO mvo);
+	
+	public MemberVO memberDetail(int m_no);
 }
