@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>​
+
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -82,12 +85,13 @@
 							<td class="text-left">${updateData.m_no}</td>
 							<td>예약명</td>
 							<td colspan="3" class="text-left">
-							<input type="text" id="b_name" name="b_name" class="form-control" value="${bookingUpdateData.m_name}" /></td>
+							<input type="text" id="b_name" name="b_name" class="form-control" value="${bookingUpdateData.b_name}" /></td>
 						</tr>
-						<tr>	
+						<tr>
+							<fmt:parseDate var="b_date" value="${bookingUpdateData.b_date}" pattern="yyyy-MM-dd"/>
 							<td>예약날짜</td>
 							<td class="text-left">
-							<input type="date" id="b_date" name="b_date" value="${bookingUpdata.b_date}">
+							<input type="date" id="b_date" name="b_date" value='<fmt:formatDate value="${b_date}" pattern="yyyy-MM-dd"/>' />
 							</td>
 							<td>체크인</td>
 							<td class="text-left">${updateDate.b_indate}</td>
