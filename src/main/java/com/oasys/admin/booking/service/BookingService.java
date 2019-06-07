@@ -10,5 +10,5 @@ public interface BookingService {
 	public int bookingListCnt(BookingVO bvo);
 	public BookingVO bookingDetail(BookingVO bvo);
 	public int bookingDelete(int b_num);
-
+	public BookingVO bookingUpdateForm(BookingVO bvo); 
 }

@@ -43,7 +43,7 @@ public class BookingController {
 		
 		return "admin/booking/bookingList";
 	}
-	
+	//예약 상세페이지
 	@RequestMapping(value="/bookingDetail", method = RequestMethod.GET)
 	public String bookingDetail(@ModelAttribute("data") BookingVO bvo, Model model) {
 		
@@ -54,6 +54,7 @@ public class BookingController {
 		
 	}
 	
+	//예약 삭제
 	@RequestMapping(value="/bookingDelete")
 	public String bookingDelete(@ModelAttribute BookingVO bvo) {
 		int result = 0;
@@ -69,5 +70,15 @@ public class BookingController {
 		return "redirect:"+url;
 	}
 	
+	//수정 폼
+	@RequestMapping(value="/bookingUpdateForm")
+	public String bookingUpdateForm(@ModelAttribute("data") BookingVO bvo, Model model) {
+		
+		BookingVO bookingUpdateData = bookingService.bookingUpdateForm(bvo);
+
+		model.addAttribute("bookingUpdateData", bookingUpdateData);
+		
+		return "admin/booking/bookingUpdateForm";
+	}
 
 }

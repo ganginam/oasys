@@ -47,4 +47,11 @@ public class BookingServiceImpl implements BookingService{
 		result = bookingDao.bookingDelete(b_num);
 		return result;
 	}
+
+	@Override
+	public BookingVO bookingUpdateForm(BookingVO bvo) {
+		BookingVO detail = null;
+		detail = bookingDao.bookingDetail(bvo);
+		return detail;
+	}
 }

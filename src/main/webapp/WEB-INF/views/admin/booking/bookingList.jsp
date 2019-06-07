@@ -77,7 +77,7 @@
 			
 			/*예약 번호 클릭 시 처리 이벤트*/
 			$(".goDetail").click(function(){
-				var b_num = $(this).parents("tr").attr("data-num");
+				var b_num = $(this).attr("data-num");
 				$("#b_num").val(b_num);
 				
 			
@@ -142,20 +142,21 @@
 		</div>	
 			<%--===========예약 리스트 시작 ===============--%>
 			<div id="bookingList">
-				<table class="table table-bordered">
+				<table class="table table-bordered table-hover">
 					<colgroup>
-						<col width="8%">
-						<col width="8%">
-						<col width="8%">
-						<col width="8%">
-						<col width="8%">
-						<col width="8%">
-						<col width="8%">
-						<col width="8%">
-						<col width="8%">
-						<col width="8%">
-						<col width="8%">
-						<col width="8%">
+						<col width="7%">
+						<col width="7%">
+						<col width="7%">
+						<col width="7%">
+						<col width="7%">
+						<col width="7%">
+						<col width="7%">
+						<col width="7%">
+						<col width="7%">
+						<col width="7%">
+						<col width="7%">
+						<col width="7%">
+						<col width="7%">
 					</colgroup>		
 					<thead>
 						<tr>
@@ -169,6 +170,7 @@
 							<th>전화번호</th>
 							<th>이메일</th>
 							<th>방등급</th>
+							<th>방호수</th>
 							<th>금액</th>
 							<th>예약상태</th>
 						</tr>	
@@ -177,17 +179,18 @@
 						<c:choose>
 							<c:when test="${not empty bookingList}">
 								<c:forEach var="booking" items="${bookingList}" varStatus="status">
-									<tr class="tac" data-num="${booking.b_num}">
+									<tr class="goDetail" data-num="${booking.b_num}">
 										<td>${booking.b_num}</td>
 										<td>${booking.b_ismember}</td>
 										<td>${booking.m_no}</td>
-										<td class="goDetail tal">${booking.b_name}</td>
+										<td >${booking.b_name}</td>
 										<td>${booking.b_date}</td>
 										<td>${booking.b_indate}</td>
 										<td>${booking.b_outdate}</td>
 										<td>${booking.b_phone}</td>
 										<td>${booking.b_email}</td>
 										<td>${booking.rg_grade}</td>
+										<td>${booking.r_number}</td>
 										<td>${booking.b_payment}</td>
 										<td>${booking.b_state}</td>
 									</tr>
@@ -195,7 +198,7 @@
 							</c:when>
 							<c:otherwise>
 								<tr>
-									<td colspan="12">등록된 예약이 존재하지않습니다.</td>
+									<td colspan="13">등록된 예약이 존재하지않습니다.</td>
 								</tr>
 							</c:otherwise>		
 						</c:choose>					
