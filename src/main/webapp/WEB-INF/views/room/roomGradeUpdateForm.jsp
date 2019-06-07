@@ -74,11 +74,12 @@
                      <col width="80%" />
                   </colgroup>
                   <tbody>
+                  
                      <tr>
                         <td>객실 등급설정</td>
-                        
-						<td class="text-left"><input type="text" name="rg_grade" id="rg_grade" value="${detail.rg_grade}" class="form-control" />${updateData.rg_grade}</td>
-						
+						<td class="text-left"><input type="text" name="rg_grade" id="rg_grade" value="${detail.rg_grade}" class="form-control" />
+						<input type="hidden" name="rg_num"value="${detail.rg_num}"/>
+						</td>
                      </tr>
                      <tr>
                         <td>객실 수용인원</td>

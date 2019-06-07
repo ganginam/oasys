@@ -43,17 +43,17 @@
          <div class="contentTit page-header"><h3 class="text-center">게시판 글작성</h3></div>
          <div class="contentTB text-center">
             <form id="f_writeForm" name="f_writeForm" class="form-horizontal">
+            
                <table class="table table-bordered">
                   <colgroup>
                      <col width="20%" />
                      <col width="80%" />
                   </colgroup>
                   <tbody>
+                  		
                      <tr>
                         <td>객실 등급설정</td>
-                        
 						<td class="text-left"><input type="text" name="rg_grade" id="rg_grade" class="form-control" /></td>
-						
                      </tr>
                      <tr>
                         <td>객실 수용인원</td>

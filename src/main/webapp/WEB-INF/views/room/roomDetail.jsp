@@ -69,11 +69,10 @@
 		</style>
 	</head>
 	<body>
-		<div class="contentContainer container-fluid">
+		<div class="contentContainer container-fluid"> 
 			<div class="contentTit page-header"><h3 class="text-center">게시판 상세보기</h3></div>
 			<form name="f_data" id="f_data">
 				<input type="hidden" name="rg_num" value="${detail.rg_num}" />
-				
 			</form>
 			<div class="btnArea col-md-4">
 				<input type="button" value="수정" id="updateFormBtn" class="btn btn-success" />
@@ -92,16 +91,28 @@
 					</colgroup>	
 					<tbody>
 						<tr>
+							<td>객실 호수</td>
+							<td>${detail.r_number}</td>
 							<td>등급</td>
-							<td class="text-left">${detail.rg_grade}</td>
+							<td>${detail.rg_grade}</td>	
+						</tr>
+						<tr>
+							<td>전망</td>
+							<td>${detail.r_view}</td>
 							<td>가격</td>
-							<td class="text-left">${detail.rg_price}</td>
+							<td>${detail.rg_price}</td>
 						</tr>
 						<tr>
 							<td>수용인원</td>
-							<td class="text-left">${detail.rg_peoples}</td>
+							<td>${detail.rg_peoples}</td>
 							<td>크기(평수)</td>
 							<td>${detail.rg_area}</td>
+						</tr>
+						<tr>
+							<td>이상유무</td>
+							<td>${detail.r_strange}</td>
+							<td>사용유무</td>
+							<td>${detail.r_used}</td>
 						</tr>
 						<tr class="table-height">
 							<td>정보</td>

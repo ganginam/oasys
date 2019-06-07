@@ -38,7 +38,7 @@
           /* 제목 클릭 시 상세페이지로 이동을 위한 처리 이벤트 */
           $(".goDetail").click(function(){
              var rg_num = $(this).parents("tr").attr("data-num");
-             $("#rg_price").val(rg_num);
+             $("#rg_num").val(rg_num);
              //상세 페이지로 이동하기 위해 form 추가 (id:detailForm)
              $("#detailForm").attr({
                 "method":"get",
@@ -56,7 +56,8 @@
          <div class="contentTit page-header"><h3 class="text-center">게시판 리스트</h3></div>
          <div id="roomGradeList">
          <form id="detailForm">
-            <input type="hidden" id="rg_price" name="rg_price" />
+            <input type="hidden" id="rg_num" name="rg_num" />
+            
          </form>
             <table class="table table-bordered">
                <colgroup>
@@ -77,12 +78,13 @@
                </thead>
                <tbody id="list" class="table-striped">
                         <c:forEach var="roomgrade" items="${roomGradeList}" varStatus="status">
-                           <tr data-num="${roomgrade.rg_price}">
+                           <tr data-num="${roomgrade.rg_num}">
                            		<td class="goDetail">${roomgrade.rg_grade}</td>
                            		<td class="goDetail">${roomgrade.rg_price}</td>
                            		<td class="goDetail">${roomgrade.rg_peoples}</td>
                            		<td class="goDetail">${roomgrade.rg_area}</td>
                            		<td class="goDetail">${roomgrade.rg_date}</td>
+                           		<td class="goDetail">${roomgrade.rg_num}</td>
                            </tr>
                         </c:forEach>
                </tbody>
