@@ -7,7 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.oasys.admin.booking.service.BookingService;
 import com.oasys.admin.member.service.MemberService;
+import com.oasys.common.booking.vo.BookingVO;
 import com.oasys.common.member.vo.MemberVO;
 import com.oasys.common.vo.PageDTO;
 
@@ -20,6 +22,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class MemberController {
 	private MemberService memberService;
+	private BookingService bookingService;
 	
 	@RequestMapping(value="/memberList")
 	public String memberList(@ModelAttribute("data") MemberVO mvo, Model model) {
@@ -44,9 +47,10 @@ public class MemberController {
 		log.info("memberDetail 호출...");
 		log.info("m_no : " + m_no);
 		
-		
 		MemberVO mvo = memberService.memberDetail(Integer.parseInt(m_no));
 		model.addAttribute("mData", mvo);
+		
+		BookingVO bvo = bookingService.bookingList(Integer.parseInt(m_no));
 		
 		return "admin/member/memberDetail";
 	}

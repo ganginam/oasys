@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -34,7 +35,7 @@
 		<script type="text/javascript" src="/resources/include/js/common.js"></script>
 		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
-
+			
 		</script>
 	</head>
 	<body>
@@ -84,12 +85,11 @@
 			</div>
 			<br/>
 			<div class="contentTit page-header"><h3>예약 내역</h3></div>
-		
-			<div>
-				<table class="table table-bordered">
-				
+				<table>
+					<tr>
+						<td>
+					</tr>
 				</table>
-			</div>
 			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 		</div>
 	</body>
