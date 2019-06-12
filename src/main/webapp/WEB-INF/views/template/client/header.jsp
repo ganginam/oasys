@@ -58,7 +58,7 @@
 				<div class="logo"><h3><a href=""><img src="/resources/images/hotelImages/logo2.png" alt="호텔 로고" width="45%"></a></h3></div>
 				<ul>
 					<li class="depth1_1">
-						<a href="">더 플라자</a>
+						<a href="">오아시스</a>
 						<div class="depth2">
 							<div class="depth2_1_1"><a href="">소개</a></div>
 							<div class="depth2_1_3"><a href="">오시는 길</a></div>
@@ -72,10 +72,10 @@
 					<li class="depth1_3">
 						<a href="">객실</a>
 						<div class="depth2">
-							<div class="depth2_3_1"><a href="">전체보기</a></div>
-							<div class="depth2_3_2"><a href="">디럭스</a></div>
-							<div class="depth2_3_3"><a href="">프리미어</a></div>
-							<div class="depth2_3_3"><a href="">스위트</a></div>
+							<div class="depth2_3_1"><a href="/roomGrade/showDeluxe">디럭스</a></div>
+							<div class="depth2_3_2"><a href="/roomGrade/showDeluxeDubble">디럭스 트윈</a></div>
+							<div class="depth2_3_3"><a href="/roomGrade/showSuite">스위트</a></div>
+							<div class="depth2_3_4"><a href="/roomGrade/showSuiteFamilly">스위트 패밀리</a></div>
 						</div>
 					</li>
 	

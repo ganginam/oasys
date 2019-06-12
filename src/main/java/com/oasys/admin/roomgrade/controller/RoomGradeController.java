@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+
 import com.oasys.admin.roomgrade.service.RoomGradeService;
 import com.oasys.admin.roomgrade.vo.RoomGradeVO;
 
@@ -53,7 +54,7 @@ public class RoomGradeController {
 	}
 	@RequestMapping(value="/roomGradeFormGo",method=RequestMethod.GET)
 	public String roomGradeFormGo() {
-		return "room/roomGradeForm";
+		return "admin/room/roomGradeForm";
 	}
 	@RequestMapping(value="/roomGradeList",method=RequestMethod.GET)
 	public String roomGradeList(@ModelAttribute("data") RoomGradeVO gvo, Model model) {
@@ -62,7 +63,7 @@ public class RoomGradeController {
 		List<RoomGradeVO> roomGradeList = roomGradeService.roomGradeList(gvo);
 		model.addAttribute("roomGradeList", roomGradeList);
 		
-		return "room/roomGradeList";
+		return "admin/room/roomGradeList";
 	}
 	@RequestMapping(value="/roomGradeDetail",method=RequestMethod.GET)
 	public String roomGradeDetail(@ModelAttribute("data") RoomGradeVO gvo,Model model) {
@@ -72,7 +73,7 @@ public class RoomGradeController {
 		model.addAttribute("detail",detail);
 		log.info(gvo);
 		log.info(detail);
-		return "room/roomGradeDetail";
+		return "admin/room/roomGradeDetail";
 	}
 	@ResponseBody
 	@RequestMapping(value="/roomGradeDelete",method=RequestMethod.POST,produces="text/plain; charset=UTF-8")
@@ -103,7 +104,7 @@ public class RoomGradeController {
 		model.addAttribute("detail",detail);
 		log.info(gvo);
 		log.info(detail);
-		return "room/roomGradeUpdateForm";
+		return "admin/room/roomGradeUpdateForm";
 	}
 	
 	@RequestMapping(value="/roomGradeUpdate",method=RequestMethod.POST)
@@ -120,4 +121,49 @@ public class RoomGradeController {
 		}
 		return "redirect:"+value;
 	}
+	@RequestMapping(value="/showDeluxe",method=RequestMethod.GET)
+	public String showDeluxe(@ModelAttribute("data") RoomGradeVO gvo,Model model) {
+		log.info("roomGradeDetail 호출 성공");
+		gvo.setRg_num(2);
+		RoomGradeVO detail = roomGradeService.roomGradeDetail(gvo);
+		model.addAttribute("detail",detail);
+		detail.getRg_num();
+		log.info(gvo);
+		log.info(detail);
+		return "client/room/showDeluxe";
+	}
+	@RequestMapping(value="/showDeluxeDubble",method=RequestMethod.GET)
+	public String showDeluxeDubble(@ModelAttribute("data") RoomGradeVO gvo,Model model) {
+		log.info("roomGradeDetail 호출 성공");
+		gvo.setRg_num(4);
+		RoomGradeVO detail = roomGradeService.roomGradeDetail(gvo);
+		model.addAttribute("detail",detail);
+		detail.getRg_num();
+		log.info(gvo);
+		log.info(detail);
+		return "client/room/showDeluxeDubble";
+	}
+	@RequestMapping(value="/showSuite",method=RequestMethod.GET)
+	public String showSuite(@ModelAttribute("data") RoomGradeVO gvo,Model model) {
+		log.info("roomGradeDetail 호출 성공");
+		gvo.setRg_num(5);
+		RoomGradeVO detail = roomGradeService.roomGradeDetail(gvo);
+		model.addAttribute("detail",detail);
+		detail.getRg_num();
+		log.info(gvo);
+		log.info(detail);
+		return "client/room/showSuite";
+	}
+	@RequestMapping(value="/showSuiteFamilly",method=RequestMethod.GET)
+	public String showSuiteFamilly(@ModelAttribute("data") RoomGradeVO gvo,Model model) {
+		log.info("roomGradeDetail 호출 성공");
+		gvo.setRg_num(6);
+		RoomGradeVO detail = roomGradeService.roomGradeDetail(gvo);
+		model.addAttribute("detail",detail);
+		detail.getRg_num();
+		log.info(gvo);
+		log.info(detail);
+		return "client/room/showSuiteFamilly";
+	}
+	
 }

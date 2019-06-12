@@ -4,21 +4,30 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		
+		
+		<title>Insert title here</title>
+		
+		<link rel="shortcut icon" href="/resources/images/icon.png" />
+		<link rel="apple-touch-icon" href="/resources/images/icon.png" />
+		
+		<!-- [if lt IE 9]>
+		<script src="../js/html5shiv.js"></script> 
+		<![endif]-->
+		
+		<link href="/resources/include/css/common.css" rel="stylesheet">
+		
+		
       
-      <title>writeForm.jsp</title>
-      
-      <link rel="shortcut icon" href="/resources/images/icon.png" />
-      <link rel="apple-touch-icon" href="/resources/images/icon.png" />
-      
-      <!-- [if lt IE 9]>
-      <script src="../js/html5shiv.js"></script> 
-      <![endif]-->
-      
-      <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
-      <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
+		
+		<!-- Custom styles for this template -->
+    	<link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
       
       <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
       <script type="text/javascript" src="/resources/include/js/jquery.form.min.js"></script>
@@ -35,12 +44,16 @@
     		});
     		$("#f_writeForm").submit();
       });
+      $("#roomGradeListBtn").click(function(){
+    	  location.href="/roomGrade/roomGradeList";
+      })
+      
       });
       </script>
    </head>
    <body>
       <div class="contentContainer container-fluid">
-         <div class="contentTit page-header"><h3 class="text-center">게시판 글작성</h3></div>
+         <div class="contentTit page-header"><h3 class="text-center">객실(등급) 추가등록</h3></div>
          <div class="contentTB text-center">
             <form id="f_writeForm" name="f_writeForm" class="form-horizontal">
             
@@ -96,7 +109,7 @@
                
                <div class="text-right">
                   <input type="button" value="저장" id="roomGradeInsertBtn"  class="btn btn-primary">
-                  <input type="button" value="취소" id="roomGradeCancelBtn"  class="btn btn-primary">
+                  <input type="reset" value="취소" id="roomGradeCancelBtn"  class="btn btn-primary">
                   <input type="button" value="목록" id="roomGradeListBtn"  class="btn btn-primary">
                </div>
             </form>

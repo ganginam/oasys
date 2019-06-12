@@ -14,4 +14,6 @@ public interface RoomService {
 
 	public int roomDelete(RoomVO rvo);
 
+	public int roomUpdate(RoomVO rvo);
+
 }

@@ -47,4 +47,11 @@ public class RoomServiceImpl implements RoomService{
 		return result;
 	}
 
+	@Override
+	public int roomUpdate(RoomVO rvo) {
+		int result = 0;
+		result = roomDao.roomUpdate(rvo);
+		return result;
+	}
+
 }

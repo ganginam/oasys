@@ -41,7 +41,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <tiles:insertAttribute name="header" />
     </nav>
-
+	<br/><br/>
     <!-- Begin page content -->
     <div class="container">
       <div class="page-header">

@@ -7,13 +7,15 @@
 	</insert>
 	
 	<select id="roomGradeList" parameterType="roomGrade" resultType="roomGrade">
-		select rg_num,rg_grade,rg_price,rg_peoples,rg_area,rg_explain,rg_date,image1 from roomGrade
+		select rg_num,rg_grade,rg_price,rg_peoples,rg_area,rg_explain,rg_date,image1 from roomGrade order by rg_price
 	</select>
 	
 	<select id="roomGradeDetail" parameterType="roomGrade" resultType="roomGrade">
 	 Select rg_num,rg_grade,rg_price,rg_peoples,rg_area,rg_explain,image1,image2,image3,image4,image5,rg_date 
 	 from roomGrade where rg_num=#{rg_num}
 	</select>
+	
+	
 	
 	<delete id="roomGradeDelete" parameterType="int">
 		delete from roomGrade where rg_num=#{rg_num}

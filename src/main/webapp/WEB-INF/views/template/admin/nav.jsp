@@ -8,7 +8,7 @@
          <li class="active mainDepth"><a href="/admin">관리자 Home<span class="sr-only">(current)</span></a></li>
        </ul>
        <ul class="nav nav-sidebar">
-         <li class="mainDepth"><a href="#">객실</a></li>
+         <li class="mainDepth"><a href="/room/roomList">객실</a></li>
 
          <li><a href="/room/roomList">객실관리</a></li>
          <li><a href="/roomGrade/roomGradeList">객실등급관리</a></li>

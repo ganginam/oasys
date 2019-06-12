@@ -4,21 +4,30 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		
+		
+		<title>Insert title here</title>
+		
+		<link rel="shortcut icon" href="/resources/images/icon.png" />
+		<link rel="apple-touch-icon" href="/resources/images/icon.png" />
+		
+		<!-- [if lt IE 9]>
+		<script src="../js/html5shiv.js"></script> 
+		<![endif]-->
+		
+		<link href="/resources/include/css/common.css" rel="stylesheet">
+		
+		
       
-      <title>boardList.jsp</title>
-      
-      <link rel="shortcut icon" href="/resources/images/icon.png" />
-      <link rel="apple-touch-icon" href="/resources/images/icon.png" />
-      
-      <!-- [if lt IE 9]>
-      <script src="../js/html5shiv.js"></script> 
-      <![endif]-->
-      <link rel="stylesheet" type="text/css" href="/resources/include/css/default.css" />
-      <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
-      <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
+		
+		<!-- Custom styles for this template -->
+    	<link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
       
       <style type="text/css">
         
@@ -53,7 +62,7 @@
    </head>
    <body>
       <div class="contentContainer container-fluid">
-         <div class="contentTit page-header"><h3 class="text-center">게시판 리스트</h3></div>
+         <div class="contentTit page-header"><h3 class="text-center">객실등급 리스트</h3></div>
          <div id="roomGradeList">
          <form id="detailForm">
             <input type="hidden" id="rg_num" name="rg_num" />
@@ -73,7 +82,7 @@
                      <th>객실 가격</th>
                      <th>객실 수용인원</th>
                      <th>객실 평수</th>
-                     <th>객실 등록일</th>
+                     <th>객실 등록일(수정일)</th>
                   </tr>
                </thead>
                <tbody id="list" class="table-striped">
@@ -83,8 +92,7 @@
                            		<td class="goDetail">${roomgrade.rg_price}</td>
                            		<td class="goDetail">${roomgrade.rg_peoples}</td>
                            		<td class="goDetail">${roomgrade.rg_area}</td>
-                           		<td class="goDetail">${roomgrade.rg_date}</td>
-                           		<td class="goDetail">${roomgrade.rg_num}</td>
+                           		<td class="goDetail">${roomgrade.rg_date}</td>                           		
                            </tr>
                         </c:forEach>
                </tbody>

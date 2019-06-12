@@ -4,26 +4,32 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		
+		
+		<title>Insert title here</title>
+		
+		<link rel="shortcut icon" href="/resources/images/icon.png" />
+		<link rel="apple-touch-icon" href="/resources/images/icon.png" />
+		
+		<!-- [if lt IE 9]>
+		<script src="../js/html5shiv.js"></script> 
+		<![endif]-->
+		
+		<link href="/resources/include/css/common.css" rel="stylesheet">
+		
+		
       
-      <title>boardList.jsp</title>
-      
-      <link rel="shortcut icon" href="/resources/images/icon.png" />
-      <link rel="apple-touch-icon" href="/resources/images/icon.png" />
-      
-      <!-- [if lt IE 9]>
-      <script src="../js/html5shiv.js"></script> 
-      <![endif]-->
-      <link rel="stylesheet" type="text/css" href="/resources/include/css/default.css" />
-      <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
-      <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
-      
-      <style type="text/css">
-        
-      </style>
-      
+		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
+		
+		<!-- Custom styles for this template -->
+    	<link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
+
+		
       <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
       <script type="text/javascript" src="/resources/include/js/jquery.form.min.js"></script>
       <script type="text/javascript" src="/resources/include/js/common.js"></script>
@@ -47,7 +53,31 @@
           }) */
           $(document).on("click","input[name='updateBtn']",function(){
         	  dataReset();
-        	  $("#roomUpdateModal").modal();   
+        	  $("#roomUpdateModal").modal();
+        	  var r_number = $(this).parents("tr").attr("data-num");
+        	  console.log(r_number);
+        	  $("#roomUpdateBtn").click(function(){
+        		 console.log($("#r_strange").val());
+             	 $.ajax({
+             		url:"/room/roomUpdate",
+             		type:"get",
+             		data:"r_number="+r_number+"&r_strange="+$("#r_strange").val(),
+             		dataType:"text",
+             		error:function(){
+             			alert("오루")
+             		},
+             		success:function(data){
+             			if(data=="성공"){
+             				alert("이상유무 수정 완료");
+                 			location.href="/room/roomList";
+             			}else if(data=="실패"){
+             				alert("이상유무 수정 실패");
+             				location.href="/room/roomList";
+             			}
+             			
+             		}
+             	 }) 
+               });
           })
           
           
@@ -76,6 +106,7 @@
         	  })
         	  
           })
+          
           $(document).on("click","input[name='deleteBtn']",function(){
         	  console.log("??")
         	  if(confirm("선택하신 객실을 삭제하시겠습니까?")){
@@ -132,7 +163,7 @@
    </head>
    <body>
       <div class="contentContainer container-fluid">
-         <div class="contentTit page-header"><h3 class="text-center">게시판 리스트</h3></div>
+         <div class="contentTit page-header"><h3 class="text-center">객실 리스트</h3></div>
          <div id="roomGradeList">
          <form id="detailForm">
             <input type="hidden" id="r_number" name="r_number" />
@@ -208,7 +239,7 @@
 	          </div>
 	          <div class="form-group">
 	            <label for="r_strange" class="control-label">객실이상유무</label>
-	            <input type="text" class="form-control" name="r_strange" id="r_strange" maxlength="10"/>
+	            <input type="text" class="form-control" name="r_strange" maxlength="10"/>
 	          </div>
 	        </form>
 	      </div>

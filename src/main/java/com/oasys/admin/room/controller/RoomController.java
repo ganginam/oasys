@@ -37,7 +37,7 @@ public class RoomController {
 		model.addAttribute("detail",detail);
 		log.info("roomvo"+rvo);
 		log.info("roomListmodel"+roomList);
-		return "room/roomList";
+		return "admin/room/roomList";
 	}
 	@ResponseBody
 	@RequestMapping(value="/roomInsert",method=RequestMethod.POST,produces="text/plain; charset=UTF-8")
@@ -61,11 +61,11 @@ public class RoomController {
 		log.info("roomDetail 호출 성공");
 		RoomVO detail = roomService.roomDetail(rvo);
 		model.addAttribute("detail",detail);
-		return "room/roomDetail";
+		return "admin/room/roomDetail";
 	}
 	@ResponseBody
 	@RequestMapping(value="/roomDelete",method=RequestMethod.POST,produces="text/plain; charset=UTF-8")
-	public String roomDelete(@ModelAttribute("data") RoomVO rvo,Model model) {
+	public String roomDelete(@ModelAttribute("data") RoomVO rvo) {
 		String value = "";
 		int result = 0;
 		result = roomService.roomDelete(rvo);
@@ -76,4 +76,22 @@ public class RoomController {
 		}
 		return value;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/roomUpdate",method=RequestMethod.GET,produces="text/plain;charset=UTF-8")
+	public String roomUpdate(@ModelAttribute("data") RoomVO rvo) {
+		log.info("roomUpdate 호출");
+		String value = "";
+		int result = 0;
+		log.info(rvo);
+		result = roomService.roomUpdate(rvo);
+		log.info(result);
+		if(result==1) {
+			value="성공";
+		}else {
+			value="실패";
+		}
+		return value;
+	}
+	
 }

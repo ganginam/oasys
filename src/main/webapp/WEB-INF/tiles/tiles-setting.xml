@@ -42,10 +42,20 @@
 		<put-attribute name="title" value="회원관리"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/views/admin/member/{1}.jsp"></put-attribute>
 	</definition>
+	
+	<definition name="admin/room/*" extends="a_content">
+		<put-attribute name="title" value="객실리스트"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/admin/room/{1}.jsp"></put-attribute>
+	</definition>
 
 
 	<definition name="common/*" extends="content">
 		<put-attribute name="title" value="로그인"/>
 		<put-attribute name="body" value="/WEB-INF/views/common/{1}.jsp"/>
+	</definition>
+	
+	<definition name="client/room/*" extends="content">
+		<put-attribute name="title" value="오아시스 객실 상세정보"/>
+		<put-attribute name="body" value="/WEB-INF/views/client/room/{1}.jsp"/>
 	</definition>
 </tiles-definitions>
