@@ -55,7 +55,7 @@
 		<div id="gnb">
 			<div class="depth1_box active">
 				<div class="depth2_bg"></div>
-				<div class="logo"><h3><a href=""><img src="/resources/images/hotelImages/logo2.png" alt="호텔 로고" width="45%"></a></h3></div>
+				<div class="logo"><h3><a href="/"><img src="/resources/images/hotelImages/logo2.png" alt="호텔 로고" width="45%"></a></h3></div>
 				<ul>
 					<li class="depth1_1">
 						<a href="">더 플라자</a>
@@ -84,7 +84,7 @@
 					<li class="depth1_5">
 						<a href="">예약</a>
 						<div class="depth2">
-							<div class="depth2_5_1"><a href="">예약하기</a></div>
+							<div class="depth2_5_1"><a href="/client/booking/booking">예약하기</a></div>
 							<div class="depth2_5_3"><a href="">예약조회</a></div>
 						</div>
 					</li>
@@ -115,7 +115,7 @@
 						</div>
 					</li>
 				</ul>
-				<div class="reservation"><a href="" target="_blank" id="btn_reservation">예약하기</a></div>
+				<div class="reservation"><a href="/client/booking/booking" id="btn_reservation">예약하기</a></div>
 			</div>
 		</div>
 	</div>

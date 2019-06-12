@@ -41,7 +41,8 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <tiles:insertAttribute name="header" />
     </nav>
-
+    
+	<br/><br/><br/><br/>
     <!-- Begin page content -->
     <div class="container">
       <div class="page-header">
@@ -49,7 +50,9 @@
       </div>
       <tiles:insertAttribute name="body" />
     </div>
-
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	
+	
     <footer class="footer">
       <tiles:insertAttribute name="footer" />
     </footer>

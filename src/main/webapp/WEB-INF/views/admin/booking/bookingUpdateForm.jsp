@@ -37,8 +37,23 @@
 		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
 		$(function(){
-			/*목록 버튼 클릭 시 처리 이벤트*/
+			/*수정완료 버튼 클릭 시 처리 이벤트*/
+			$("#bookingUpdateBtn").click(function(){
+				$("#f_updateForm").attr({
+					"method":"post",
+					"action":"/admin/booking/bookingUpdate"
+				});
+				$("#f_updateForm").submit();
+			});
 			
+			/*취소 버튼 클릭 시 처리 이벤트*/
+			$("#bookingCancelBtn").click(function(){
+				$("#f_updateForm").each(function(){
+					this.reset();
+				});
+			});
+			
+			/*목록 버튼 클릭 시 처리 이벤트*/
 			$("#bookingListBtn").click(function(){
 				var queryString= "?pageNum="+$("#pageNum").val()+"&amount="+$("#amount").val();
 				location.href="/admin/booking/bookingList"+queryString;
@@ -52,68 +67,92 @@
 		<div class="contentContainer container-fluidA">
 			<div class="contentTit page-header"><h3 class="text-center">예약 수정</h3></div>
 				
-				<form name="f_data" id="f_data" method="post">
+				<form name="f_updateForm" id="f_updateForm" method="post">
 					<input type="hidden" name="b_num" id="b_num" value="${bookingUpdateData.b_num}">
 					<input type="hidden" name="pageNum" id="pageNum" value="${bookingUpdateData.pageNum}">
 					<input type="hidden" name="amount" id="amount" value="${bookingUpdateData.amount}">
-				</form>					
-			<div class="btnArea col-md-4">
-				<input type="button" value="수정완료" id="updateFormBtn" class="btn btn-primary">
-				<input type="button" value="취소" id="bookingCancelBtn" class="btn btn-primary">
-				<input type="button" value="목록" id="bookingListBtn" class="btn btn-primary">		
-			</div>	
-			<br/>
-			<div class="contentTB text-center">
-				<table class="table table-bordered">
-					<colgroup>
-						<col width="16%" />
-						<col width="16%" />
-						<col width="17%" />
-						<col width="17%" />
-						<col width="17%" />
-						<col width="17%" />					
-					</colgroup>
-					<tbody>		
-						<tr>
-							<td>예약번호</td>
-							<td class="text-left">${bookingUpdateData.b_num}</td>	
-							<td>회원여부</td>
-							<td colspan="3" class="text-left">${bookingUpdateData.b_ismember}</td>
-						</tr>
-						<tr>	
-							<td>회원번호</td>
-							<td class="text-left">${updateData.m_no}</td>
-							<td>예약명</td>
-							<td colspan="3" class="text-left">
-							<input type="text" id="b_name" name="b_name" class="form-control" value="${bookingUpdateData.b_name}" /></td>
-						</tr>
-						<tr>
-							<fmt:parseDate var="b_date" value="${bookingUpdateData.b_date}" pattern="yyyy-MM-dd"/>
-							<td>예약날짜</td>
-							<td class="text-left">
-							<input type="date" id="b_date" name="b_date" value='<fmt:formatDate value="${b_date}" pattern="yyyy-MM-dd"/>' />
-							</td>
-							<td>체크인</td>
-							<td class="text-left">${updateDate.b_indate}</td>
-							<td>체크아웃</td>
-							<td class="text-left">${updateData.b_outdate}</td>
-						</tr>	
-						<tr>	
-							<td>전화번호</td>
-							<td class="text-left">${updateData.b_phone}</td>
-							<td>이메일</td>
-							<td colspan="3" class="text-left">${updateData.b_email}</td>
-						</tr>
-						<tr>	
-							<td>방등급</td>
-							<td class="text-left">${updateData.rg_grade}</td>
-							<td>금액</td>
-							<td class="text-left">${updateData.b_payment}</td>
-							<td>예약상태</td>
-							<td class="text-left">${updateData.b_state}</td>
-						</tr>							
-				</table>
-			</div>
+					
+					<div class="btnArea col-md-4">
+						<input type="button" value="수정완료" id="bookingUpdateBtn" class="btn btn-primary">
+						<input type="button" value="취소" id="bookingCancelBtn" class="btn btn-primary">
+						<input type="button" value="목록" id="bookingListBtn" class="btn btn-primary">		
+					</div>	
+					<br/>
+					<div class="contentTB text-center">
+						<table class="table table-bordered">
+							<colgroup>
+								<col width="16%" />
+								<col width="16%" />
+								<col width="17%" />
+								<col width="17%" />
+								<col width="17%" />
+								<col width="17%" />					
+							</colgroup>
+							<tbody>		
+								<tr>
+									<td>예약번호</td>
+									<td class="text-left">${bookingUpdateData.b_num}</td>	
+									<td>회원여부</td>
+									<td colspan="3" class="text-left">${bookingUpdateData.b_ismember}</td>
+								</tr>
+								<tr>	
+									<td>회원번호</td>
+									<td class="text-left">${bookingUpdateData.m_no}</td>
+									<td>예약명</td>
+									<td colspan="3" class="text-left">${bookingUpdateData.b_name}</td>
+								</tr>
+								<tr>					
+									<td>예약날짜</td>
+									<td class="text-left">
+									<input type=text name="b_date" id="b_date" value="${bookingUpdateData.b_date}" readonly=readonly />
+									</td>
+									
+									<td>체크인</td>
+									<fmt:parseDate var="b_indate" value="${bookingUpdateData.b_indate}" pattern="yyyy-MM-dd" />
+									<td class="text-left">
+									<input type="date" id="b_indate" name="b_indate" value='<fmt:formatDate value="${b_indate}" pattern="yyyy-MM-dd"/>' />
+									</td>
+									
+									<td>체크아웃</td>
+									<fmt:parseDate var="b_outdate" value="${bookingUpdateData.b_outdate}" pattern="yyyy-MM-dd" />
+									<td class="text-left">
+									<input type="date" id="b_outdate" name="b_outdate" value="<fmt:formatDate value='${b_outdate}' pattern='yyyy-MM-dd' />" />
+									</td>
+								</tr>	
+								<tr>	
+									<td>전화번호</td>
+									<td class="text-left">${bookingUpdateData.b_phone}</td>
+									<td>이메일</td>
+									<td colspan="3" class="text-left">${bookingUpdateData.b_email}</td>
+								</tr>
+								<tr>	
+									<td>방등급</td>
+									<td class="text-left">
+									<select id="rg_grade" name="rg_grade">
+										<option value="${bookingUpdateData.rg_grade}">${bookingUpdateData.rg_grade}</option>
+										<option value="디럭스 트윈">디럭스 트윈</option>
+										<option value="디럭스">디럭스</option> 
+									
+									</select>
+									</td>
+									<td>금액</td>
+									<td class="text-left">
+									<input type="text" id="b_payment" name="b_payment" value="${bookingUpdateData.b_payment}" />
+									</td>
+									
+									<td>예약상태</td>
+									<td class="text-left">
+									<select id="b_state" name="b_state">
+										<option value="${bookingUpdateData.b_state}">${bookingUpdateData.b_state}</option>
+										<option value="예약완료">예약완료</option>
+										<option value="예약취소">예약취소</option>
+									</select>
+									</td>
+									
+								</tr>							
+					</table>
+				</div>
+			</form>	
 		</div>
 	</body>
 </html>

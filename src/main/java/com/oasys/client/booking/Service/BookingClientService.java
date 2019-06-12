@@ -1,0 +1,11 @@
+package com.oasys.client.booking.Service;
+
+import java.util.List;
+
+import com.oasys.common.booking.vo.BookingVO;
+
+public interface BookingClientService {
+
+public List<BookingVO> roomList(BookingVO bvo);	
+	
+}

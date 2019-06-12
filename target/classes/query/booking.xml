@@ -18,7 +18,7 @@
 	<select id="bookingList" parameterType="booking" resultType="booking">		
 		<![CDATA[
 		SELECT
-			b_num, to_char(b_date, 'YYYY-MM-DD') as b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade,r_number
+			b_num, to_char(b_date, 'YYYY-MM-DD') as b_date, to_char(b_indate, 'YYYY-MM-DD') as b_indate, to_char(b_outdate, 'YYYY-MM-DD') as b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade,r_number
 		FROM (
 				select /*+ INDEX_DESC(booking booking_pk)*/
 					rownum as rnum, b_num, b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade,r_number
@@ -41,7 +41,7 @@
 	<!-- 상세페이지를 위한 게시물 조회 -->
 	<select id="bookingDetail" parameterType="int" resultType="booking">
 		SELECT
-			b_num, to_char(b_date, 'YYYY-MM-DD') as b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade, r_number
+			b_num, to_char(b_date, 'YYYY-MM-DD') as b_date, to_char(b_indate, 'YYYY-MM-DD') as b_indate, to_char(b_outdate, 'YYYY-MM-DD') as b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade, r_number
 		FROM booking
 		WHERE b_num = #{b_num}	
 	</select>
@@ -49,6 +49,30 @@
 	
 	<!-- 데이터 삭제 -->
 	<delete id="bookingDelete" parameterType="booking">
-	DELETE FROM booking WHERE b_num = #{b_num}
+		DELETE FROM booking WHERE b_num = #{b_num}
 	</delete>
+	
+    <update id="bookingUpdate" parameterType="booking">
+		UPDATE booking
+			SET  b_date = #{b_date}
+				,b_indate = sysdate
+				,b_outdate = #{b_outdate}
+				,rg_grade = #{rg_grade}
+				,b_payment = #{b_payment}
+				,b_state = #{b_state}
+			WHERE b_num = #{b_num}	
+	</update>
+	
+	<!-- 예약 가능한 방 조회 -->
+	<select id="roomList" parameterType="booking" resultType="booking">
+		SELECT  rg_grade, count(*) as r_roomcnt from 
+			(select * from room where r_number not in 
+			(select r_number from booking 
+		WHERE 
+		<![CDATA[b_indate<= '#{b_indate}' and #{b_indate} <b_outdate or b_indate<=#{b_outdate} and #{b_outdate} <b_outdate) order by r_number) 
+		GROUP BY rg_grade having count(*) >= #{b_roomcnt}
+		]]>
+	
+	</select>
+	
 </mapper>

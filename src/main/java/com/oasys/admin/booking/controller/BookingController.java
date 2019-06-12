@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.oasys.admin.booking.service.BookingService;
 import com.oasys.common.booking.vo.BookingVO;
@@ -79,6 +80,22 @@ public class BookingController {
 		model.addAttribute("bookingUpdateData", bookingUpdateData);
 		
 		return "admin/booking/bookingUpdateForm";
+	}
+	
+	@RequestMapping(value="/bookingUpdate", method = RequestMethod.POST)
+	public String bookingUpdate(@ModelAttribute BookingVO bvo, RedirectAttributes ras) {
+		int result = 0;
+		String url = "";
+		
+		result = bookingService.bookingUpdate(bvo);
+		ras.addFlashAttribute("data", bvo);
+		
+		if(result ==1 ) {
+			url = "/admin/booking/bookingDetail";
+		}else {
+			url = "/admin/booking/bookingUpdateForm";
+		}
+		return "redirect:" + url;
 	}
 
 }

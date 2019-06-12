@@ -22,7 +22,7 @@
 		<link href="/resources/include/css/common.css" rel="stylesheet">
 		
 		
-      
+      	
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
 		<!-- <link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/> -->
@@ -90,10 +90,6 @@
 			});
 			
 			/*예약등록 버튼 클릭시 처리 이벤트*/
-			
-			
-			
-			
 		}); //최종$
 		
 		
@@ -229,9 +225,6 @@
 			</c:if>	
 			</ul>
 		</div>
-		<div>
-			<input type="button" value="예약등록" id="insertFormBtn" class="btn btn-default">
-		</div>	
 		</div>
 	</body>
 </html>
