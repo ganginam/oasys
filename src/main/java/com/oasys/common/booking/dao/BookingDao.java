@@ -11,6 +11,8 @@ public interface BookingDao {
 	
 	public BookingVO bookingDetail(BookingVO bvo);
 	
+	public List<BookingVO> memberBookingList(int m_no);
+	
 	public int bookingDelete(int b_num);
 	
 	

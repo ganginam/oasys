@@ -60,7 +60,7 @@
 					<li class="line"></li>
 					
 					<li class="depth1_1">
-						<a href="">더 플라자 관리자 모드</a>
+						<a href="">오아시스 관리자 모드</a>
 					</li>
 	
 					<li class="line"></li>

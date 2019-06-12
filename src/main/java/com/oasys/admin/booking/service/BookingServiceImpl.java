@@ -55,9 +55,10 @@ public class BookingServiceImpl implements BookingService{
 		return detail;
 	}
 
+
 	@Override
-	public BookingVO bookingList(int m_no) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BookingVO> memberBookingList(int m_no) {
+		List<BookingVO> bList = bookingDao.memberBookingList(m_no);
+		return bList;
 	}
 }

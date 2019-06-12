@@ -17,6 +17,7 @@ public class MemberVO extends CommonVO{
 	private String m_email;	//이메일
 	private String m_birth;	//생년월일
 	private int m_total;	//누적금액
+	private int m_ytotal;	//연간누적금액
 	private String m_joindate;	//회원 가입일
 	private String m_gender;	//성별
 	private String m_type;	//타입(회원 or 관리자)
@@ -25,6 +26,7 @@ public class MemberVO extends CommonVO{
 	private int authstatus;
 	private String m_agreement ="";
 	private String mg_grade   ="";
+	private String mg_upgrade   ="";
 	private int mg_discount   =0;
     //private int m_no      =0;
     private String mg_date   ="";

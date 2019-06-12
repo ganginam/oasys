@@ -14,4 +14,8 @@ public interface MemberService {
 
 	public MemberVO memberDetail(int m_no);
 
+	public int adminDelete(int m_no);
+	
+	public List<MemberVO> memberGradeList(MemberVO mvo);
+
 }

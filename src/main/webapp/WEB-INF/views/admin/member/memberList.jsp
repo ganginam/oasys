@@ -84,13 +84,53 @@
 				
 				
 				//관리자
+				var admin_no = 0;
+				
 				$("#adminInsertBtn").click(function(){
 					$("#adminModal").modal();
+				});
+				
+				$(".adminRadio").click(function(){
+					admin_no = $(this).parents("tr").attr("data-num");
+					//var admin_no = $('input[name="adminRadio"]:checked').val();
+					console.log("check adminRadio m_no: " + admin_no)
+				});
+				
+				$("#adminDeleteBtn").click(function(){
+					if(admin_no==0){
+						alert("탈퇴 처리할 관리자를 선택하세요.");
+					}else{
+						$.ajax({
+							url : "/admin/member/adminDelete",
+							type : "post",
+							data : "m_no="+ admin_no,
+							dataType : "text",
+							error : function(){
+								alert('시스템 오류입니다. 관리자에게 문의하세요.');
+							},
+							success : function(resultData){
+								if(resultData=="성공"){
+									alert("선택된 관리자가 탈퇴 완료되었습니다.")
+								}else{
+									alert("관리자 탈퇴 오류..");
+									return;
+								}
+							}
+						});
+					}
 				});
 				
 				
 				
 			}); //최상위 function 종료 
+			
+			 /* $(document).ready(function () {
+				 $("#adminRadio").click(function(){
+					var admin_no = $('input[name="adminRadio"]:checked').val();
+					console.log("check adminRadio m_no: " + admin_no)
+				});
+			 }); */
+			
 			
 			function goPage(){
 				if($("#search").val()=="allMember"){
@@ -165,12 +205,12 @@
 							<th>이름</th>
 							<th>성별</th>
 							<th>아이디</th>
-							<th>비밀번호</th>
 							<th>비밀번호 변경일</th>
 							<th>전화번호</th>
 							<th>이메일</th>
 							<th>생일</th>
-							<th>누적금액</th>
+							<th>연간 누적 금액</th>
+							<th>총 누적 금액</th>
 							<th>가입날짜</th>
 						</tr>
 					</thead>
@@ -185,11 +225,11 @@
 										<td class="mbName">${member.m_name}</td>
 										<td>${member.m_gender}</td>
 										<td class="mbId">${member.m_id}</td>
-										<td>**********</td>
 										<td>${member.m_pwdchanged}</td>
 										<td class="mbPhone">${member.m_phone}</td>
 										<td class="mbEmail">${member.m_email}</td>
 										<td>${member.m_birth}</td>
+										<td>${member.m_ytotal}</td>
 										<td>${member.m_total}</td>
 										<td>${member.m_joindate}</td>
 									</tr>
@@ -268,7 +308,7 @@
 							<c:when test="${not empty adminList}">
 								<c:forEach var="admin" items="${adminList}" varStatus="status">
 									<tr class="tac" data-num="${admin.m_no}">
-										<td><input type="radio" name="admin"/></td>
+										<td><input type="radio" class="adminRadio" name="adminRadio" value="${admin.m_no}"/></td>
 										<td>${admin.m_type}</td>
 										<td>${admin.m_no}</td>
 										<td>${admin.m_name}</td>
@@ -294,8 +334,8 @@
 			
 			<div>
 				<input type="button" value="관리자 등록" id="adminInsertBtn" class="btn btn-default">
-				<input type="button" value="수정" id="insertFormBtn" class="btn btn-default">
-				<input type="button" value="삭제" id="insertFormBtn" class="btn btn-default">
+				<!-- <input type="button" value="수정" id="insertFormBtn" class="btn btn-default"> -->
+				<input type="button" value="삭제" id="adminDeleteBtn" class="btn btn-default">
 			</div>
 		</div>
 		

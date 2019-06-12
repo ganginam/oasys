@@ -20,7 +20,7 @@
 		SELECT
 			b_num, to_char(b_date, 'YYYY-MM-DD') as b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade,r_number
 		FROM (
-				select /*+ INDEX_DESC(spring_board spring_board_pk)*/
+				select
 					rownum as rnum, b_num, b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade,r_number
 				FROM booking
 				WHERE]]>
@@ -45,6 +45,16 @@
 		FROM booking
 		WHERE b_num = #{b_num}	
 	</select>
+	
+	<!-- 회원 상세 페이지 예약내역 조회 -->
+	<select id="memberBookingList" parameterType="int" resultType="booking">		
+		<![CDATA[
+		SELECT
+			b_num, to_char(b_date, 'YYYY-MM-DD') as b_date, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade,r_number
+		FROM booking
+		WHERE m_no=#{m_no}
+			]]>
+	</select>	
 	
 	
 	<!-- 데이터 삭제 -->

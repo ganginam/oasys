@@ -54,4 +54,23 @@ public class MemberServiceImpl implements MemberService{
 		
 		return mvo;
 	}
+
+	@Override
+	public int adminDelete(int m_no) {
+		log.info("adminDelete...");
+		int value = memberDao.adminDelete(m_no);
+		log.info(value);
+		
+		return value;
+	}
+
+	@Override
+	public List<MemberVO> memberGradeList(MemberVO mvo) {
+		log.info("memberGradeList...");
+		
+		List<MemberVO> mbGradeList = null;
+		mbGradeList = memberDao.memberGradeList(mvo);
+		
+		return mbGradeList;
+	}
 }

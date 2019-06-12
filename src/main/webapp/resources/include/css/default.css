@@ -17,3 +17,7 @@ textarea{resize:none;}
 #memberSearch{
 	padding-bottom: 5px;
 }
+
+.mgrade-div{
+	float: none;
+}

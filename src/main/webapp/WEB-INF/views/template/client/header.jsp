@@ -58,7 +58,7 @@
 				<div class="logo"><h3><a href=""><img src="/resources/images/hotelImages/logo2.png" alt="호텔 로고" width="45%"></a></h3></div>
 				<ul>
 					<li class="depth1_1">
-						<a href="">더 플라자</a>
+						<a href="">Oasis</a>
 						<div class="depth2">
 							<div class="depth2_1_1"><a href="">소개</a></div>
 							<div class="depth2_1_3"><a href="">오시는 길</a></div>

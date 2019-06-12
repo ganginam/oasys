@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oasys.admin.booking.service.BookingService;
 import com.oasys.admin.member.service.MemberService;
@@ -50,14 +51,43 @@ public class MemberController {
 		MemberVO mvo = memberService.memberDetail(Integer.parseInt(m_no));
 		model.addAttribute("mData", mvo);
 		
-		BookingVO bvo = bookingService.bookingList(Integer.parseInt(m_no));
+		List<BookingVO> bvo = bookingService.memberBookingList(Integer.parseInt(m_no));
+		model.addAttribute("bookingList", bvo);
 		
 		return "admin/member/memberDetail";
 	}
 	
 	
 	@RequestMapping(value="/mgrade")
-	public String memberGrade() {
-		return "admin/member/adminExample";
+	public String memberGrade(@ModelAttribute("data") MemberVO mvo, Model model) {
+		log.info("memberGrade 호출...");
+		
+		List<MemberVO> mbGradeList = memberService.memberGradeList(mvo);
+		model.addAttribute("mbGradeList", mbGradeList);
+		
+		int total = memberService.memberListCnt(mvo);
+		log.info("membercnt : " + total);
+		model.addAttribute("pageMaker", new PageDTO(mvo, total));
+		return "admin/member/mgrade";
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/adminDelete")
+	public String adminDelete(String m_no) {
+		log.info("adminDelete 호출");
+		log.info(m_no);
+		
+		String result = "";
+		
+		int value = memberService.adminDelete(Integer.parseInt(m_no));
+		
+		if(value==1) {
+			result = "성공";
+		}else {
+			result = "실패";
+		}
+		
+		return result;
 	}
 }
