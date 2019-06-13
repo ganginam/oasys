@@ -13,5 +13,6 @@
 		<typeAlias type="com.oasys.admin.roomgrade.vo.RoomGradeVO" alias="roomGrade"/>
 		<typeAlias type="com.oasys.admin.room.vo.RoomVO" alias="room"/>	
 <!-- 		<typeAlias alias="login" type="com.oasys.common.login.vo.LoginVO"/> -->
+		<typeAlias type="com.oasys.common.review.vo.ReviewVO" alias="review"/>
 	</typeAliases>
 </configuration>

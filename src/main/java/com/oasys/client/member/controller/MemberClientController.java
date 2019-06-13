@@ -1,16 +1,19 @@
 package com.oasys.client.member.controller;
 
-import java.io.Console;
 
+import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
-import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.bind.support.SessionStatus;
+
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -27,48 +30,6 @@ import lombok.extern.log4j.Log4j;
 public class MemberClientController {
 	private MemberClientService memberClientService;
 	
-//	@ModelAttribute("login")
-//	public MemberVO login() {
-//		return new MemberVO();
-//	}
-//	
-//	//로그인 폼
-//	@RequestMapping(value="/login", method=RequestMethod.GET)
-//	public String loginForm() {
-//		log.info("login get 호출 성공");
-//		
-//		return "common/login";
-//	}
-//	
-//	//로그인 처리
-//	@RequestMapping(value="/login", method=RequestMethod.POST)
-//	public ModelAndView loginCheck(@ModelAttribute MemberVO mvo, ModelAndView mav) {
-//		log.info("login post 호출 성공");
-//		
-//		String m_id = mvo.getM_id();
-//		String m_pwd = mvo.getM_pwd();
-//		
-//		MemberVO loginCheckResult = memberClientService.loginCheck(m_id, m_pwd);
-//		
-//		if(loginCheckResult == null) {
-//			mav.addObject("codeNumber", 1);
-//			mav.setViewName("common/login");
-//			return mav;
-//		} else {
-//			mav.addObject("login", loginCheckResult);
-//			mav.setViewName("common/login");
-//			return mav;
-//		}
-//	}
-//	
-//	//로그아웃
-//	@RequestMapping(value="/logout")
-//	public String logout(SessionStatus sessionStatus) {
-//		log.info("logout 호출 성공");
-//		
-//		sessionStatus.setComplete();
-//		return "redirect:/";
-//	}
 	
 	//약관 동의
 	@RequestMapping(value="/check")
@@ -78,26 +39,14 @@ public class MemberClientController {
 		return "common/check";
 	}
 	
-	//메일 인증
-//	@RequestMapping(value="/joinPost", method=RequestMethod.POST)
-//	public String joinPost(@ModelAttribute("mvo") MemberVO mvo) throws Exception{
-//		log.info("current join member : " + mvo.toString());
-//		memberClientService.create(mvo);
-//		
-//		return "common/joinPost";
-//	}
-	
-	//컨펌
-//	@RequestMapping(value="/joinConfirm", method=RequestMethod.GET)
-//	public String emailConfirm(@ModelAttribute("mvo") MemberVO mvo, Model model) throws Exception{
-//		log.info(mvo.getM_email() + " : auth confirmed");
-//		mvo.setAuthstatus(1);	//authstatus를 1로 권한 업데이트
-//		memberClientService.updateAuthstatus(mvo);
-//		
-//		model.addAttribute("auth_check", 1);
-//		
-//		return "common/joinPost";
-//	}
+	//info 창
+	@RequestMapping(value="/info")
+	public String info() {
+		log.info("info 호출 성공");
+		
+		return "common/info";
+	}
+
 	
 	//회원가입 폼
 	@RequestMapping(value="/join")
@@ -166,11 +115,11 @@ public class MemberClientController {
 		MemberVO vo = memberClientService.memberSelect(member.getM_id());
 		mav.addObject("member", vo);
 		mav.setViewName("common/update");
+		
 		return mav;
 	}
 	
 	//회원 수정 처리
-	
 	@RequestMapping(value="/memberUpdate", method=RequestMethod.POST)
 	public ModelAndView memberUpdate(@SessionAttribute("member") MemberVO mvo, MemberVO memvo, ModelAndView mav) {
 		log.info("update post 방식 호출 성공");
@@ -235,11 +184,77 @@ public class MemberClientController {
 		return mav;
 	}
 	
-	//아이디 패스워드 찾기
+	//아이디 패스워드 찾기 폼
 	@RequestMapping(value="/idpwdSearch")
 	public String idpwdCheck(@SessionAttribute("member") MemberVO login) {
 		log.info("idpwdCheck 호출 성공");
 		
 		return "common/idpwdSearch";
+	}
+	
+	//아이디 찾기
+//	@ResponseBody
+//	@RequestMapping(value="memberIdSearch", method=RequestMethod.POST)
+//	public String memberIdSearch(MemberVO mvo, ModelAndView mav) {
+//		log.info("memberIdSearch 호출 성공");
+//		
+//		String m_name = mvo.getM_name();
+//		String m_email = mvo.getM_email();
+//		
+//		MemberVO idSearchResult = memberClientService.idSearch(m_name, m_email);
+//		
+//		if(idSearchResult==null) {
+//			mav.addObject("codeNumber", 1);
+//			mav.setViewName("common/idpwdSearch");
+//			return "common/idpwdSearch";
+//		}else {
+//			mav.addObject("idSearch", idSearchResult);
+//			//mav.setViewName("");
+//			return "mail/mailIdSearch";
+//		}
+//	}
+//	
+	
+	//아이디 찾기
+	@RequestMapping(value="memberIdSearch", method=RequestMethod.POST)
+	public ModelAndView memberIdSearch(@ModelAttribute MemberVO mvo, ModelAndView mav) {
+		log.info("memberIdSearch 호출 성공");
+		
+		String m_name = mvo.getM_name();
+		String m_email = mvo.getM_email();
+		
+		MemberVO idSearchResult = memberClientService.idSearch(m_name, m_email);
+		
+		if(idSearchResult == null) {
+			mav.addObject("codeNumber", 1);
+			mav.setViewName("common/idpwdSearch");
+			return mav;
+		}else {
+			mav.addObject("member", idSearchResult);
+			mav.setViewName("common/searchSuccess");
+			return mav;
+		}
+	}
+	
+	//비밀번호찾기
+	@RequestMapping(value="memberPwSearch", method=RequestMethod.POST)
+	public ModelAndView memberPwSearch(@ModelAttribute MemberVO mvo, ModelAndView mav) {
+		log.info("memberPwSearch 호출 성공");
+		
+		String m_name = mvo.getM_name();
+		String m_email = mvo.getM_email();
+		String m_id = mvo.getM_id();
+		
+		MemberVO pwSearchResult = memberClientService.pwSearch(m_name, m_email, m_id);
+		
+		if(pwSearchResult == null) {
+			mav.addObject("codeNumber", 1);
+			mav.setViewName("common/idpwdSearch");
+			return mav;
+		}else {
+			mav.addObject("member", pwSearchResult);
+			mav.setViewName("common/searchSuccess");
+			return mav;
+		}
 	}
 }

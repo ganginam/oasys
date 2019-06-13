@@ -41,13 +41,13 @@
 					setInterval( nowTime, 1000 * 60 );
 				</script>
 				<div class="login">
-					<a href="">
-						<span class="login_str">LOGIN</span>
+					<a href="common/logout">
+						<span class="login_str">LOGOUT</span>
 					</a>
 				</div>
 				<div class="login join">
-					<a href="">
-						<span class="login_str">JOIN</span>
+					<a href="common/info">
+						<span class="login_str">INFO</span>
 					</a>
 				</div>
 			</div>
@@ -65,7 +65,9 @@
 	
 					<li class="line"></li>
 	
-					
+					<li class="depth1_2">
+						<span>관리자명 : ${member.m_name }</span>
+					</li> 
 				</ul>
 			</div>
 		</div>

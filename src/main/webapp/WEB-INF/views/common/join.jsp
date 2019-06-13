@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String tomail = request.getParameter("tomail");
+%>
 <!DOCTYPE html>
 <html>
    <head>
@@ -143,20 +148,34 @@
 				});
 				
 				$("#btn_back").click(function(){
-					location.href="/common/login"
+					window.history.back();
 				});
 				
-				$("#emailCheck").click(function(){
-					location.href="/common/joinConfirm"
-				});
+				/* $("#emailCheck").click(function(){
+					location.href="/common/mailForm";
+					//prompt("이메일 인증 코드를 입력해주세요");
+				}); */
+				
+				
+				
 			}); //최상위 $종료
+			
+			function showPopUp(){
+				openWin = window.open("/common/mailForm", "메일 인증", "width=400, height=300, left=100, top=50");
+				//document.getElementById("tomail").value = document.getElementById("m_email").value;
+			}
+			
+			/* function send(){
+				openWin.document.getElementById("tomail").value = document.getElementById("m_email").value;
+			} */
+		
    		</script>
    </head>
 	<body>
 		<div class="container">
    			<h1>회원가입</h1>
    			<div>
-   				<form id="frm_join" class="form-inline">
+   				<form id="frm_join" name="frm_join" class="form-inline">
    					<table class="table">
    						<tr>
    							<td>아이디</td>
@@ -189,10 +208,14 @@
    								<input type="hidden" id="sum_phone" name="m_phone"/>
    							</td>
    						</tr>
+   						
    						<tr>
    							<td>이메일</td>
-   							<td><input type="text" id="m_email" name="email"/>@
+   							<td>
+   							
+   								<input type="text" id="m_email" name="email"/>@
    								<input type="text" id="m_emailTail" name="m_emailTail"/>
+   						
    								<select id="selectEmail" name="selectEmail">
    									<option value="">직접입력</option>
    									<option value="naver.com">naver</option>
@@ -201,8 +224,16 @@
    									<option value="google.com">google</option>
    									<option value="hanmail.com">hanmail</option>
    								</select>
+   							
    								<input type="hidden" id="sum_email" name="m_email"/>
-   								<input type="button" id="emailCheck" name="emailCheck" value="인증하기"/>
+   								
+   								
+   								<!-- <input type="button" value="전달" onclick="send()"/> -->
+   								<input type="button" id="emailCheck" name="emailCheck" value="인증하기" onclick="showPopUp()"/>
+   								
+   								<!-- 이메일 인증 여부 표시 -->
+   								<input type="text" id="emailSuccess" name="emailSuccess" readonly="readonly"/>
+   								
    							</td>
    						</tr>
    						<tr>

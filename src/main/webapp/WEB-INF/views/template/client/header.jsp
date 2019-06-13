@@ -41,14 +41,36 @@
 					setInterval( nowTime, 1000 * 60 );
 				</script>
 				<div class="login">
-					<a href="/common/login">
-						<span class="login_str">LOGIN</span>
-					</a>
+					<c:choose>
+						<c:when test="${member.m_id != null and member.m_id != ''}">
+							<a href="/common/logout">
+								<span class="login_str">LOGOUT</span>
+							</a>
+						</c:when>
+						
+						<c:otherwise>
+							<a href="/common/login">
+								<span class="login_str">LOGIN</span>
+							</a>
+						</c:otherwise>
+					</c:choose>
 				</div>
+				
 				<div class="login join">
-					<a href="/common/join">
-						<span class="login_str">JOIN</span>
-					</a>
+					<c:choose>
+						<c:when test="${member.m_id != null and member.m_id != '' }">
+							<a href="/common/info">
+								<span class="login_str">INFO</span>
+							</a>
+						</c:when>
+						
+						<c:otherwise>
+							<a href="/common/check">
+								<span class="login_str">JOIN</span>
+							</a>
+						</c:otherwise>
+					</c:choose>
+					
 				</div>
 			</div>
 		</div>
@@ -112,6 +134,7 @@
 							<div class="depth2_8_2"><a href="">층별 안내</a></div>
 							<div class="depth2_8_4"><a href="">자주하는 질문</a></div>
 							<div class="depth2_8_3"><a href="">문의하기</a></div>
+							<div class="depth2_8_4"><a href="/review/reviewList">후기</a></div>
 						</div>
 					</li>
 				</ul>

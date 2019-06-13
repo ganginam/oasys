@@ -32,4 +32,11 @@ public interface MemberDao {
 	public List<MemberVO> adminList(MemberVO mvo);
 	
 	public int memberListCnt(MemberVO mvo);
+
+	public MemberVO adminCheck(MemberVO mvo);
+
+	public MemberVO idSearch(MemberVO mvo);
+
+	public MemberVO pwSearch(MemberVO mvo);
+
 }
