@@ -10,8 +10,8 @@ import lombok.EqualsAndHashCode;
 public class RoomVO extends RoomGradeVO{
 	private String rg_grade;
 	private int r_number;
-	private String r_view;
+	//private String r_view;
 	private String r_strange;
-	private String r_used;
+	//private String r_used;
 	private String r_date;
 }

@@ -66,7 +66,7 @@
       	})
       </script>
       <style type="text/css">
-      	img{
+      	.roomImage img{
       		width:500px;
       		height:200px;
       	}
@@ -110,28 +110,28 @@
                         <td>객실 이미지1</td>
                         <td class="text-left"><input type="file" name="file[0]" id="image1" class="form-control"  />
                         <input type="hidden" name="image1" value="${detail.image1}"/>
-                        <img src="/uploadStorage/roomGrade/${detail.image1}">
+                        <img src="/uploadStorage/roomGrade/${detail.image1}" class="roomImage">
                         </td>
                      </tr>                                 
                      <tr>                                  
                         <td>객실 이미지2</td>              
                         <td class="text-left"><input type="file" name="file[1]" id="image2" class="form-control"  />
                         <input type="hidden" name="image2" value="${detail.image2}"/>
-                        <img src="/uploadStorage/roomGrade/${detail.image2}">
+                        <img src="/uploadStorage/roomGrade/${detail.image2}" class="roomImage">
                         </td>
                      </tr>                                 
                      <tr>                                  
                         <td>객실 이미지3</td>              
                         <td class="text-left"><input type="file" name="file[2]" id="image3" class="form-control"/>
                         <input type="hidden" name="image3" value="${detail.image3}"/>
-                        <img src="/uploadStorage/roomGrade/${detail.image3}">
+                        <img src="/uploadStorage/roomGrade/${detail.image3}" class="roomImage">
                         </td>
                      </tr>                            
                      <tr>                              
                         <td>객실 이미지4</td>              
                         <td class="text-left"><input type="file" name="file[3]" id="image4" class="form-control"/>
                         <input type="hidden" name="image4" value="${detail.image4}"/>
-                        <img src="/uploadStorage/roomGrade/${detail.image4}">
+                        <img src="/uploadStorage/roomGrade/${detail.image4}" class="roomImage">
                         </td>
                      </tr>                             
                      <tr>                              
@@ -139,7 +139,7 @@
                         <td class="text-left">
                         <input type="file" name="file[4]" id="image5" class="form-control"/>
                         <input type="hidden" name="image5" value="${detail.image5}"/>
-                        <img src="/uploadStorage/roomGrade/${detail.image5}">
+                        <img src="/uploadStorage/roomGrade/${detail.image5}" class="roomImage">
                         </td>
                      </tr>
                   </tbody>

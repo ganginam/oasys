@@ -29,6 +29,14 @@
 		
 	</head>
 	<body>
+	<div class="location">
+                <ul>
+                    <li><a href='/'><img src="/resources/images/hotelImages/logo.png" alt="home" class="logoImage" width="25" height="25"></a></li>
+                    <li><a href='#'>객실</a></li>
+                    <li class="current"><a href='/roomGrade/showDeluxe'>스위트 패밀리룸</a></li>
+                </ul>
+                <h1>오아시스 객실 상세보기</h1>
+    	</div>
 	<div id="content" class="content content-suite">
 	<div class="sub-title">
 		<h1 id="pathId">${detail.rg_grade}</h1>

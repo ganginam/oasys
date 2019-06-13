@@ -121,6 +121,12 @@ public class RoomGradeController {
 		}
 		return "redirect:"+value;
 	}
+	
+	
+	
+	
+	
+	/*--------------------SHOW ROOM CONTROLL---------------------*/
 	@RequestMapping(value="/showDeluxe",method=RequestMethod.GET)
 	public String showDeluxe(@ModelAttribute("data") RoomGradeVO gvo,Model model) {
 		log.info("roomGradeDetail 호출 성공");

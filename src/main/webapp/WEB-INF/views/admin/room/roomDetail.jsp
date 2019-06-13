@@ -102,12 +102,12 @@
 						<tr>
 							<td>객실 호수</td>
 							<td>${detail.r_number}</td>
-							<td>등급</td>
+							<td>등급(전망)</td>
 							<td>${detail.rg_grade}</td>	
 						</tr>
 						<tr>
-							<td>전망</td>
-							<td>${detail.r_view}</td>
+							<%-- <td>전망</td>
+							<td>${detail.r_view}</td> --%>
 							<td>가격</td>
 							<td>${detail.rg_price}</td>
 						</tr>
@@ -120,8 +120,8 @@
 						<tr>
 							<td>이상유무</td>
 							<td>${detail.r_strange}</td>
-							<td>사용유무</td>
-							<td>${detail.r_used}</td>
+							<%-- <td>사용유무</td>
+							<td>${detail.r_used}</td> --%>
 						</tr>
 						<tr class="table-height">
 							<td>정보</td>

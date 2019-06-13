@@ -19,3 +19,4 @@ th,strong,b,em{font-weight:600}
 .paragraph{font-size:19px;font-family:'nSquare';letter-spacing:-1px;padding-top:50px;}
 .paragraph em{color:#4d7b9c}
 .paragraph em.text-sale{display:inline-block;margin:7px 0 0;border-bottom:2px solid #c62f5c;color:#c62f5c}
+.sub-title h1{color:#4d7b9c;}

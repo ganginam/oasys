@@ -174,17 +174,14 @@
                   <col width="10%">
                   <col width="10%">
                   <col width="10%">
-                  <col width="20%">
-                  <col width="33%">
-                  <col width="7%">
+                  <col width="5%">
+
                </colgroup>
                <thead>
                   <tr>
                      <th>객실 등급</th>
                      <th>객실 호수</th>
                      <th>객실 가격</th>
-                     <th>객실 전망</th>
-                     <th>객실 사용여부</th>
                      <th>객실 이상여부</th>
                      <th>수정 및 삭제</th>
                   </tr>
@@ -195,8 +192,8 @@
                            		<td class="goDetail">${room.rg_grade}</td>
                            		<td class="goDetail">${room.r_number}</td>
                            		<td class="goDetail">${room.rg_price}</td>
-                           		<td class="goDetail">${room.r_view}</td>
-                           		<td class="goDetail">${room.r_used}</td>
+                           		<%-- <td class="goDetail">${room.r_view}</td>
+                           		<td class="goDetail">${room.r_used}</td> --%>
                            		<td class="goDetail">${room.r_strange}</td>
                            		<td><input type="button" value="수정" name="updateBtn" id="updateBtn" class="btn btn-primary"/>
                            			<input type="button" value="삭제" name="deleteBtn" id="deleteBtn" class="btn btn-primary"/>
@@ -230,13 +227,13 @@
 	            <label for="r_number" class="control-label">객실호수</label>
 	            <input type="text" class="form-control" name="r_number" id="r_number" maxlength="10" />
 	          </div>
-	          <div class="form-group">
+	          <!-- <div class="form-group">
 	            <label for="r_view" class="control-label">객실전망</label>
 	            <select name="r_view" id="r_view">
 	            	<option value="CITY">시티뷰</option>
 	            	<option value="RIVER">리버뷰</option>
 	            </select>
-	          </div>
+	          </div> -->
 	          <div class="form-group">
 	            <label for="r_strange" class="control-label">객실이상유무</label>
 	            <input type="text" class="form-control" name="r_strange" maxlength="10"/>
