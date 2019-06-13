@@ -49,4 +49,11 @@ public interface MemberDao {
 	public int gradeDataUpgradeToVVIP();
 	
 	public int updateGrade();
+
+	public MemberVO adminCheck(MemberVO mvo);
+
+	public MemberVO idSearch(MemberVO mvo);
+
+	public MemberVO pwSearch(MemberVO mvo);
+
 }

@@ -19,7 +19,17 @@ public interface MemberClientService {
 	//public void updateAuthstatus(MemberVO mvo);
 
 	public int memberGradeInsert(MemberVO mvo);
+	
 	public int memberNo();
 
 	public MemberVO loginCheck(String m_id, String m_pwd);
+
+	public MemberVO adminCheck(String m_type);
+
+	public MemberVO idSearch(String m_name, String m_email);
+
+	public MemberVO pwSearch(String m_name, String m_email, String m_id);
+	
+	//public String idSearch(MemberVO mvo);
+	
 }

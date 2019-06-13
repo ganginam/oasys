@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import com.oasys.admin.booking.service.BookingService;
 import com.oasys.admin.member.service.MemberService;
@@ -131,4 +133,23 @@ public class MemberController {
 		
 		return "redirect:/admin/member/mgrade";
 	}
+	
+//	@RequestMapping(value="login", method=RequestMethod.POST)
+//	public ModelAndView adminCheck(@ModelAttribute MemberVO mvo, ModelAndView mav) {
+//		log.info("adminCheck 호출 성공");
+//		
+//		String m_type = mvo.getM_type();
+//		
+//		MemberVO adminCheckResult = memberService.adminCheck(m_type);
+//		
+//		if(adminCheckResult == null) {
+//			mav.addObject("codeNumber", 1);
+//			mav.setViewName("common/login");
+//			return mav;
+//		}else {
+//			mav.addObject("admin", adminCheckResult);
+//			mav.setViewName("admin");
+//			return mav;
+//		}
+//	}
 }

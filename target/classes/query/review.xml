@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oasys.common.review.dao.ReviewDao">
+	<!-- 리스트 -->
+	<select id="reviewList" parameterType="review" resultType="review">
+		select re_num, re_name, re_title, re_content, to_char(re_date, 'YYYY-MM-DD') as re_date
+		from review
+	</select>
+	
+	<select id="reviewDetail" parameterType="review" resultType="review">
+		select re_num, re_name, re_title, TO_CHAR(re_date, 'YYYY-MM-DD HH24:MI:SS') AS re_date
+		from review
+		where re_num = #{re_num}
+	</select>
+</mapper>

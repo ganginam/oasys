@@ -118,11 +118,12 @@
 	
 	<!-- 로그인 처리 -->
 	<select id="loginCheck" resultType="member" parameterType="member">
-		select m_id, m_pwd, m_name, m_type from member where m_id = #{m_id} and m_pwd = #{m_pwd}
+
+		select m_id, m_pwd, m_name, m_type, m_phone, m_email, m_gender, m_birth from member where m_id = #{m_id} and m_pwd = #{m_pwd}
 	</select>
 	
 	<select id="memberSelect" parameterType="String" resultType="member">
-		select m_no, m_id, m_pwd, m_name, m_phone, m_email, m_birth, m_gender from member where m_id = #{m_id}
+		select m_no, m_id, m_pwd, m_name, m_phone, m_email, m_birth, m_gender, m_type from member where m_id = #{m_id}
 	</select>
 	
 	<select id="memberNo" resultType="int">
@@ -130,7 +131,7 @@
 	</select>
 	
 	<!-- 회원가입 처리 쿼리 -->
-	<insert id="memberInsert" parameterType="com.oasys.common.member.vo.MemberVO">
+	<insert id="memberInsert" parameterType="member">
 		insert into member(m_no, m_id, m_pwd, m_name, m_phone, m_email, m_birth, m_gender)
 		values(#{m_no}, #{m_id}, #{m_pwd}, #{m_name}, #{m_phone}, #{m_email}, #{m_birth}, #{m_gender})
 	</insert>
@@ -154,4 +155,14 @@
 	<delete id="memberDelete" parameterType="member">
 		delete from member where m_id = #{m_id}
 	</delete>
+
+	<!-- 아이디 찾기 -->
+	<select id="idSearch" parameterType="member" resultType="member">
+		select m_id from member where m_name = #{m_name} and m_email = #{m_email}
+	</select>
+	
+	<!-- 비밀번호찾기 -->
+	<select id="pwSearch" parameterType="member" resultType="member">
+		select m_pwd from member where m_name = #{m_name} and m_email = #{m_email} and m_id = #{m_id}
+	</select>
 </mapper>

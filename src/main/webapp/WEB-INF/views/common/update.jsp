@@ -109,7 +109,7 @@
       		
 			
       		$("#btn_back").click(function(){
-      			location.href="/";
+      			window.history.back();
       		});
       		
       		$("#btn_delete").click(function(){
@@ -129,7 +129,7 @@
    </head>
 	<body>
 		<div class="container">
-   			<h1>회원가입</h1>
+   			<h1>회원수정</h1>
    			<div>
    				<form id="frm_update" class="form-inline">
    					<table class="table">

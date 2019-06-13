@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.oasys.admin.member.service.MemberService;
 import com.oasys.client.member.service.MemberClientService;
 import com.oasys.common.member.vo.MemberVO;
 
@@ -42,19 +43,22 @@ public class LoginController {
 		
 		String m_id = mvo.getM_id();
 		String m_pwd = mvo.getM_pwd();
+		//String m_type = mvo.getM_type();
 		
 		MemberVO loginCheckResult = memberClientService.loginCheck(m_id, m_pwd);
+		//MemberVO adminCheckResult = memberClientService.adminCheck(m_type);
 		
 		if(loginCheckResult == null) {
 			mav.addObject("codeNumber", 1);
 			mav.setViewName("common/login");
 			return mav;
-		}else {
+		}else{
 			mav.addObject("member", loginCheckResult);
 			mav.setViewName("common/login");
 			return mav;
 		}
 	}
+
 	
 	//로그아웃
 	@RequestMapping(value="/logout")

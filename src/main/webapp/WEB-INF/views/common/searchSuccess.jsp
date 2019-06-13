@@ -25,9 +25,23 @@
       <script type="text/javascript" src="/resources/include/js/common.js"></script>
       <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
       <script type="text/javascript">
+      
+      	$(function(){
+      		$("#send").click(function(){
+      			location.href="/mail/mailIdSearch";
+      		});
+      	});
    </script>
    </head>
 	<body>
-		<h1>이메일</h1>		
+		
+			<h1>귀하의 아이디는  [${member.m_id }] 입니다.</h1>
+		
+		
+		
+			<h1>${member.m_id }의 비밀번호는 ${member.m_pwd }입니다.</h1>
+		
+		
+		<!-- <input type="button" id="send" value="전송"/> -->
 	</body>
 </html>

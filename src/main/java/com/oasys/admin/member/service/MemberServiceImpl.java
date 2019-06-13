@@ -101,4 +101,5 @@ public class MemberServiceImpl implements MemberService{
 		result = memberDao.updateGrade();
 		return result;
 	}
+
 }

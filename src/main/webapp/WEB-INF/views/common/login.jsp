@@ -101,13 +101,17 @@
 				<c:if test="${member.m_id != null and member.m_id != '' }">
 					<fieldset>
 						<legend>
-							<strong>${member.m_name }님 환영합니다.</strong>
+							<strong>${member.m_name }님 환영합니다. [${member.m_type }]</strong>
 						</legend>
 						<input type="button" id="btn_logout" name="btn_logout" value="로그아웃" class="btn btn-default"/>
 						<input type="button" id="btn_updateForm" name="btn_updateForm" value="회원 정보 수정" class="btn btn-default"/>
 						<input type="button" id="btn_home" name="btn_home" value="홈" class="btn btn-default"/>
 					</fieldset>
 				</c:if>
+				
+				<%-- <c:if test="${member.m_type == '관리자' }">
+					<jsp:forward page="admin"></jsp:forward>
+				</c:if> --%>
 			</div>
 		</div>
 		
