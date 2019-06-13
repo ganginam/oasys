@@ -21,7 +21,7 @@
 		
 		<link href="/resources/include/css/common.css" rel="stylesheet">
 		
-		
+		<link href="/resources/include/css/default.css" rel="stylesheet">
       
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
@@ -35,6 +35,12 @@
 		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/resources/include/js/jquery-ui.js"></script>
 		<script type="text/javascript">
+		$(function(){
+			$("#")
+			
+			
+		})
+		
 	</script>
 	</head>
 	<body>
@@ -42,8 +48,11 @@
 			<div>
 				<c:choose>
 					<c:when test="${not empty roomList}">
-						<c:forEach var="roomList" items="${roomList }" varStatus="status">
-							<div>${roomList.rg_grade} ":" ${roomList.b_roomcnt}</div>
+						<c:forEach var="room" items="${roomList}" varStatus="status">
+							<div>${room.rg_grade}<br/>
+							 남은 객실 수 : ${room.b_roomcnt}
+							<input type="button" class="selectRoomBtn" value="선택" />
+							</div>
 						</c:forEach>
 					</c:when>
 					<c:otherwise>
@@ -51,12 +60,6 @@
 					</c:otherwise>
 			</c:choose>
 			</div>
-			
-
 		</div>
-		
-		
-		
-		
 	</body>
 </html>

@@ -38,6 +38,12 @@
 		$(function(){	
 			var rangeDate = 31; // set limit day
 			var setSdate, setEdate;
+		 	var t1 = $('div#from').val().split("-");
+		    var t2 = $('div#to').val().split("-");
+		    var t1date = new Date(t1[0], t1[1], t1[2]);
+		    var t2date = new Date(t2[0], t2[1], t2[2]);
+		    var diff = t2date - t1date;
+		    var currDay = 24 * 60 * 60 * 1000;
 			$("#from").datepicker({
 				altField: '#b_indate',
 			    dateFormat: 'yy-mm-dd',
@@ -59,8 +65,7 @@
 			        //to 설정
 			    }
 			    //from 선택되었을 때
-			});
-			            
+			});			            
 			$("#to").datepicker({
 				altField: '#b_outdate',
 			    dateFormat: 'yy-mm-dd',
@@ -80,28 +85,17 @@
 			        alert('종료일을 선택해주세요.');
 			        $('div#to').focus();
 			        return false;
-			    }
-	
-			    var t1 = $('div#from').val().split("-");
-			    var t2 = $('div#to').val().split("-");
-			    var t1date = new Date(t1[0], t1[1], t1[2]);
-			    var t2date = new Date(t2[0], t2[1], t2[2]);
-			    var diff = t2date - t1date;
-			    var currDay = 24 * 60 * 60 * 1000;
-			    if(parseInt(diff/currDay) > rangeDate){
+			    }else if(parseInt(diff/currDay) > rangeDate){
 			        alert('예약기간은 ' + rangeDate + '일을 초과할 수 없습니다.');        
 			        return false;
-			    }else{
+			    }
 			    	$("#f_date").attr({
 			    		"method":"get",
 			    		"action":"/client/booking/selectRoom"
 			    	});
 			    	$("#f_date").submit();
-			    }
-					
-			   
-			});
-			
+			  
+			});			
 			//조회 버튼 클릭
 		}); //$최종
 	</script>
@@ -109,7 +103,7 @@
 	<body>
 		<div class="contentContainer container-fluidA">
 		
-			<form class="f_date form-inline">
+			<form id="f_date" class="form-inline">
 			<input type="hidden" id="b_indate" name="b_indate" />
 			<input type="hidden" id="b_outdate" name="b_outdate" />
 			<div class="wrap">
@@ -129,9 +123,7 @@
 				  	<option value="2">2</option>
 				  	<option value="3">3</option>
 				  	</select>
-				  </div>
-				  
-				  <div>
+				
 				  	<label>객실 당 인원</label>
 				  	<select class="form-control" id="b_persons" name="b_persons">
 				  	<option value="1">1</option>

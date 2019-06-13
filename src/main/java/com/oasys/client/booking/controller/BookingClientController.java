@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.oasys.client.booking.Service.BookingClientService;
 import com.oasys.common.booking.vo.BookingVO;
 
+import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j;
 
 
+@Log4j
 @Controller
 @RequestMapping(value="/client/booking/*")
-//@AllArgsConstructor
+@AllArgsConstructor
 public class BookingClientController {
 	
 	private BookingClientService bookingClientService;
@@ -32,7 +35,7 @@ public class BookingClientController {
 	/*날짜 선택 후 방 조회*/
 	@RequestMapping(value="/selectRoom", method = RequestMethod.GET)
 	public String selectRoom(@ModelAttribute("data") BookingVO bvo, Model model) {
-		
+		log.info("bvo : " + bvo);
 		List<BookingVO> roomList = bookingClientService.roomList(bvo);
 		model.addAttribute("roomList", roomList);
 		

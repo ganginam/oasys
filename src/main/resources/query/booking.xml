@@ -65,11 +65,13 @@
 	
 	<!-- 예약 가능한 방 조회 -->
 	<select id="roomList" parameterType="booking" resultType="booking">
-		SELECT  rg_grade, count(*) as r_roomcnt from 
+		SELECT  rg_grade, count(*) as b_roomcnt from 
 			(select * from room where r_number not in 
 			(select r_number from booking 
 		WHERE 
-		<![CDATA[b_indate<= '#{b_indate}' and #{b_indate} <b_outdate or b_indate<=#{b_outdate} and #{b_outdate} <b_outdate) order by r_number) 
+		<![CDATA[
+		b_indate <= #{b_indate} and #{b_indate} < b_outdate 
+		or b_indate <=#{b_outdate} and #{b_outdate} < b_outdate) order by r_number)
 		GROUP BY rg_grade having count(*) >= #{b_roomcnt}
 		]]>
 	
