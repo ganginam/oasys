@@ -42,6 +42,12 @@
    			</form>
    			
    			<table class="table table-bordered">
+   				<colgroup>
+   						<col width="17%"/>
+   						<col width="33%"/>
+   						<col width="17%"/>
+   						<col width="33%"/>
+   				</colgroup>
    				<tbody>
    					<tr>
    						<td>작성자</td>
