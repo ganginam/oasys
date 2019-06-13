@@ -103,8 +103,7 @@
 						$.ajax({
 							url : "/admin/member/adminDelete",
 							type : "post",
-							data : "m_no="+ admin_no,
-							dataType : "text",
+							data : "m_no=" + admin_no,
 							error : function(){
 								alert('시스템 오류입니다. 관리자에게 문의하세요.');
 							},
@@ -117,6 +116,7 @@
 								}
 							}
 						});
+						admin_no = 0;
 					}
 				});
 				

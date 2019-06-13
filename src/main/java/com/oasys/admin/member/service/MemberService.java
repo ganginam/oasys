@@ -16,6 +16,14 @@ public interface MemberService {
 
 	public int adminDelete(int m_no);
 	
+	
+	//회원등급관리
 	public List<MemberVO> memberGradeList(MemberVO mvo);
+	
+	public int gradeDataUpgradeToGold();
+	public int gradeDataUpgradeToVIP();
+	public int gradeDataUpgradeToVVIP();
+	
+	public int updateGrade();
 
 }

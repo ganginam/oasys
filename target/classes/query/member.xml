@@ -93,6 +93,25 @@
 		]]>
 	</select>
 	
+	<update id="gradeDataUpgradeToGold">
+		UPDATE (select m.m_no, m_ytotal, mg_upgrade from member m, membergrade mg where m.m_no=mg.m_no) SET mg_upgrade='골드' 
+		WHERE m_ytotal>=500000 
+	</update>
+	
+	<update id="gradeDataUpgradeToVIP">
+		UPDATE (select m.m_no, m_ytotal, mg_upgrade from member m, membergrade mg where m.m_no=mg.m_no) SET mg_upgrade='VIP' 
+		WHERE m_ytotal>=1500000
+	</update>
+	
+	<update id="gradeDataUpgradeToVVIP">
+		UPDATE (select m.m_no, m_ytotal, mg_upgrade from member m, membergrade mg where m.m_no=mg.m_no) SET mg_upgrade='VVIP' 
+		WHERE m_ytotal>=3000000
+	</update>
+	
+	<update id="updateGrade">
+		UPDATE membergrade SET mg_grade=mg_upgrade WHERE mg_grade!=mg_upgrade
+	</update>
+	
 	
 	
 	

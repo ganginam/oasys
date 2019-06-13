@@ -35,8 +35,10 @@
 		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
+				var word = "<c:out value = '${data.keyword}'/>";
 				var value = "";
 				if(word!=""){
+					$("#keyword").val("<c:out value='${data.keyword}' />");
 					$("#search").val("<c:out value='${data.search}' />");
 					
 					if($("#search").val()=='m_name') value = "#list tr td.mbName";
@@ -68,51 +70,17 @@
 					goPage();
 				});
 				
-				//회원 클릭 시 회원 상세페이지 이동
-				$(".memberTr").click(function(){
-					var m_no = $(this).attr("data-num");
-					console.log("click m_no : " + m_no);
-					
-					location.href="/admin/member/memberDetail?m_no="+m_no;
+				
+				$("#GradeDataUpdateBtn").click(function(){
+					location.href="/admin/member/gradeDataUpdate";
 				});
 				
-				
-				
-				//관리자
-				var admin_no = 0;
-				
-				$("#adminInsertBtn").click(function(){
-					$("#adminModal").modal();
+				$("#mbGradeUpdateBtn").click(function(){
+					location.href="/admin/member/upateMembergrade";
 				});
 				
-				$(".adminRadio").click(function(){
-					admin_no = $(this).parents("tr").attr("data-num");
-					//var admin_no = $('input[name="adminRadio"]:checked').val();
-					console.log("check adminRadio m_no: " + admin_no)
-				});
-				
-				$("#adminDeleteBtn").click(function(){
-					if(admin_no==0){
-						alert("탈퇴 처리할 관리자를 선택하세요.");
-					}else{
-						$.ajax({
-							url : "/admin/member/adminDelete",
-							type : "post",
-							data : "m_no="+ admin_no,
-							dataType : "text",
-							error : function(){
-								alert('시스템 오류입니다. 관리자에게 문의하세요.');
-							},
-							success : function(resultData){
-								if(resultData=="성공"){
-									alert("선택된 관리자가 탈퇴 완료되었습니다.")
-								}else{
-									alert("관리자 탈퇴 오류..");
-									return;
-								}
-							}
-						});
-					}
+				$("#yearTotalResetBtn").click(function(){
+					location.href="/admin/member/upateMembergrade";
 				});
 				
 				
@@ -140,10 +108,10 @@
 			<div class="contentTit page-header"><h3>회원등급관리</h3></div>
 			
 			<div class="text-left mgrade-div">
-				<input type="button" value="업데이트" id="adminInsertBtn" class="btn btn-default">
+				<input type="button" value="업데이트" id="GradeDataUpdateBtn" class="btn btn-default">
 				<!-- <input type="button" value="수정" id="insertFormBtn" class="btn btn-default"> -->
-				<input type="button" value="등급조정" id="adminDeleteBtn" class="btn btn-success">
-				<input type="button" value="연간 누적 금액 초기화" id="adminDeleteBtn" class="btn btn-danger">
+				<input type="button" value="등급조정" id="mbGradeUpdateBtn" class="btn btn-success">
+				<input type="button" value="연간 누적 금액 초기화" id="yearTotalResetBtn" class="btn btn-danger">
 			</div>
 			
 			<!-- 회원 검색 부분 -->

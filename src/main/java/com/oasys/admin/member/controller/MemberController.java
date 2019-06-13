@@ -2,6 +2,7 @@ package com.oasys.admin.member.controller;
 
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSessionException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -57,21 +58,6 @@ public class MemberController {
 		return "admin/member/memberDetail";
 	}
 	
-	
-	@RequestMapping(value="/mgrade")
-	public String memberGrade(@ModelAttribute("data") MemberVO mvo, Model model) {
-		log.info("memberGrade 호출...");
-		
-		List<MemberVO> mbGradeList = memberService.memberGradeList(mvo);
-		model.addAttribute("mbGradeList", mbGradeList);
-		
-		int total = memberService.memberListCnt(mvo);
-		log.info("membercnt : " + total);
-		model.addAttribute("pageMaker", new PageDTO(mvo, total));
-		return "admin/member/mgrade";
-	}
-	
-	
 	@ResponseBody
 	@RequestMapping(value="/adminDelete")
 	public String adminDelete(String m_no) {
@@ -89,5 +75,60 @@ public class MemberController {
 		}
 		
 		return result;
+	}
+	
+	
+	@RequestMapping(value="/mgrade")
+	public String memberGrade(@ModelAttribute("data") MemberVO mvo, Model model) {
+		log.info("memberGrade 호출...");
+		
+		List<MemberVO> mbGradeList = memberService.memberGradeList(mvo);
+		model.addAttribute("mbGradeList", mbGradeList);
+		
+		int total = memberService.memberListCnt(mvo);
+		log.info("membercnt : " + total);
+		model.addAttribute("pageMaker", new PageDTO(mvo, total));
+	
+		return "admin/member/mgrade";
+	}
+	
+	@RequestMapping(value="/gradeDataUpdate")
+	public String gradedataUpdate() {
+		log.info("gradedataUpdate 호출..");
+		
+		String result = "";
+		
+		try {
+			memberService.gradeDataUpgradeToGold();
+			memberService.gradeDataUpgradeToVIP();
+			memberService.gradeDataUpgradeToVVIP();
+			
+			result = "성공";
+		}catch (SqlSessionException e) {
+			log.info("변경등급업데이트 오류..");
+		}
+		
+		log.info("result = " + result);
+		
+		return "redirect:/admin/member/mgrade";
+	}
+	
+	@RequestMapping(value="/upateMembergrade")
+	public String updateMembergrade() {
+		log.info("updateMembergrade 호출..");
+		
+		String result = "";
+		
+		try {
+			memberService.updateGrade();
+			
+			result = "성공";
+		}catch (SqlSessionException e) {
+			log.info("등급조정 오류..");
+		}
+		
+		log.info("result = " + result);
+		
+		return "redirect:/admin/member/mgrade";
 	}
 }

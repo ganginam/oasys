@@ -73,4 +73,32 @@ public class MemberServiceImpl implements MemberService{
 		
 		return mbGradeList;
 	}
+
+	@Override
+	public int gradeDataUpgradeToGold() {
+		int result = 0;
+		result = memberDao.gradeDataUpgradeToGold();
+		return result;
+	}
+
+	@Override
+	public int gradeDataUpgradeToVIP() {
+		int result = 0;
+		result = memberDao.gradeDataUpgradeToVIP();
+		return result;
+	}
+
+	@Override
+	public int gradeDataUpgradeToVVIP() {
+		int result = 0;
+		result = memberDao.gradeDataUpgradeToVVIP();
+		return result;
+	}
+
+	@Override
+	public int updateGrade() {
+		int result = 0;
+		result = memberDao.updateGrade();
+		return result;
+	}
 }
