@@ -25,6 +25,11 @@
       	<script type="text/javascript" src="/resources/include/js/common.js"></script>
       	<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
       	<script type="text/javascript">
+      		$(function(){
+      			$("#btn_back").click(function(){
+      				window.history.back();
+      			});
+      		});
       
 		</script>
 	</head>
