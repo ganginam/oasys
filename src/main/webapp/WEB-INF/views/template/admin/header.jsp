@@ -60,7 +60,9 @@
 					<li class="line"></li>
 					
 					<li class="depth1_1">
+
 						<a href="/admin">오아시스 관리자 모드</a>
+
 					</li>
 	
 					<li class="line"></li>

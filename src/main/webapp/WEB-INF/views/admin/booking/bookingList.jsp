@@ -117,25 +117,26 @@
 				<input type="hidden" name="amount" id="amount" value="${pageMaker.cvo.amount}" />
 			</form>
 			
-		<%--==============검색기능 시작========================= --%>
-		
-		<div id="bookingSearch" class="text-right">
-			<form id="f_search" name="f_search" class="form-inline">
-				<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
-				<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
-				<div class="form-group">
-					<label>검색 조건</label>
-					<select id="search" name="search" class="form-control">
-						<option value="all">전체</option>
-						<option value="b_num">예약번호</option>
-						<option value="b_name">예약자명</option>
-					</select>		
-				<input type="text" name="keyword" id="keyword" class=form-control" />
-				<button type="button" id="searchData" class="btn btn-primary">검색</button>
-				</div>
-			</form>
-		
-		</div>	
+			<%--==============검색기능 시작========================= --%>
+			
+			<div id="bookingSearch" class="text-right">
+				<form id="f_search" name="f_search" class="form-inline">
+					<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
+					<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
+					<div class="form-group">
+						<label>검색 조건</label>
+						<select id="search" name="search" class="form-control">
+							<option value="all">전체</option>
+							<option value="b_num">예약번호</option>
+							<option value="b_name">예약자명</option>
+						</select>		
+					<input type="text" name="keyword" id="keyword" class="form-control" />
+					<button type="button" id="searchData" class="btn btn-primary">검색</button>
+					</div>
+				</form>
+			
+			</div>	
+			
 			<%--===========예약 리스트 시작 ===============--%>
 			<div id="bookingList">
 				<table class="table table-bordered table-hover">
@@ -179,7 +180,7 @@
 										<td>${booking.b_num}</td>
 										<td>${booking.b_ismember}</td>
 										<td>${booking.m_no}</td>
-										<td >${booking.b_name}</td>
+										<td>${booking.b_name}</td>
 										<td>${booking.b_date}</td>
 										<td>${booking.b_indate}</td>
 										<td>${booking.b_outdate}</td>
@@ -194,15 +195,16 @@
 							</c:when>
 							<c:otherwise>
 								<tr>
-									<td colspan="13">등록된 예약이 존재하지않습니다.</td>
+									<td colspan="13">예약내역이 존재하지 않습니다.</td>
 								</tr>
 							</c:otherwise>		
 						</c:choose>					
 					</tbody>	
 				</table>
 			</div>	
-		<%--===============예약 리스트 종료======================== --%>
+			<%--===============예약 리스트 종료======================== --%>
 		
+
 		<%--==========================페이징 처리=========================== --%>
 		<div class="text-center">
 			<ul class="pagination">
@@ -225,6 +227,7 @@
 			</c:if>	
 			</ul>
 		</div>
+
 		</div>
 	</body>
 </html>

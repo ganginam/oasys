@@ -47,4 +47,58 @@ public class MemberServiceImpl implements MemberService{
 		
 		return total;
 	}
+
+	@Override
+	public MemberVO memberDetail(int m_no) {
+		MemberVO mvo = memberDao.memberDetail(m_no);
+		
+		return mvo;
+	}
+
+	@Override
+	public int adminDelete(int m_no) {
+		log.info("adminDelete...");
+		int value = memberDao.adminDelete(m_no);
+		log.info(value);
+		
+		return value;
+	}
+
+	@Override
+	public List<MemberVO> memberGradeList(MemberVO mvo) {
+		log.info("memberGradeList...");
+		
+		List<MemberVO> mbGradeList = null;
+		mbGradeList = memberDao.memberGradeList(mvo);
+		
+		return mbGradeList;
+	}
+
+	@Override
+	public int gradeDataUpgradeToGold() {
+		int result = 0;
+		result = memberDao.gradeDataUpgradeToGold();
+		return result;
+	}
+
+	@Override
+	public int gradeDataUpgradeToVIP() {
+		int result = 0;
+		result = memberDao.gradeDataUpgradeToVIP();
+		return result;
+	}
+
+	@Override
+	public int gradeDataUpgradeToVVIP() {
+		int result = 0;
+		result = memberDao.gradeDataUpgradeToVVIP();
+		return result;
+	}
+
+	@Override
+	public int updateGrade() {
+		int result = 0;
+		result = memberDao.updateGrade();
+		return result;
+	}
 }

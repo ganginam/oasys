@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.oasys.common.member.dao.MemberDao">
-
+	
 	<sql id="memberSearch">
 		<if test="search=='m_name'">
 			<![CDATA[ m_name LIKE '%' || #{keyword} || '%' ]]>
@@ -19,21 +19,25 @@
 	
 	<select id="memberList" resultType="member">
 		SELECT m_type, m_no, mg_grade, m_name, m_gender, m_id, m_pwd, 
-			m_pwdchanged, m_phone, m_email, m_birth, m_total, m_joindate
+			m_pwdchanged, m_phone, m_email, m_birth,m_ytotal, m_total, m_joindate
 		FROM (
-			SELECT m_type, m.m_no, mg_grade, m_name, m_gender, m_id, m_pwd,
+			SELECT /*+ INDEX_DESC(m MEMBER_PK) INDEX_DESC(mg MEMBERGRADE_PK) */
+				rownum as rnum, m_type, m.m_no, mg_grade, m_name, m_gender, m_id, m_pwd,
 				to_char(m_pwdchanged, 'yyyy.mm.dd') m_pwdchanged,
-				m_phone, m_email, to_char(m_birth, 'yyyy.mm.dd') m_birth, m_total,
+				m_phone, m_email, to_char(m_birth, 'yyyy.mm.dd') m_birth, m_ytotal, m_total,
     			to_char(m_joindate, 'yyyy.mm.dd') m_joindate 
     		FROM member m, membergrade mg 
 			WHERE m.m_no=mg.m_no
-			) memberlist
-		<where>
-			<trim>
+			<trim prefix="AND (" suffix= ")" prefixOverrides="AND">
 				<include refid="memberSearch"></include>
 			</trim>
-		</where>
+		<![CDATA[
+				AND rownum <= #{pageNum} * #{amount}
+			) memberlist
+		WHERE rnum > (#{pageNum} - 1) * #{amount}
+		]]>
 	</select>
+	
 	
 	<select id="adminList" resultType="member">
 		SELECT m_type,m_no, m_name, m_gender, m_id, m_pwd,
@@ -59,9 +63,62 @@
 		</where>
 	</select>
 	
+	<select id="memberDetail" parameterType="int" resultType="member">
+		SELECT m.m_no, m_name, m_id, m_pwd, m_phone, m_email, to_char(m_birth, 'yyyy.mm.dd') m_birth,
+			 m_ytotal, m_total, to_char(m_joindate, 'yyyy.mm.dd HH:MI:SS') m_joindate, m_gender, m_type,
+			 to_char(m_pwdchanged, 'yyyy.mm.dd HH:MI:SS') m_pwdchanged, m_agreement, mg_grade, to_char(mg_date, 'yyyy.mm.dd HH:MI:SS') mg_date, mg_discount
+		FROM 
+			member m, 
+			(SELECT m_no, mg.mg_grade, mg_date, mg_discount 
+				FROM membergrade mg, grade g 
+				WHERE mg.mg_grade=g.mg_grade) mgrade
+		WHERE m.m_no=mgrade.m_no AND m.m_no=#{m_no}
+	</select>
+	
+	<delete id="adminDelete" parameterType="int">
+		DELETE FROM member WHERE m_no = #{m_no}
+	</delete>	
+	
+	<select id="memberGradeList" parameterType="member" resultType="member">
+		SELECT m_no, m_name, m_gender, m_id, m_phone, mg_grade, mg_upgrade, m_ytotal, m_total, mg_date, m_joindate
+		FROM (
+			SELECT /*+ INDEX_DESC(m MEMBER_PK) INDEX_DESC(mg MEMBERGRADE_PK) */
+				rownum as rnum, m.m_no, m_name, m_gender, m_id, m_phone, mg_grade, mg_upgrade, m_ytotal, m_total, mg_date, m_joindate 
+			FROM member m, membergrade mg
+			WHERE m.m_no=mg.m_no
+		<![CDATA[
+				AND rownum <= #{pageNum} * #{amount}
+			) mbGradeList
+		WHERE rnum > (#{pageNum} - 1) * #{amount}
+		]]>
+	</select>
+	
+	<update id="gradeDataUpgradeToGold">
+		UPDATE (select m.m_no, m_ytotal, mg_upgrade from member m, membergrade mg where m.m_no=mg.m_no) SET mg_upgrade='골드' 
+		WHERE m_ytotal>=500000 
+	</update>
+	
+	<update id="gradeDataUpgradeToVIP">
+		UPDATE (select m.m_no, m_ytotal, mg_upgrade from member m, membergrade mg where m.m_no=mg.m_no) SET mg_upgrade='VIP' 
+		WHERE m_ytotal>=1500000
+	</update>
+	
+	<update id="gradeDataUpgradeToVVIP">
+		UPDATE (select m.m_no, m_ytotal, mg_upgrade from member m, membergrade mg where m.m_no=mg.m_no) SET mg_upgrade='VVIP' 
+		WHERE m_ytotal>=3000000
+	</update>
+	
+	<update id="updateGrade">
+		UPDATE membergrade SET mg_grade=mg_upgrade WHERE mg_grade!=mg_upgrade
+	</update>
+	
+	
+	
+	
+	
 	<!-- 로그인 처리 -->
 	<select id="loginCheck" resultType="member" parameterType="member">
-		select m_id, m_pwd, m_name from member where m_id = #{m_id} and m_pwd = #{m_pwd}
+		select m_id, m_pwd, m_name, m_type from member where m_id = #{m_id} and m_pwd = #{m_pwd}
 	</select>
 	
 	<select id="memberSelect" parameterType="String" resultType="member">

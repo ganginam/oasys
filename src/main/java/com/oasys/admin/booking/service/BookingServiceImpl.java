@@ -55,10 +55,18 @@ public class BookingServiceImpl implements BookingService{
 		return detail;
 	}
 
+
 	@Override
 	public int bookingUpdate(BookingVO bvo) {
 		int result = 0;
 		result = bookingDao.bookingUpdate(bvo);
 		return result;
+
+	}
+	@Override
+	public List<BookingVO> memberBookingList(int m_no) {
+		List<BookingVO> bList = bookingDao.memberBookingList(m_no);
+		return bList;
+
 	}
 }

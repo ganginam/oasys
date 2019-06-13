@@ -73,7 +73,64 @@
 					goPage();
 				});
 				
+				//회원 클릭 시 회원 상세페이지 이동
+				$(".memberTr").click(function(){
+					var m_no = $(this).attr("data-num");
+					console.log("click m_no : " + m_no);
+					
+					location.href="/admin/member/memberDetail?m_no="+m_no;
+				});
+				
+				
+				
+				//관리자
+				var admin_no = 0;
+				
+				$("#adminInsertBtn").click(function(){
+					$("#adminModal").modal();
+				});
+				
+				$(".adminRadio").click(function(){
+					admin_no = $(this).parents("tr").attr("data-num");
+					//var admin_no = $('input[name="adminRadio"]:checked').val();
+					console.log("check adminRadio m_no: " + admin_no)
+				});
+				
+				$("#adminDeleteBtn").click(function(){
+					if(admin_no==0){
+						alert("탈퇴 처리할 관리자를 선택하세요.");
+					}else{
+						$.ajax({
+							url : "/admin/member/adminDelete",
+							type : "post",
+							data : "m_no=" + admin_no,
+							error : function(){
+								alert('시스템 오류입니다. 관리자에게 문의하세요.');
+							},
+							success : function(resultData){
+								if(resultData=="성공"){
+									alert("선택된 관리자가 탈퇴 완료되었습니다.")
+								}else{
+									alert("관리자 탈퇴 오류..");
+									return;
+								}
+							}
+						});
+						admin_no = 0;
+					}
+				});
+				
+				
+				
 			}); //최상위 function 종료 
+			
+			 /* $(document).ready(function () {
+				 $("#adminRadio").click(function(){
+					var admin_no = $('input[name="adminRadio"]:checked').val();
+					console.log("check adminRadio m_no: " + admin_no)
+				});
+			 }); */
+			
 			
 			function goPage(){
 				if($("#search").val()=="allMember"){
@@ -124,7 +181,7 @@
 			</form>
 			
 			<div>
-				<table class="table table-bordered">
+				<table class="table table-bordered table-hover">
 					<colgroup>
 						<col width="4%">
 						<col width="5%">
@@ -148,31 +205,31 @@
 							<th>이름</th>
 							<th>성별</th>
 							<th>아이디</th>
-							<th>비밀번호</th>
 							<th>비밀번호 변경일</th>
 							<th>전화번호</th>
 							<th>이메일</th>
 							<th>생일</th>
-							<th>누적금액</th>
+							<th>연간 누적 금액</th>
+							<th>총 누적 금액</th>
 							<th>가입날짜</th>
 						</tr>
 					</thead>
-					<tbody id="list" class="table-striped">
+					<tbody id="list">
 						<c:choose>
 							<c:when test="${not empty memberList}">
 								<c:forEach var="member" items="${memberList}" varStatus="status">
-									<tr class="tac" data-num="${member.m_no}">
+									<tr class="memberTr" data-num="${member.m_no}">
 										<td>${member.m_type}</td>
 										<td>${member.m_no}</td>
 										<td>${member.mg_grade}</td>
 										<td class="mbName">${member.m_name}</td>
 										<td>${member.m_gender}</td>
 										<td class="mbId">${member.m_id}</td>
-										<td>**********</td>
 										<td>${member.m_pwdchanged}</td>
 										<td class="mbPhone">${member.m_phone}</td>
 										<td class="mbEmail">${member.m_email}</td>
 										<td>${member.m_birth}</td>
+										<td>${member.m_ytotal}</td>
 										<td>${member.m_total}</td>
 										<td>${member.m_joindate}</td>
 									</tr>
@@ -181,6 +238,7 @@
 							<c:otherwise>
 								<tr>
 									<td colspan="13">회원이 존재하지 않습니다.</td>
+								</tr>
 							</c:otherwise>
 						</c:choose>
 					</tbody>
@@ -250,13 +308,13 @@
 							<c:when test="${not empty adminList}">
 								<c:forEach var="admin" items="${adminList}" varStatus="status">
 									<tr class="tac" data-num="${admin.m_no}">
-										<td><input type="radio" /></td>
+										<td><input type="radio" class="adminRadio" name="adminRadio" value="${admin.m_no}"/></td>
 										<td>${admin.m_type}</td>
 										<td>${admin.m_no}</td>
 										<td>${admin.m_name}</td>
 										<td>${admin.m_gender}</td>
 										<td>${admin.m_id}</td>
-										<td>${admin.m_pwd}</td>
+										<td>**********</td>
 										<td>${admin.m_phone}</td>
 										<td>${admin.m_email}</td>
 										<td>${admin.m_birth}</td>
@@ -267,6 +325,7 @@
 							<c:otherwise>
 								<tr>
 									<td colspan="11">관리자가 존재하지 않습니다.</td>
+								</tr>
 							</c:otherwise>
 						</c:choose>
 					</tbody>
@@ -274,9 +333,54 @@
 			</div>
 			
 			<div>
-				<input type="button" value="관리자 등록" id="memberInsertBtn" class="btn btn-default">
-				<input type="button" value="수정" id="insertFormBtn" class="btn btn-default">
-				<input type="button" value="삭제" id="insertFormBtn" class="btn btn-default">
+				<input type="button" value="관리자 등록" id="adminInsertBtn" class="btn btn-default">
+				<!-- <input type="button" value="수정" id="insertFormBtn" class="btn btn-default"> -->
+				<input type="button" value="삭제" id="adminDeleteBtn" class="btn btn-default">
+			</div>
+		</div>
+		
+		<!-- 관리자 등록 화면 영역(modal) -->
+		<div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="adminModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="adminModalLabel">관리자 등록</h4>
+					</div>
+					<div class="modal-body">
+						<form id="comment_form" name="comment_form">
+							<div class="form-group">
+						    	<label for="m_name" class="control-label">이름</label>
+						    	<input type="text" class="form-control" name="m_name" id="m_name" />
+						    </div>
+						    <div class="form-group">
+						    	<label for="m_name" class="control-label">아이디</label>
+						    	<input type="text" class="form-control" name="m_id" id="m_id" />
+						    </div>
+						    <div class="form-group">
+								<label for="g_pwd" class="control-label">비밀번호</label>
+								<input type="password" class="form-control" name="m_pwd" id="m_pwd" />
+						    </div>
+						    <div class="form-group">
+						    	<label for="m_name" class="control-label">성별</label>
+						    	<select>
+						    		<option>남자</option>
+						    		<option>여자</option>
+						    	</select>
+						    </div>
+						    <div class="form-group">
+						    	<label for="m_name" class="control-label">전화번호</label>
+						    	<input type="text" value="010"> - 
+						    	<input type="text" name="m_phone1" id="m_phone1" /> - 
+						    	<input type="text" name="m_phone2" id="m_phone2" />
+						    </div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+						<button type="button" class="btn btn-primary" id="adminInsertBtn">등록</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
