@@ -74,8 +74,9 @@
 					<li class="depth1_3">
 						<a href="">객실</a>
 						<div class="depth2">
-							<div class="depth2_3_1"><a href="/roomGrade/showDeluxe">디럭스</a></div>
-							<div class="depth2_3_2"><a href="/roomGrade/showDeluxeDubble">디럭스 트윈</a></div>
+							<div class="depth2_3_1"><a href="/roomGrade/showRooms">전체보기</a></div>
+							<div class="depth2_3_2"><a href="/roomGrade/showDeluxe">디럭스</a></div>
+							<div class="depth2_3_3"><a href="/roomGrade/showDeluxeDubble">디럭스 트윈</a></div>
 							<div class="depth2_3_3"><a href="/roomGrade/showSuite">스위트</a></div>
 							<div class="depth2_3_4"><a href="/roomGrade/showSuiteFamilly">스위트 패밀리</a></div>
 						</div>

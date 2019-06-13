@@ -127,9 +127,43 @@ public class RoomGradeController {
 	
 	
 	/*--------------------SHOW ROOM CONTROLL---------------------*/
+	@RequestMapping(value="/showRooms",method=RequestMethod.GET)
+	public String showRooms(@ModelAttribute("data") RoomGradeVO gvo,Model model) {
+		log.info("showRooms È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+		
+		gvo.setRg_num(2);
+		RoomGradeVO deluxe = roomGradeService.roomGradeDetail(gvo);
+		model.addAttribute("deluxe",deluxe);
+		deluxe.getRg_num();
+		log.info(gvo);
+		log.info(deluxe);
+		
+		gvo.setRg_num(4);
+		RoomGradeVO deluxeDouble = roomGradeService.roomGradeDetail(gvo);
+		model.addAttribute("deluxeDouble",deluxeDouble);
+		deluxeDouble.getRg_num();
+		log.info(gvo);
+		log.info(deluxeDouble);
+		
+		gvo.setRg_num(5);
+		RoomGradeVO suite = roomGradeService.roomGradeDetail(gvo);
+		model.addAttribute("suite",suite);
+		suite.getRg_num();
+		log.info(gvo);
+		log.info(suite);
+		
+		gvo.setRg_num(6);
+		RoomGradeVO suiteFamilly = roomGradeService.roomGradeDetail(gvo);
+		model.addAttribute("suiteFamilly",suiteFamilly);
+		suiteFamilly.getRg_num();
+		log.info(gvo);
+		log.info(suiteFamilly);
+		
+		return "client/room/showRooms";
+	}
 	@RequestMapping(value="/showDeluxe",method=RequestMethod.GET)
 	public String showDeluxe(@ModelAttribute("data") RoomGradeVO gvo,Model model) {
-		log.info("roomGradeDetail È£Ãâ ¼º°ø");
+		log.info("roomGradeDetail È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		gvo.setRg_num(2);
 		RoomGradeVO detail = roomGradeService.roomGradeDetail(gvo);
 		model.addAttribute("detail",detail);
@@ -140,7 +174,7 @@ public class RoomGradeController {
 	}
 	@RequestMapping(value="/showDeluxeDubble",method=RequestMethod.GET)
 	public String showDeluxeDubble(@ModelAttribute("data") RoomGradeVO gvo,Model model) {
-		log.info("roomGradeDetail È£Ãâ ¼º°ø");
+		log.info("roomGradeDetail È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		gvo.setRg_num(4);
 		RoomGradeVO detail = roomGradeService.roomGradeDetail(gvo);
 		model.addAttribute("detail",detail);
@@ -151,7 +185,7 @@ public class RoomGradeController {
 	}
 	@RequestMapping(value="/showSuite",method=RequestMethod.GET)
 	public String showSuite(@ModelAttribute("data") RoomGradeVO gvo,Model model) {
-		log.info("roomGradeDetail È£Ãâ ¼º°ø");
+		log.info("roomGradeDetail È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		gvo.setRg_num(5);
 		RoomGradeVO detail = roomGradeService.roomGradeDetail(gvo);
 		model.addAttribute("detail",detail);
@@ -162,7 +196,7 @@ public class RoomGradeController {
 	}
 	@RequestMapping(value="/showSuiteFamilly",method=RequestMethod.GET)
 	public String showSuiteFamilly(@ModelAttribute("data") RoomGradeVO gvo,Model model) {
-		log.info("roomGradeDetail È£Ãâ ¼º°ø");
+		log.info("roomGradeDetail È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		gvo.setRg_num(6);
 		RoomGradeVO detail = roomGradeService.roomGradeDetail(gvo);
 		model.addAttribute("detail",detail);

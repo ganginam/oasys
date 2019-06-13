@@ -105,7 +105,9 @@ public class MemberClientServiceImpl implements MemberClientService {
 	
 	@Override
 	public int memberNo() {
+
 		int m_no = memberDao.memberNo();
+
 		return m_no;
 	}
 	
@@ -123,7 +125,9 @@ public class MemberClientServiceImpl implements MemberClientService {
 
 	@Override
 	public int memberGradeInsert(MemberVO mvo) {
+
 		int result = memberDao.memberGradeInsert(mvo);
+
 		return result;
 	}
 

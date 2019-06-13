@@ -113,8 +113,12 @@ public class MemberClientController {
 		log.info("join post 방식 호출 성공");
 		
 		ModelAndView mav = new ModelAndView();
+
+		
 		int m_no = memberClientService.memberNo();
 		mvo.setM_no(m_no);
+		
+
 		int result = 0;
 		result = memberClientService.memberInsert(mvo);
 		//result = memberClientService.memberGradeInsert(mvo);
