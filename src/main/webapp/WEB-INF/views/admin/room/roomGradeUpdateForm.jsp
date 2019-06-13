@@ -4,21 +4,30 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		
+		
+		<title>Insert title here</title>
+		
+		<link rel="shortcut icon" href="/resources/images/icon.png" />
+		<link rel="apple-touch-icon" href="/resources/images/icon.png" />
+		
+		<!-- [if lt IE 9]>
+		<script src="../js/html5shiv.js"></script> 
+		<![endif]-->
+		
+		<link href="/resources/include/css/common.css" rel="stylesheet">
+		
+		
       
-      <title>writeForm.jsp</title>
-      
-      <link rel="shortcut icon" href="/resources/images/icon.png" />
-      <link rel="apple-touch-icon" href="/resources/images/icon.png" />
-      
-      <!-- [if lt IE 9]>
-      <script src="../js/html5shiv.js"></script> 
-      <![endif]-->
-      
-      <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
-      <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
+		
+		<!-- Custom styles for this template -->
+    	<link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
       <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
       
       <script type="text/javascript" src="/resources/include/js/jquery.form.min.js"></script>
@@ -57,7 +66,7 @@
       	})
       </script>
       <style type="text/css">
-      	img{
+      	.roomImage img{
       		width:500px;
       		height:200px;
       	}
@@ -65,7 +74,7 @@
    </head>
    <body>
       <div class="contentContainer container-fluid">
-         <div class="contentTit page-header"><h3 class="text-center">게시판 글작성</h3></div>
+         <div class="contentTit page-header"><h3 class="text-center">객실(등급) 수정</h3></div>
          <div class="contentTB text-center">
             <form id="f_writeForm" name="f_writeForm" class="form-horizontal">
                <table class="table table-bordered">
@@ -74,11 +83,12 @@
                      <col width="80%" />
                   </colgroup>
                   <tbody>
+                  
                      <tr>
                         <td>객실 등급설정</td>
-                        
-						<td class="text-left"><input type="text" name="rg_grade" id="rg_grade" value="${detail.rg_grade}" class="form-control" />${updateData.rg_grade}</td>
-						
+						<td class="text-left"><input type="text" name="rg_grade" id="rg_grade" value="${detail.rg_grade}" class="form-control" />
+						<input type="hidden" name="rg_num"value="${detail.rg_num}"/>
+						</td>
                      </tr>
                      <tr>
                         <td>객실 수용인원</td>
@@ -100,28 +110,28 @@
                         <td>객실 이미지1</td>
                         <td class="text-left"><input type="file" name="file[0]" id="image1" class="form-control"  />
                         <input type="hidden" name="image1" value="${detail.image1}"/>
-                        <img src="/uploadStorage/roomGrade/${detail.image1}">
+                        <img src="/uploadStorage/roomGrade/${detail.image1}" class="roomImage">
                         </td>
                      </tr>                                 
                      <tr>                                  
                         <td>객실 이미지2</td>              
                         <td class="text-left"><input type="file" name="file[1]" id="image2" class="form-control"  />
                         <input type="hidden" name="image2" value="${detail.image2}"/>
-                        <img src="/uploadStorage/roomGrade/${detail.image2}">
+                        <img src="/uploadStorage/roomGrade/${detail.image2}" class="roomImage">
                         </td>
                      </tr>                                 
                      <tr>                                  
                         <td>객실 이미지3</td>              
                         <td class="text-left"><input type="file" name="file[2]" id="image3" class="form-control"/>
                         <input type="hidden" name="image3" value="${detail.image3}"/>
-                        <img src="/uploadStorage/roomGrade/${detail.image3}">
+                        <img src="/uploadStorage/roomGrade/${detail.image3}" class="roomImage">
                         </td>
                      </tr>                            
                      <tr>                              
                         <td>객실 이미지4</td>              
                         <td class="text-left"><input type="file" name="file[3]" id="image4" class="form-control"/>
                         <input type="hidden" name="image4" value="${detail.image4}"/>
-                        <img src="/uploadStorage/roomGrade/${detail.image4}">
+                        <img src="/uploadStorage/roomGrade/${detail.image4}" class="roomImage">
                         </td>
                      </tr>                             
                      <tr>                              
@@ -129,7 +139,7 @@
                         <td class="text-left">
                         <input type="file" name="file[4]" id="image5" class="form-control"/>
                         <input type="hidden" name="image5" value="${detail.image5}"/>
-                        <img src="/uploadStorage/roomGrade/${detail.image5}">
+                        <img src="/uploadStorage/roomGrade/${detail.image5}" class="roomImage">
                         </td>
                      </tr>
                   </tbody>

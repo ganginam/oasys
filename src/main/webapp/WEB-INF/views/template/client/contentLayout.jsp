@@ -41,13 +41,13 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <tiles:insertAttribute name="header" />
     </nav>
+
     
 	<br/><br/><br/><br/>
+
     <!-- Begin page content -->
     <div class="container">
-      <div class="page-header">
-        <h1><tiles:getAsString name="title"/></h1>
-      </div>
+      
       <tiles:insertAttribute name="body" />
     </div>
 	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

@@ -3,6 +3,26 @@
 <mapper namespace="com.oasys.admin.room.dao.RoomDao">
 	<select id="roomList" parameterType="room" resultType="room">
 		<!-- select rg_grade , r_number , r_view , r_strange , r_used , r_date from room -->
-		select rg.rg_grade , r.r_number , r.r_view ,rg.rg_price,r.r_used,r.r_strange,r.r_date from roomgrade rg ,room r where rg.rg_grade = r.rg_grade
+		select rg.rg_grade , r.r_number ,rg.rg_price,r.r_strange,r.r_date from roomgrade rg ,room r where rg.rg_grade = r.rg_grade order by r.r_number
 	</select>
+	
+	<insert id="roomInsert" parameterType="room">
+		insert into room(rg_grade,r_number) 
+		values(#{rg_grade},#{r_number})
+	</insert>
+	
+	<select id="roomDetail" parameterType="room" resultType="room">
+	 	select r.r_number,rg.rg_grade,rg.rg_price,rg.rg_peoples,rg.rg_area,rg.rg_explain,r.r_strange,rg.image1,rg.image2,rg.image3,rg.image4,rg.image5 
+	 	from roomGrade rg , room r where r.rg_grade = rg.rg_grade and r.r_number = #{r_number}
+	</select>
+	
+	<delete id="roomDelete" parameterType="room">
+		delete from room where r_number = #{r_number}
+	</delete>
+	
+	<update id="roomUpdate" parameterType="room">
+		update room set r_strange = #{r_strange} where r_number = #{r_number}
+	</update>
+	
+	
 </mapper>

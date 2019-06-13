@@ -8,4 +8,12 @@ public interface RoomDao {
 
 	public List<RoomVO> roomList(RoomVO rvo);
 
+	public int roomInsert(RoomVO rvo);
+
+	public RoomVO roomDetail(RoomVO rvo);
+
+	public int roomDelete(RoomVO rvo);
+
+	public int roomUpdate(RoomVO rvo);
+
 }

@@ -11,6 +11,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper=false)
 public class RoomGradeVO {
+	private int rg_num ;
 	private String rg_grade;
     private int rg_price;
     private String rg_peoples   ;

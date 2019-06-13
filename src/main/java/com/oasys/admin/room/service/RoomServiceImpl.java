@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.oasys.admin.room.dao.RoomDao;
 import com.oasys.admin.room.vo.RoomVO;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -26,6 +25,33 @@ public class RoomServiceImpl implements RoomService{
 		list = roomDao.roomList(rvo);
 		log.info("");
 		return list;
+	}
+
+	@Override
+	public int roomInsert(RoomVO rvo) {
+		int result = 0;
+		result = roomDao.roomInsert(rvo);
+		return result;
+	}
+
+	@Override
+	public RoomVO roomDetail(RoomVO rvo) {
+		RoomVO detail = roomDao.roomDetail(rvo);
+		return detail;
+	}
+
+	@Override
+	public int roomDelete(RoomVO rvo) {
+		int result = 0;
+		result = roomDao.roomDelete(rvo);
+		return result;
+	}
+
+	@Override
+	public int roomUpdate(RoomVO rvo) {
+		int result = 0;
+		result = roomDao.roomUpdate(rvo);
+		return result;
 	}
 
 }
