@@ -32,7 +32,7 @@
 	<div class="location">
                 <ul>
                     <li><a href='/'><img src="/resources/images/hotelImages/logo.png" alt="home" class="logoImage" width="25" height="25"></a></li>
-                    <li><a href='#'>객실</a></li>
+                    <li><a href='/roomGrade/showRooms'>객실</a></li>
                     <li class="current"><a href='/roomGrade/showDeluxe'>스위트 룸</a></li>
                 </ul>
                 <h1>오아시스 객실 상세보기</h1>
@@ -47,20 +47,20 @@
 			<div class="imgGallery">
 				<div id="imgGallery-frame" class="imgGallery-frame">
 					
-				<iframe src="/uploadStorage/roomGrade/${detail.image1}" width="790" height="450" name="view"></iframe></div>
+				<iframe src="/resources/images/roomImage/${detail.image1}" width="790" height="450" name="view"></iframe></div>
 				<div class="imgGallery-thumbnail">
 					<div id="imgGallery-list" class="imgGallery-list">
 						<ul>
 							<li class="swiper-slide on">
-							<a href="/uploadStorage/roomGrade/${detail.image1}" target="view"><img src="/uploadStorage/roomGrade/${detail.image1}" alt="" width="300" height="150"></a></li>
+							<a href="/resources/images/roomImage/${detail.image1}" target="view"><img src="/resources/images/roomImage/${detail.image1}" alt="" width="300" height="150"></a></li>
 							<li class="swiper-slide">
-							<a href="/uploadStorage/roomGrade/${detail.image2}" target="view"><img src="/uploadStorage/roomGrade/${detail.image2}" alt="" width="300" height="150"></a></li>
+							<a href="/resources/images/roomImage/${detail.image2}" target="view"><img src="/resources/images/roomImage/${detail.image2}" alt="" width="300" height="150"></a></li>
 							<li class="swiper-slide">
-							<a href="/uploadStorage/roomGrade/${detail.image3}" target="view"><img src="/uploadStorage/roomGrade/${detail.image3}" alt="" width="300" height="150"></a></li>
+							<a href="/resources/images/roomImage/${detail.image3}" target="view"><img src="/resources/images/roomImage/${detail.image3}" alt="" width="300" height="150"></a></li>
 							<li class="swiper-slide">
-							<a href="/uploadStorage/roomGrade/${detail.image4}" target="view"><img src="/uploadStorage/roomGrade/${detail.image4}" alt="" width="300" height="150"></a></li>
+							<a href="/resources/images/roomImage/${detail.image4}" target="view"><img src="/resources/images/roomImage/${detail.image4}" alt="" width="300" height="150"></a></li>
 							<li class="swiper-slide">
-							<a href="/uploadStorage/roomGrade/${detail.image5}" target="view"><img src="/uploadStorage/roomGrade/${detail.image5}" alt="" width="300" height="150"></a></li>
+							<a href="/resources/images/roomImage/${detail.image5}" target="view"><img src="/resources/images/roomImage/${detail.image5}" alt="" width="300" height="150"></a></li>
 						</ul>
 					</div>
 					<div id="imgGallery-nav" class="imgGallery-nav"></div>

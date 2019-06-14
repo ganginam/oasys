@@ -14,4 +14,5 @@ public class RoomVO extends RoomGradeVO{
 	private String r_strange;
 	//private String r_used;
 	private String r_date;
+	
 }

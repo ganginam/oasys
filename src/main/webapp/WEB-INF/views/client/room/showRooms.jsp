@@ -56,7 +56,7 @@
                 <ul>
                     <li><a href='/'><img src="/resources/images/hotelImages/logo.png" alt="home" class="logoImage" width="25" height="25"></a></li>
                     <li> > </li>
-                    <li><a href='#'>객실 </a></li>
+                    <li><a href='/roomGrade/showRooms'>객실 </a></li>
                     <li> > </li>
                     <li class="current"><a href='/roomGrade/showDeluxe'>전체보기</a></li>
                 </ul>
@@ -76,7 +76,7 @@
 			숲을 맴도는 촉촉한 공기와 상쾌하게 차가운 늦은 밤의 미풍까지…</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="/uploadStorage/roomGrade/${deluxe.image1}" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive" src="/resources/images/roomImage/${deluxe.image1}" alt="Generic placeholder image">
         </div>
       </div>
 	<br/><br/><br/>
@@ -84,12 +84,14 @@
 
       <div class="row featurette" id="deluxeDoubleGoDetail">
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="/uploadStorage/roomGrade/${deluxeDouble.image1}" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive" src="/resources/images/roomImage/${deluxeDouble.image1}" alt="Generic placeholder image">
         </div>
         <div class="col-md-7">
           <h2 class="featurette-heading">Deluxe Double... <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">계곡과 바다, 한라산을 모두 조망하는 <em>오아시스 디럭스</em>에서 기운을 재충전하고 차분한 휴식을 만끽해보세요.<br>
-			숲을 맴도는 촉촉한 공기와 상쾌하게 차가운 늦은 밤의 미풍까지…</p>
+          <p class="lead">멀리 본다는 것의 의미. 마음이 한결 가벼워집니다.<br>
+			<em>디럭스 트윈룸</em>은 아늑한 공간으로 디자인 되었습니다.<br>
+			뷰에 따라 푸른 정원, 숲, 계곡, 바다가 시원하게 펼쳐지는 발코니에서는 <br>
+			얼굴 위로 쏟아지는 햇살을 받으며 자연의 달콤한 정적을 느끼실 수 있습니다.</p>
         </div>
       </div>
 		<br/><br/><br/>
@@ -98,11 +100,12 @@
       <div class="row featurette" id="suiteGoDetail">
         <div class="col-md-7">
           <h2 class="featurette-heading">Suite <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">계곡과 바다, 한라산을 모두 조망하는 <em>오아시스 디럭스</em>에서 기운을 재충전하고 차분한 휴식을 만끽해보세요.<br>
-			숲을 맴도는 촉촉한 공기와 상쾌하게 차가운 늦은 밤의 미풍까지…</p>
+          <p class="lead">계곡과 바다, 한라산을 모두 조망하는 <em>오아시스 스위트</em>에서 기운을 재충전하고 차분한 휴식을 만끽해보세요.<br>
+			숲을 맴도는 촉촉한 공기와 상쾌하게 차가운 늦은 밤의 미풍까지…<br>
+			180만년 동안 예래가 숨겨놓은 비경을 오롯이 당신의 시간으로 품을 수 있는 공간입니다.</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="/uploadStorage/roomGrade/${suite.image1}" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive" src="/resources/images/roomImage/${suite.image1}" alt="Generic placeholder image">
         </div>
       </div>
 		<br/><br/><br/>
@@ -110,12 +113,12 @@
       
       <div class="row featurette" id="suiteFamilyGoDetail">
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="/uploadStorage/roomGrade/${suiteFamilly.image1}" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive" src="/resources/images/roomImage/${suiteFamilly.image1}" alt="Generic placeholder image">
         </div>
         <div class="col-md-7">
           <h2 class="featurette-heading">Suite Familly ... <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">계곡과 바다, 한라산을 모두 조망하는 <em>오아시스 디럭스</em>에서 기운을 재충전하고 차분한 휴식을 만끽해보세요.<br>
-			숲을 맴도는 촉촉한 공기와 상쾌하게 차가운 늦은 밤의 미풍까지…</p>
+          <p class="lead"><em>패밀리 스위트 룸</em>가족과 함께 최고의 시간을 보낼 수 있도록 <br>오아시스가 준비한 특별한 공간입니다.<br>
+			아이와 부모 모두 여유롭게 휴식을 취할 수 있도록 편안함을 가장 중요시한 공간입니다. 
         </div>
       </div>
 

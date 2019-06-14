@@ -99,7 +99,7 @@
             </table>
          </div>
          <div>
-            <input type="button" value="글쓰기" id="insertFormBtn" class="btn btn-default">
+            <input type="button" value="등급추가" id="insertFormBtn" class="btn btn-default">
          </div>
       </div>
    </body>
