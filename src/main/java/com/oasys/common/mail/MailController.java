@@ -61,7 +61,7 @@ public class MailController {
 	  // mailSending 코드
 	  //인증코드
 	  @ResponseBody
-	  @RequestMapping(value = "/mail/mailSending")
+	  @RequestMapping(value = "/common/mailSending")
 	  public String mailSending(HttpServletRequest request, RedirectAttributes ras) {
 		  
 		String random = RandomStringUtils.randomAlphanumeric(10);

@@ -34,14 +34,13 @@
    </script>
    </head>
 	<body>
-		
+		<c:if test="${member.m_pwd == null }">
 			<h1>귀하의 아이디는  [${member.m_id }] 입니다.</h1>
-		
-		
-		
-			<h1>${member.m_id }의 비밀번호는 ${member.m_pwd }입니다.</h1>
-		
-		
+		</c:if>
+			
+		<c:if test="${member.m_id != null and member.m_pwd != null }">
+			<h1>[${member.m_id }]의 비밀번호는 [${member.m_pwd }] 입니다.</h1>
+		</c:if>
 		<!-- <input type="button" id="send" value="전송"/> -->
 	</body>
 </html>

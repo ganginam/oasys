@@ -37,4 +37,24 @@ public class ReviewServiceImpl implements ReviewService{
 		return detail;
 	}
 
+	@Override
+	public int reviewInsert(ReviewVO rvo) {
+		int result = 0;
+		
+		//rvo.setRe_num(0);
+//		if(rvo.getRe_num() == 0) {
+//			throw new IllegalArgumentException("0번 글은 등록할 수 없습니다.");
+//		}
+		
+		result = reviewDao.reviewInsert(rvo);
+		return result;
+	}
+
+	@Override
+	public int reviewDelete(ReviewVO rvo) {
+		int result = 0;
+		result = reviewDao.reviewDelete(rvo);
+		return result;
+	}
+
 }

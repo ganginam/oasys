@@ -41,7 +41,7 @@
 					async:true,
 					type:"post",
 					data:"tomail="+$("#tomail").val(),
-					url:"/mail/mailSending",
+					url:"/common/mailSending",
 					dataType:"text",
 					success:function(data){
 						console.log(data);

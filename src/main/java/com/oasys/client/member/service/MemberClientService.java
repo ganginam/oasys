@@ -21,7 +21,7 @@ public interface MemberClientService {
 	public int memberGradeInsert(MemberVO mvo);
 	
 	public int memberNo();
-
+	public MemberVO memberDetail(int m_no);
 	public MemberVO loginCheck(String m_id, String m_pwd);
 
 	public MemberVO adminCheck(String m_type);

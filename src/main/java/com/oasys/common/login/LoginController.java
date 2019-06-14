@@ -38,7 +38,7 @@ public class LoginController {
 	
 	//로그인 처리
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public ModelAndView loginCheck(@ModelAttribute MemberVO mvo, ModelAndView mav) {
+	public ModelAndView loginCheck(@ModelAttribute MemberVO mvo, ModelAndView mav){
 		log.info("login post 호출 성공");
 		
 		String m_id = mvo.getM_id();
@@ -46,14 +46,27 @@ public class LoginController {
 		//String m_type = mvo.getM_type();
 		
 		MemberVO loginCheckResult = memberClientService.loginCheck(m_id, m_pwd);
+		
 		//MemberVO adminCheckResult = memberClientService.adminCheck(m_type);
+		log.info(loginCheckResult);
 		
 		if(loginCheckResult == null) {
 			mav.addObject("codeNumber", 1);
 			mav.setViewName("common/login");
 			return mav;
 		}else{
-			mav.addObject("member", loginCheckResult);
+			if(loginCheckResult.getM_type().equals("관리자")) {
+				mav.addObject("member", loginCheckResult);
+				log.info(loginCheckResult);
+			}else {
+				MemberVO mmvo = memberClientService.memberDetail(loginCheckResult.getM_no());
+				mav.addObject("member", mmvo);
+				log.info(mmvo);
+			}
+			
+			
+			
+			//mav.addObject("mData", mmvo);
 			mav.setViewName("common/login");
 			return mav;
 		}

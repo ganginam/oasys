@@ -92,11 +92,11 @@
       			else if(!chkData("#m_pwd", "변경할 비밀번호를")) return;
       			else if(!chkData("#m_pwd2", "변경할 비밀번호를 다시 한번")) return;
       			else if(!chkData("#m_phone", "변경할 핸드폰 번호를")) return;
-      			else if(!chkData("#email", "변경할 이메일을")) return;
-      			else if(!chkData("#emailTail", "변경할 이메일 뒷주소를")) return;	
+      			/* else if(!chkData("#email", "변경할 이메일을")) return;
+      			else if(!chkData("#emailTail", "변경할 이메일 뒷주소를")) return;	 */
       			else{
-      				var sum_email = $("#email").val()+"@"+$("#emailTail").val();
-      				$("#m_email").val(sum_email); 
+      				/* var sum_email = $("#email").val()+"@"+$("#emailTail").val();
+      				$("#m_email").val(sum_email); */ 
       				
       				$("#frm_update").attr({
       					"method":"post",
@@ -135,7 +135,7 @@
    					<table class="table">
    						<tr> 
    							<td>아이디</td>
-   							<td><input type="text" value="${member.m_id }" readonly="readonly"/></td> 
+   							<td>${member.m_id }</td> 
    						</tr>
    						<tr>
    							<td>기존 비밀번호</td>
@@ -157,7 +157,7 @@
    						</tr>
    						<tr>
    							<td>이름</td>
-   							<td><input type="text" value="${member.m_name }" readonly="readonly"/></td>
+   							<td>${member.m_name }</td>
    						</tr> 
    						<tr>
    							<td>핸드폰</td>
@@ -167,32 +167,21 @@
    								<input type="text" id="middle" name="middle" value="${phone[1]}"/>
    								<label>-</label>
    								<input type="text" id="last" name="last" value="${phone[2]}"/> --%>
-   								<input type="text" id="m_phone" name="m_phone" value="${member.m_phone }"/>
+   								<input type="text" id="m_phone" name="m_phone" value="${member.m_phone }" maxlength="13"/>
+   								<label> - 를 넣어서 입력해주세요</label>
    							</td>
    						</tr>
    						<tr>
    							<td>이메일</td>
-   							<td><input type="text" id="email" name="email" value="${email[0] }"/>@
-   								<input type="text" id="emailTail" name="emailTail"/>
-   								<select id="selectEmail" name="selectEmail">
-   									<option value="">직접입력</option>
-   									<option value="naver.com">naver</option>
-   									<option value="daum.net">daum</option>
-   									<option value="nate.com">nate</option>
-   									<option value="google.com">google</option>
-   									<option value="hanmail.com">hanmail</option>
-   								</select>
-   								<input type="hidden" id="m_email" name="m_email"/>
-   								<input type="button" id="emailCheck" name="emailCheck" value="인증하기"/>
-   							</td>
+   							<td><input type="text" id="m_email" name="m_email" value="${member.m_email }"/></td>
    						</tr>
    						<tr>
    							<td>생년월일</td>
-   							<td><input type="text" value="${member.m_birth }" readonly="readonly"/></td>
+   							<td>${member.m_birth }</td>
    						</tr>
    						<tr>
    							<td>성별</td>
-   							<td><input type="text" value="${member.m_gender }"/></td>
+   							<td>${member.m_gender }</td>
    						</tr>
    					</table>
    					
