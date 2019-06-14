@@ -141,7 +141,7 @@
 						</div>
 					</li>
 				</ul>
-				<div class="reservation"><a href="/client/booking/booking" id="btn_reservation">예약하기</a></div>
+				<div class="reservation"><a href="/booking/booking" id="btn_reservation">예약하기</a></div>
 			</div>
 		</div>
 	</div>
