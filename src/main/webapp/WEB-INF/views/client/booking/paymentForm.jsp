@@ -61,15 +61,15 @@
                   </colgroup>
                   <tbody>
                   	<tr>
-                  		<th>고객 성명 : </th>
+                  		<th>고객 성명</th>
                   		<td><input type="text" id="b_name" name="b_name"></td>
                   	</tr>	
                     <tr>
-                    	<th>고객 번호 : </th>
+                    	<th>고객 번호</th>
                     	<td><input type="text" id="b_phone" name="b_phone"></td>
                     </tr>
                     <tr>
-                    	<th>이 &nbsp;메&nbsp; 일 : </th>
+                    	<th>이 &nbsp;메&nbsp; 일</th>
                     	<td><input type="text" id="b_email" name="b_email"></td>
                     </tr>
                   </tbody>
@@ -77,12 +77,12 @@
 	              <div>
 	               <table class="table table-bordered">
 	                  <colgroup>
-	                     <col width="20%" />
-	                     <col width="80%" />
+	                     <col width="10%" />
+	                     <col width="40%" />
 	                  </colgroup>
 	                  <tbody>
 	                  	<tr>
-	                  		<th>결제 수단 선택 : </th>
+	                  		<th>결제 수단 선택</th>
 	                  		<td>
 	                  			<select name="p_method">
 	                  				<option value="card">카드</option>
@@ -91,8 +91,8 @@
 	                  		</td>
 	                  	</tr>
 	                  	<tr>
-	                  		<th>총 결제금액 : </th>
-	                  		<td><input type="text" name="p_pay" id="p_pay" value="넣어햐합니다"></td>
+	                  		<th>총 결제금액</th>
+	                  		<td><input type="text" name="p_pay" id="p_pay" value=""></td>
 	                  	</tr>
 	                  </tbody>
 	               </table>

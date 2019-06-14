@@ -24,7 +24,7 @@ public class BookingClientController {
 	
 	private BookingClientService bookingClientService;
 	
-	/*예약 페이지 이동*/
+	/*�삁�빟 �럹�씠吏� �씠�룞*/
 	@RequestMapping(value="/booking", method = RequestMethod.GET)
 	public String booking(){
 		
@@ -32,7 +32,7 @@ public class BookingClientController {
 		return "client/booking/booking";
 	}
 	
-	/*날짜 선택 후 방 조회*/
+	/*�궇吏� �꽑�깮 �썑 諛� 議고쉶*/
 	@RequestMapping(value="/selectRoom", method = RequestMethod.GET)
 	public String selectRoom(@ModelAttribute("data") BookingVO bvo, Model model) {
 		log.info("bvo : " + bvo);
@@ -42,7 +42,7 @@ public class BookingClientController {
 		return "client/booking/selectRoom";
 	}
 	
-	/*예약 상세페이지*/
+	/*�삁�빟 �긽�꽭�럹�씠吏�*/
 	@RequestMapping(value="/bookingClientDetail", method = RequestMethod.GET)
 	public String bookingDetail(@ModelAttribute("data") BookingVO bvo, Model model) {
 	
@@ -50,8 +50,13 @@ public class BookingClientController {
 		model.addAttribute("detail", detail);
 		
 		return "client/booking/bookingClientDetail";
+	}
+	
+	@RequestMapping(value="/goPaymentForm",method=RequestMethod.POST)
+	public String goPaymentForm(@ModelAttribute("data") BookingVO bvo,Model model) {
 		
-		
-		
+		/*BookingVO detail = bookingClientService.bookingClientDetail(bvo);
+		model.addAttribute("detail",detail);*/
+		return "client/booking/paymentForm";
 	}
 }

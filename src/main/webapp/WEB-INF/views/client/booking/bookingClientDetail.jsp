@@ -35,20 +35,32 @@
 		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/resources/include/js/jquery-ui.js"></script>
 		<script type="text/javascript">
+		$(function(){
+			$("#continue").click(function(){
+				$("#f_payDetailForm").attr({
+					"method":"post",
+					"action":"/booking/goPaymentForm"
+				})
+				$("#f_payDetailForm").submit();
+			})
+		})
 	</script>
 	</head>
 	<body>
 	<div class="contentContainer container-fluidA">
 		
 		<div>
-		<img id="detailimg" src="/uploadStorage/roomGrade/${detail.image1}" /><br/>
-			${data.b_indate}~${data.b_outdate} 총 ${data.b_inday} 박<br/>
-			${detail.rg_grade} ${detail.rg_price} KRW 1박 <br/>
-			객실 수 : ${data.b_roomcnt}<br/>
-			객실 당 인원 수 : ${data.b_persons}<br />
-			총 가격: ${data.b_roomcnt * detail.rg_price * data.b_inday} KRW
-			</div>
-		<input class="btn btn-primary" type="button" id="continue" name="continue" value="계속" />		
+		<form id="f_payDetailForm">
+			<img id="detailimg" src="/uploadStorage/roomGrade/${detail.image1}" /><br/>
+				${data.b_indate}~${data.b_outdate} 총 ${data.b_inday} 박<br/>
+				${detail.rg_grade} ${detail.rg_price} KRW 1박 <br/>
+				객실 수 : ${data.b_roomcnt}<br/>
+				객실 당 인원 수 : ${data.b_persons}<br />
+				총 가격: ${data.b_roomcnt * detail.rg_price * data.b_inday} KRW
+				<input type="hidden" name="p_pay" id="p_pay" value="${data.b_roomcnt * detail.rg_price * data.b_inday}">
+			<input class="btn btn-primary" type="button" id="continue" name="continue" value="계속" />
+		</form>
+		</div>		
 	</div> 
 	</body>
 </html>
