@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oasys.common.notice.dao.NoticeDao">
+	
+	
+	<sql id="noticeSearch">
+		<if test="search == 'n_title'">
+			<![CDATA[ n_title LIKE '%'||#{keyword}|| '%' ]]>
+		</if>
+		<if test="search == 'n_content'">
+			<![CDATA[ n_content LIKE '%'||#{keyword}|| '%' ]]>
+		</if>
+		<if test="search == 'n_name'">
+			<![CDATA[ n_name LIKE '%'||#{keyword}|| '%' ]]>
+		</if> 
+	</sql> 
+	
+	<select id="noticeList" parameterType="notice" resultType="notice">
+		<![CDATA[
+		 SELECT
+		 	n_num,n_name,n_title, to_char(n_date, 'YYYY-MM-DD') as n_date
+			
+		FROM (
+			SELECT /* + INDEX_DESC(notice n_num_pk) */
+				rownum as rnum, n_num, n_name, n_title, n_date
+			FROM notice
+			WHERE ]]>
+				<trim prefix="(" suffix=") AND" prefixOverrides=" AND ">
+					<include refid="noticeSearch"></include>
+				</trim>
+				<![CDATA[ rownum <= #{pageNum} * #{amount}
+					)
+			WHERE rnum	> (#{pageNum} -1) * #{amount}
+			]]>	
+	</select>
+	
+	 <select id="noticeListCnt" parameterType="notice" resultType="int">
+		SELECT count(*) FROM notice
+		<trim prefix=" where(" suffix=")">
+			<include refid="noticeSearch" />
+		</trim> 
+	</select> 
+	
+	<insert id="noticeInsert" parameterType="notice">
+		/* Notice - noticeInsert */
+		
+		insert into notice(n_num, n_name, n_title, n_content)
+		values(notice_seq.nextval, #{n_name}, #{n_title}, #{n_content})
+	</insert>
+	
+	<select id="noticeDetail" parameterType="int" resultType="notice">
+		/* Notice - noticeDetail */
+		SELECT
+			n_num,n_name,n_title,n_content,
+			TO_CHAR(n_date, 'YYYY-MM-DD HH24:MI:SS') AS n_date
+		FROM notice
+		WHERE n_num = #{n_num}
+	</select>
+	
+	
+	
+	<update id="noticeUpdate" parameterType="notice">
+		/* Notice - noticeUpdate */
+		UPDATE notice
+			SET n_title = #{n_title}
+				, n_content = #{n_content}
+				, n_date = sysdate
+				
+		WHERE n_num = #{n_num}
+	</update> 
+	
+	 <delete id="noticeDelete" parameterType="notice">
+		/* Notice - noticeDelete */
+		DELETE FROM notice WHERE n_num = #{n_num}
+	</delete>
+	
+
+</mapper>

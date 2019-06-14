@@ -47,7 +47,16 @@
 		<put-attribute name="body" value="/WEB-INF/views/admin/member/{1}.jsp"></put-attribute>
 	</definition>
 	
-
+	<definition name="admin/notice/*" extends="a_content">
+		<put-attribute name="title" value="공지사항"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/admin/notice/{1}.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="client/notice/*" extends="content">
+		<put-attribute name="title" value="공지사항"/>
+		<put-attribute name="body" value="/WEB-INF/views/client/notice/{1}.jsp"/>
+	</definition>
+	
 	<definition name="client/booking/*" extends="content">
 		<put-attribute name="title" value="예약하기"/>
 		<put-attribute name="body" value="/WEB-INF/views/client/booking/{1}.jsp"/>

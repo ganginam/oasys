@@ -87,7 +87,7 @@
 							<div class="depth2_1_1"><a href="">소개</a></div>
 							<div class="depth2_1_3"><a href="">오시는 길</a></div>
 							<div class="depth2_1_4"><a href="">여행 가이드</a></div>
-							<div class="depth2_1_5"><a href="">공지사항</a></div>
+							<div class="depth2_1_5"><a href="/notice/noticeList">공지사항</a></div>
 						</div>
 					</li>
 	
