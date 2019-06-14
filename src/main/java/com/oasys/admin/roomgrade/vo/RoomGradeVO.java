@@ -5,12 +5,14 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.oasys.common.vo.CommonVO;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class RoomGradeVO {
+public class RoomGradeVO extends CommonVO {
 	private int rg_num ;
 	private String rg_grade;
     private int rg_price;

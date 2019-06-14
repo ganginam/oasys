@@ -106,6 +106,21 @@
         	  })
         	  
           })
+          $("#search").change(function(){
+				if($("#search").val()=="all"){
+					$("#keyword").val("전체 데이터 조회합니다.");	
+				}else if($("#search").val() !="all"){
+				$("#keyword").val("");
+				$("#keyword").focus();
+				}
+				
+			});
+          $("#searchData").click(function(){
+				if($("#search").val() != "all"){
+					if(!chkData("#keyword","검색어를")) return;
+				}
+				goPage();
+			});
           
           $(document).on("click","input[name='deleteBtn']",function(){
         	  console.log("??")
@@ -157,6 +172,16 @@
 				this.reset();
 			});
 		}
+      function goPage(){
+			if($("#search").val()=="all"){
+				$("keyword").val("");
+			}
+			$("#f_search").attr({
+				"method":"get",
+				"action":"/room/roomList"
+			});
+			$("#f_search").submit();
+		}
       
       </script>
 
@@ -164,6 +189,20 @@
    <body>
       <div class="contentContainer container-fluid">
          <div class="contentTit page-header"><h3 class="text-center">객실 리스트</h3></div>
+         <div id="roomSearch" class="text-right">
+				<form id="f_search" name="f_search" class="form-inline">
+					<div class="form-group">
+						<label>검색</label>
+						<select id="search" name="search" class="form-control">
+							<option value="all">전체</option>
+							<option value="r_number">객실호수</option>
+							<option value="rg_grade">객실등급</option>
+						</select>		
+					<input type="text" name="keyword" id="keyword" class="form-control" />
+					<button type="button" id="searchData" class="btn btn-primary">검색</button>
+					</div>
+				</form>
+			</div>
          <div id="roomGradeList">
          <form id="detailForm">
             <input type="hidden" id="r_number" name="r_number" />
@@ -187,6 +226,8 @@
                   </tr>
                </thead>
                <tbody id="list" class="table-striped">
+               	<c:choose>
+               		<c:when test="${not empty roomList}">
                         <c:forEach var="room" items="${roomList}" varStatus="status">
                            <tr data-num="${room.r_number}">
                            		<td class="goDetail">${room.rg_grade}</td>
@@ -200,6 +241,13 @@
                            			</td>
                         	</tr>   
                         </c:forEach>
+                     </c:when>
+                     <c:otherwise>
+                     	<tr>
+                     		<td colspan="5">객실이 존재하지 않습니다.</td>
+                     	</tr>
+                     </c:otherwise>
+                 </c:choose>
                </tbody>
             </table>
          </div>
