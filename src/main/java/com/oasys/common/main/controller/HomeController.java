@@ -42,5 +42,10 @@ public class HomeController {
 	public String main() {
 		return "index";
 	}
+	
+	@RequestMapping(value="/hotelInfo/location")
+	public String location() {
+		return "hotelInfo/location";
+	}
 
 }

@@ -81,12 +81,12 @@
 				<ul>
 					<li class="depth1_1">
 
-						<a href="/">Oasis</a>
+						<a href="/">The Oasis</a>
 
 						<div class="depth2">
-							<div class="depth2_1_1"><a href="">소개</a></div>
-							<div class="depth2_1_3"><a href="">오시는 길</a></div>
-							<div class="depth2_1_4"><a href="">여행 가이드</a></div>
+							<div class="depth2_1_1"><a href="/hotelInfo/aboutUs">소개</a></div>
+							<div class="depth2_1_3"><a href="/hotelInfo/location">오시는 길</a></div>
+							<div class="depth2_1_4"><a href="/hotelInfo/trevelGuide">여행 가이드</a></div>
 							<div class="depth2_1_5"><a href="">공지사항</a></div>
 						</div>
 					</li>
@@ -94,7 +94,7 @@
 					<li class="line"></li>
 	
 					<li class="depth1_3">
-						<a href="">객실</a>
+						<a href="/roomGrade/showRooms">객실</a>
 						<div class="depth2">
 							<div class="depth2_3_1"><a href="/roomGrade/showRooms">전체보기</a></div>
 							<div class="depth2_3_2"><a href="/roomGrade/showDeluxe">디럭스</a></div>
@@ -119,9 +119,9 @@
 					<li class="depth1_6">
 						<a href="">부대시설</a>
 						<div class="depth2">
-							<div class="depth2_6_3"><a href="">휘트니스클럽</a></div>
-							<div class="depth2_6_4"><a href="">스파</a></div>
-							<div class="depth2_6_5"><a href="">수영장</a></div>
+							<div class="depth2_6_3"><a href="/hotelInfo/fitnessClub">휘트니스클럽</a></div>
+							<div class="depth2_6_4"><a href="/hotelInfo/spaClub">스파</a></div>
+							<div class="depth2_6_5"><a href="/hotelInfo/swimmingPool">수영장</a></div>
 						</div>
 					</li>
 	
@@ -134,7 +134,7 @@
 					<li class="depth1_8">
 						<a href="">컨시어지</a>
 						<div class="depth2">
-							<div class="depth2_8_2"><a href="">층별 안내</a></div>
+							<div class="depth2_8_2"><a href="/hotelInfo/floorGuide">층별 안내</a></div>
 							<div class="depth2_8_4"><a href="">자주하는 질문</a></div>
 							<div class="depth2_8_3"><a href="">문의하기</a></div>
 							<div class="depth2_8_4"><a href="/review/reviewList">후기</a></div>

@@ -30,9 +30,9 @@
 	</definition>
 	
 	<!-- 관리자 페이지 매핑 -->
-<definition name="admin/*" extends="admin">
-      <put-attribute name="body" value="/WEB-INF/views/admin/{1}.jsp"/>
-   </definition>
+	<definition name="admin/*" extends="admin">
+      	<put-attribute name="body" value="/WEB-INF/views/admin/{1}.jsp"/>
+   	</definition>
 	
 	<definition name="a_content" template="/WEB-INF/views/template/admin/contentLayout.jsp">
 		<put-attribute name="title" value="3조_프로젝트_관리자"/>
@@ -68,9 +68,14 @@
 	<definition name="client/room/*" extends="content">
 		<put-attribute name="title" value="오아시스 객실 상세정보"/>
 		<put-attribute name="body" value="/WEB-INF/views/client/room/{1}.jsp"/>
-   </definition>
-   <definition name="review/*" extends="content">
+   	</definition>
+   
+   	<definition name="review/*" extends="content">
 		<put-attribute name="title" value="후기"/>
 		<put-attribute name="body" value="/WEB-INF/views/review/{1}.jsp"/>
+	</definition>
+	
+	<definition name="hotelInfo/*" extends="content">
+		<put-attribute name="body" value="/WEB-INF/views/client/hotelInfo/{1}.jsp"/>
 	</definition>
 </tiles-definitions>

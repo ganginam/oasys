@@ -4,10 +4,10 @@
 	    <div class="footer_wrap">
 	        <div class="footer_container">
 	            <ul class="footer_menu">
-	                <li><a href="/kr/footer/sitemap.jsp">사이트맵</a></li>
-	                <li><a href="">이용약관</a></li>
-	                <li><a href="">개인정보처리방침</a></li>
-	                <li><a href="">이메일 무단수집금지</a></li>
+	                <li><a href="/hotelInfo/siteMap">사이트맵</a></li>
+	                <li><a href="/hotelInfo/termsOfUse">이용약관</a></li>
+	                <li><a href="/hotelInfo/">개인정보처리방침</a></li>
+	                <li><a href="/hotelInfo/">이메일 무단수집금지</a></li>
 	            </ul>
 	        </div>
 	    </div>
