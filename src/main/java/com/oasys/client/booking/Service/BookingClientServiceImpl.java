@@ -27,4 +27,14 @@ public class BookingClientServiceImpl implements BookingClientService{
 		return roomList;
 	}
 
+	@Override
+	public BookingVO bookingClientDetail(BookingVO bvo) {
+		
+		BookingVO detail = null;
+		
+		detail = bookingDao.bookingClientDetail(bvo);
+		
+		return detail;
+	}
+
 }

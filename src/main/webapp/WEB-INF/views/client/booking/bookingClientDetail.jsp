@@ -10,7 +10,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		
 		
-		<title>예약하기</title>
+		<title>예약상세페이지</title>
 		
 		<link rel="shortcut icon" href="/resources/images/icon.png" />
 		<link rel="apple-touch-icon" href="/resources/images/icon.png" />
@@ -35,51 +35,20 @@
 		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/resources/include/js/jquery-ui.js"></script>
 		<script type="text/javascript">
-		$(function(){
-			$(".selectRoomBtn").click(function(){
-				var rg_grade = $(this).parents("div").attr("data-name");
-				$("#rg_grade").val(rg_grade);
-				
-				$("#b_data").attr({
-					"method":"get",
-					"action":"/booking/bookingClientDetail"
-				});
-				$("#b_data").submit();
-			});
-			
-			$("#reBooking").click(function(){
-				location.href="/booking/booking";
-			});
-		}); //$최종		
 	</script>
 	</head>
 	<body>
-		<div class="contentContainer container-fluidA">
-			<form id="b_data" name="b_data">
-				<input type="hidden" id="rg_grade" name="rg_grade" />
-				<input type="hidden" id="b_indate" name="b_indate" value="${data.b_indate}" />
-				<input type="hidden" id="b_outdate" name="b_outdate" value="${data.b_outdate}"/>
-				<input type="hidden" id="b_inday" name="b_inday" value="${data.b_inday}" />
-				<input type="hidden" id="b_roomcnt" name="b_roomcnt" value="${data.b_roomcnt}"/>
-				<input type="hidden" id="b_persons" name="b_persons" value="${data.b_persons}" />
-			</form>
-			<label>${data.b_indate} ~ ${data.b_outdate} </label>
-			<input type="button" id="reBooking" name="reBooking" value="다시 선택" />
-			<div>
-				<c:choose>
-					<c:when test="${not empty roomList}">
-						<c:forEach var="room" items="${roomList}" varStatus="status">
-							<div class="goDetail" data-name="${room.rg_grade}">${room.rg_grade} 남은 객실 수 : ${room.b_roomcnt} <br/>
-							${room.rg_price}KRW 1박 가격
-							<input type="button" class="selectRoomBtn btn btn-primary" value="선택" />
-							</div>
-						</c:forEach>
-					</c:when>
-					<c:otherwise>
-						<div>예약 가능한 방이 존재하지 않습니다.</div>				
-					</c:otherwise>
-			</c:choose>
+	<div class="contentContainer container-fluidA">
+		
+		<div>
+		<img id="detailimg" src="/uploadStorage/roomGrade/${detail.image1}" /><br/>
+			${data.b_indate}~${data.b_outdate} 총 ${data.b_inday} 박<br/>
+			${detail.rg_grade} ${detail.rg_price} KRW 1박 <br/>
+			객실 수 : ${data.b_roomcnt}<br/>
+			객실 당 인원 수 : ${data.b_persons}<br />
+			총 가격: ${data.b_roomcnt * detail.rg_price * data.b_inday} KRW
 			</div>
-		</div>
+		<input class="btn btn-primary" type="button" id="continue" name="continue" value="계속" />		
+	</div> 
 	</body>
 </html>

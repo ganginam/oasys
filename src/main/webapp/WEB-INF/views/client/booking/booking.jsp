@@ -38,12 +38,6 @@
 		$(function(){	
 			var rangeDate = 31; // set limit day
 			var setSdate, setEdate;
-		 	var t1 = $('div#from').val().split("-");
-		    var t2 = $('div#to').val().split("-");
-		    var t1date = new Date(t1[0], t1[1], t1[2]);
-		    var t2date = new Date(t2[0], t2[1], t2[2]);
-		    var diff = t2date - t1date;
-		    var currDay = 24 * 60 * 60 * 1000;
 			$("#from").datepicker({
 				altField: '#b_indate',
 			    dateFormat: 'yy-mm-dd',
@@ -77,7 +71,14 @@
 			
 			/*유효성 검사*/
 			$('#btn').on('click', function(e){
-			    if($('div#from').val() == ''){
+			 	var t1 = $('div#from').val().split("-");
+			    var t2 = $('div#to').val().split("-");
+			    var t1date = new Date(t1[0], t1[1], t1[2]);
+			    var t2date = new Date(t2[0], t2[1], t2[2]);
+			    var diff = t2date - t1date;
+			    var currDay = 24 * 60 * 60 * 1000;
+			    var b_inDay = parseInt(diff/currDay);
+				if($('div#from').val() == ''){
 			        alert('시작일을 선택해주세요.');
 			        $('div#from').focus();
 			        return false;
@@ -86,12 +87,17 @@
 			        $('div#to').focus();
 			        return false;
 			    }else if(parseInt(diff/currDay) > rangeDate){
-			        alert('예약기간은 ' + rangeDate + '일을 초과할 수 없습니다.');        
+			    	alert('예약기간은 ' + rangeDate + '일을 초과할 수 없습니다.');        
 			        return false;
 			    }
+			    	
+			    	$("#b_inday").val(b_inDay);
+			    	
+			    	
+			    	
 			    	$("#f_date").attr({
 			    		"method":"get",
-			    		"action":"/client/booking/selectRoom"
+			    		"action":"/booking/selectRoom"
 			    	});
 			    	$("#f_date").submit();
 			  
@@ -104,6 +110,7 @@
 		<div class="contentContainer container-fluidA">
 		
 			<form id="f_date" class="form-inline">
+			<input type="hidden" id="b_inday" name="b_inday" />
 			<input type="hidden" id="b_indate" name="b_indate" />
 			<input type="hidden" id="b_outdate" name="b_outdate" />
 			<div class="wrap">

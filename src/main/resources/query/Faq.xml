@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oasys.common.faq.dao.FaqDao">
+	
+	
+	<sql id="faqSearch">
+		
+		<if test="search=='fa_type'">
+			<![CDATA[ fa_type LIKE '%' || #{keyword} ||'%' ]]>
+		</if>
+		<if test="search=='fa_title'">
+			<![CDATA[ fa_title LIKE '%' ||#{keyword} ||'%']]>
+		</if>	
+		<if test="search=='fa_content'">
+			<![CDATA[ fa_content LIKE '%' || #{keyword} ||'%']]>
+		</if>
+	</sql>
+	
+	
+	<!-- 리스트 기본 조회(페이징 처리와 검색 처리) -->
+	<select id="faqList" parameterType="faq" resultType="faq">
+		<![CDATA[
+		SELECT
+			fa_num, fa_type, fa_title, fa_content, to_char(fa_date, 'YYYY-MM-DD') as fa_date
+		FROM(
+			select /*+ INDEX_DESC(faq faq_pk)*/
+				rownum as rnum, fa_num, fa_type, fa_title, fa_content, fa_date
+			FROM faq
+			WHERE]]>
+			<trim prefix="(" suffix=") AND " prefixOverrides="AND">
+				<include refid="faqSearch"></include>
+		    </trim>
+			<![CDATA[ rownum <= #{pageNum} * #{amount}
+			) faqlist	
+			 WHERE rnum > (#{pageNum} - 1) * #{amount}
+		]]>
+	</select>
+	
+	<!-- 전체 레코드 수 조회 -->
+	<select id="faqListCnt" parameterType="faq" resultType="int">
+		SELECT count(*) FROM faq
+		<trim prefix=" where (" suffix=")">
+			<include refid="faqSearch"></include>
+		</trim>
+	</select>
+	
+	<!-- 게시물 등록 -->
+	<insert id="faqInsert" parameterType="faq">
+		/*Faq - faqInsert */
+		<selectKey keyProperty="fa_num" resultType="int" order="BEFORE">
+			SELECT faq_seq.nextval FROM dual
+		</selectKey>
+		
+		INSERT INTO faq(fa_num, fa_type, fa_title, fa_content)
+		VALUES(#{fa_num}, #{fa_type}, #{fa_title}, #{fa_content})
+	</insert>
+	
+	<!-- 상세페이지를 위한 게시물 조회 -->
+	<select id="faqDetail" parameterType="int" resultType="faq">
+		/* Faq - faqDetail */
+		SELECT
+			fa_num, fa_type, fa_title, fa_content,
+			TO_CHAR(fa_date, 'YYYY-MM-DD HH24:MI:SS') AS fa_date
+		FROM faq
+		WHERE fa_num = #{fa_num}
+	</select>
+	
+	
+	<!-- 게시물 수정 -->
+	<update id="faqUpdate" parameterType="faq">
+		/* Faq - faqUpdate */
+		UPDATE faq
+			SET fa_type = #{fa_type}
+				, fa_title = #{fa_title}
+				, fa_content = #{fa_content}
+				, fa_date = sysdate
+		WHERE fa_num = #{fa_num}
+	</update>
+	
+	<!-- 게시물 삭제 VO의 변수 값과 매개변수의 이름이 같다면  파라미터 타입은 두개다 사용 가능. -->
+	<delete id="faqDelete" parameterType="faq">
+		/* Faq - faqDelete */
+		DELETE FROM faq WHERE fa_num = #{fa_num}
+	</delete>
+	
+
+</mapper>

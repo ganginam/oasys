@@ -25,9 +25,9 @@
        <ul class="nav nav-sidebar">
          <li class="mainDepth"><a href="">게시판</a></li>
          <li><a href="">공지사항</a></li>
-         <li><a href="">자주하는 질문</a></li>
+         <li><a href="/admin/faq/faqList">자주하는 질문</a></li>
          <li><a href="">문의게시판</a></li>
-         <li><a href="">1:1 문의관리</a></li>
+         <li><a href=""></a></li>
        </ul>
        <ul class="nav nav-sidebar">
          <li class="mainDepth"><a href="">매출</a></li>

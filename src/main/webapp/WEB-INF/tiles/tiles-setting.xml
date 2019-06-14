@@ -30,7 +30,7 @@
 	</definition>
 	
 	<!-- 관리자 페이지 매핑 -->
-<definition name="admin/*" extends="admin">
+	<definition name="admin/*" extends="admin">
       <put-attribute name="body" value="/WEB-INF/views/admin/{1}.jsp"/>
    </definition>
 	
@@ -58,8 +58,16 @@
 		<put-attribute name="body" value="/WEB-INF/views/admin/room/{1}.jsp"></put-attribute>
 	</definition>
 
-
-
+	<definition name="admin/faq/*" extends="a_content">
+		<put-attribute name="title" value="자주 묻는 질문"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/admin/faq/{1}.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="client/faq/*" extends="content">
+		<put-attribute name="title" value="자주 묻는 질문"/>
+		<put-attribute name="body" value="/WEB-INF/views/client/faq/{1}.jsp"/>
+	</definition>
+	
 	<definition name="common/*" extends="content">
 		<put-attribute name="title" value="로그인"/>
 		<put-attribute name="body" value="/WEB-INF/views/common/{1}.jsp"/>
