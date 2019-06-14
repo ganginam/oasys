@@ -87,14 +87,14 @@
 							<div class="depth2_1_1"><a href="">소개</a></div>
 							<div class="depth2_1_3"><a href="">오시는 길</a></div>
 							<div class="depth2_1_4"><a href="">여행 가이드</a></div>
-							<div class="depth2_1_5"><a href="">공지사항</a></div>
+							<div class="depth2_1_5"><a href="/notice/noticeList">공지사항</a></div>
 						</div>
 					</li>
 	
 					<li class="line"></li>
 	
 					<li class="depth1_3">
-						<a href="">객실</a>
+						<a href="/roomGrade/showRooms">객실</a>
 						<div class="depth2">
 							<div class="depth2_3_1"><a href="/roomGrade/showRooms">전체보기</a></div>
 							<div class="depth2_3_2"><a href="/roomGrade/showDeluxe">디럭스</a></div>
@@ -107,9 +107,9 @@
 					<li class="line"></li>
 	
 					<li class="depth1_5">
-						<a href="">예약</a>
+						<a href="/booking/booking">예약</a>
 						<div class="depth2">
-							<div class="depth2_5_1"><a href="/client/booking/booking">예약하기</a></div>
+							<div class="depth2_5_1"><a href="/booking/booking">예약하기</a></div>
 							<div class="depth2_5_3"><a href="">예약조회</a></div>
 						</div>
 					</li>
@@ -132,16 +132,16 @@
 					<li class="line"></li>
 	
 					<li class="depth1_8">
-						<a href="">컨시어지</a>
+						<a href="/faq/faqList">컨시어지</a>
 						<div class="depth2">
 							<div class="depth2_8_2"><a href="">층별 안내</a></div>
-							<div class="depth2_8_4"><a href="">자주하는 질문</a></div>
+							<div class="depth2_8_4"><a href="/faq/faqList">자주하는 질문</a></div>
 							<div class="depth2_8_3"><a href="">문의하기</a></div>
 							<div class="depth2_8_4"><a href="/review/reviewList">후기</a></div>
 						</div>
 					</li>
 				</ul>
-				<div class="reservation"><a href="/client/booking/booking" id="btn_reservation">예약하기</a></div>
+				<div class="reservation"><a href="/booking/booking" id="btn_reservation">예약하기</a></div>
 			</div>
 		</div>
 	</div>

@@ -2,17 +2,13 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-
-
-
+		<typeAlias type="com.oasys.common.faq.vo.FaqVO" alias="faq" />
 		<typeAlias type="com.oasys.common.booking.vo.BookingVO" alias="booking" />
-
 		<typeAlias type="com.oasys.common.member.vo.MemberVO" alias="member"/>
-
-
 		<typeAlias type="com.oasys.admin.roomgrade.vo.RoomGradeVO" alias="roomGrade"/>
 		<typeAlias type="com.oasys.admin.room.vo.RoomVO" alias="room"/>	
 <!-- 		<typeAlias alias="login" type="com.oasys.common.login.vo.LoginVO"/> -->
 		<typeAlias type="com.oasys.common.review.vo.ReviewVO" alias="review"/>
+		<typeAlias alias="notice" type="com.oasys.common.notice.vo.NoticeVO"/>
 	</typeAliases>
 </configuration>

@@ -82,6 +82,7 @@ public class BookingController {
 		return "admin/booking/bookingUpdateForm";
 	}
 	
+	/*예약 수정*/
 	@RequestMapping(value="/bookingUpdate", method = RequestMethod.POST)
 	public String bookingUpdate(@ModelAttribute BookingVO bvo, RedirectAttributes ras) {
 		int result = 0;

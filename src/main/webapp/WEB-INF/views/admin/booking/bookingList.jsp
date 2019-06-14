@@ -65,7 +65,7 @@
 				if($("#search").val() != "all"){
 					if(!chkData("#keyword","검색어를")) return;
 				}
-				goPage();;
+				goPage();
 			});
 			
 			/*페이지 버튼 처리 이벤트*/

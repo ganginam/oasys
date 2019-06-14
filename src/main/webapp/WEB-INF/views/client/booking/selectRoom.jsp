@@ -36,22 +36,42 @@
 		<script type="text/javascript" src="/resources/include/js/jquery-ui.js"></script>
 		<script type="text/javascript">
 		$(function(){
-			$("#")
+			$(".selectRoomBtn").click(function(){
+				var rg_grade = $(this).parents("div").attr("data-name");
+				$("#rg_grade").val(rg_grade);
+				
+				$("#b_data").attr({
+					"method":"get",
+					"action":"/booking/bookingClientDetail"
+				});
+				$("#b_data").submit();
+			});
 			
-			
-		})
-		
+			$("#reBooking").click(function(){
+				location.href="/booking/booking";
+			});
+		}); //$최종		
 	</script>
 	</head>
 	<body>
 		<div class="contentContainer container-fluidA">
+			<form id="b_data" name="b_data">
+				<input type="hidden" id="rg_grade" name="rg_grade" />
+				<input type="hidden" id="b_indate" name="b_indate" value="${data.b_indate}" />
+				<input type="hidden" id="b_outdate" name="b_outdate" value="${data.b_outdate}"/>
+				<input type="hidden" id="b_inday" name="b_inday" value="${data.b_inday}" />
+				<input type="hidden" id="b_roomcnt" name="b_roomcnt" value="${data.b_roomcnt}"/>
+				<input type="hidden" id="b_persons" name="b_persons" value="${data.b_persons}" />
+			</form>
+			<label>${data.b_indate} ~ ${data.b_outdate} </label>
+			<input type="button" id="reBooking" name="reBooking" value="다시 선택" />
 			<div>
 				<c:choose>
 					<c:when test="${not empty roomList}">
 						<c:forEach var="room" items="${roomList}" varStatus="status">
-							<div>${room.rg_grade}<br/>
-							 남은 객실 수 : ${room.b_roomcnt}
-							<input type="button" class="selectRoomBtn" value="선택" />
+							<div class="goDetail" data-name="${room.rg_grade}">${room.rg_grade} 남은 객실 수 : ${room.b_roomcnt} <br/>
+							${room.rg_price}KRW 1박 가격
+							<input type="button" class="selectRoomBtn btn btn-primary" value="선택" />
 							</div>
 						</c:forEach>
 					</c:when>

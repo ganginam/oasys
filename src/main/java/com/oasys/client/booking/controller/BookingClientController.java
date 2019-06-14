@@ -18,7 +18,7 @@ import lombok.extern.log4j.Log4j;
 
 @Log4j
 @Controller
-@RequestMapping(value="/client/booking/*")
+@RequestMapping(value="/booking/*")
 @AllArgsConstructor
 public class BookingClientController {
 	
@@ -40,5 +40,18 @@ public class BookingClientController {
 		model.addAttribute("roomList", roomList);
 		
 		return "client/booking/selectRoom";
+	}
+	
+	/*예약 상세페이지*/
+	@RequestMapping(value="/bookingClientDetail", method = RequestMethod.GET)
+	public String bookingDetail(@ModelAttribute("data") BookingVO bvo, Model model) {
+	
+		BookingVO detail = bookingClientService.bookingClientDetail(bvo);
+		model.addAttribute("detail", detail);
+		
+		return "client/booking/bookingClientDetail";
+		
+		
+		
 	}
 }
