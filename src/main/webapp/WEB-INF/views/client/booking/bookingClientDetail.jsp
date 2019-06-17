@@ -57,7 +57,7 @@
 			<table class="table">
 				<tr>
 					<td>						
-							<img id="detailimg" src="/uploadStorage/roomGrade/${detail.image1}" width="300px" /><br/>
+							<img id="detailimg" src="/resources/images/roomImage/${detail.image1}" width="300px" /><br/>
 						<form class="form-horizontal">						
 							<div class="form-group">
 								${data.b_indate}~${data.b_outdate} 총 ${data.b_inday} 박
