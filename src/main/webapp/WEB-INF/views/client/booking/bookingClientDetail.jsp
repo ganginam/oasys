@@ -52,6 +52,10 @@
 	<div class="contentContainer container-fluidA">		
 		<div>
 			<table class="table">
+				<colgroup>
+                     <col width="50%" />
+                     <col width="50%" />
+				</colgroup>
 				<tr>
 					<td>						
 							<img id="detailimg" src="/uploadStorage/roomGrade/${detail.image1}" width="300px" /><br/>
@@ -72,7 +76,7 @@
 								</div>	
 							</div>
 							<div class="form-group">
-								<label class="col-sm-2 control-label">객실당 인원 수 :</label> 
+								<label class="col-sm-2 control-label">객실 당 인원 수 :</label> 
 								 <div class="col-sm-10">
 									<input type="text" value="${data.b_persons}" readonly="readonly" />
 								</div>
@@ -93,20 +97,38 @@
 					                    <col width="20%" />
 					                    <col width="80%" />
 					                  </colgroup>
+					                <c:if test="${member.m_name != null and member.m_name != '' }">
 				                  	<tbody>
 					                  	<tr>
 					                  		<th>고객 성명 : </th>
-					                  		<td><input type="text" id="b_name" name="b_name"></td>
+					                  		<td>${member.m_name }</td>
 					                  	</tr>	
 					                    <tr>
 					                    	<th>고객 번호 : </th>
-					                    	<td><input type="text" id="b_phone" name="b_phone"></td>
+					                    	<td>${member.m_phone }</td>
 					                    </tr>
 					                    <tr>
 					                    	<th>이 &nbsp;메&nbsp; 일 : </th>
-					                    	<td><input type="text" id="b_email" name="b_email"></td>
+					                    	<td>${member.m_email }</td>
 					                    </tr>
 				                  </tbody>
+				                  </c:if>
+				                  <c:if test="${member.m_name == null or member.m_name == ''}">
+				                  <tbody>
+					                  	<tr>
+					                  		<th>고객 성명 : </th>
+					                  		<td><input type="text" id="b_name" name="b_name"/></td>
+					                  	</tr>	
+					                    <tr>
+					                    	<th>고객 번호 : </th>
+					                    	<td>${member.m_phone }</td>
+					                    </tr>
+					                    <tr>
+					                    	<th>이 &nbsp;메&nbsp; 일 : </th>
+					                    	<td>${member.m_email }</td>
+					                    </tr>
+				                  </tbody>
+				                  </c:if>
 				               </table>
 					              <div>
 					               <table class="table table-bordered">
@@ -126,7 +148,7 @@
 					                  	</tr>
 					                  	<tr>
 					                  		<th>총 결제금액 : </th>
-					                  		<td><input type="text" name="p_pay" id="p_pay" value="넣어햐합니다"></td>
+					                  		<td><input type="text" name="p_pay" id="p_pay" value="${data.b_roomcnt * detail.rg_price * data.b_inday}" readonly="readonly"></td>
 					                  	</tr>
 					                  </tbody>
 					               </table>
