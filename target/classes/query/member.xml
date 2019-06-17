@@ -119,7 +119,7 @@
 	<!-- 로그인 처리 -->
 	<select id="loginCheck" resultType="member" parameterType="member">
 
-		select m_id, m_pwd, m_name, m_type, m_phone, m_email, m_gender, m_birth from member where m_id = #{m_id} and m_pwd = #{m_pwd}
+		select m_no, m_id, m_pwd, m_name, m_type, m_phone, m_email, m_gender, m_birth from member where m_id = #{m_id} and m_pwd = #{m_pwd}
 	</select>
 	
 	<select id="memberSelect" parameterType="String" resultType="member">

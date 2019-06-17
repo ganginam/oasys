@@ -37,20 +37,26 @@
 		<script type="text/javascript">
 		$(function(){
 			$("#goPayment").click(function(){
-				$("#f_writeForm").attr({
-					"method":"post",
-					"action":"넣어합니다"
-				})
-				$("#f_writeForm").submit();
-			});		
-		});
+				var result = confirm("예약 및 결제를 하시겠습니까?");
+				if(result){
+					$("#frm_bdata").attr({
+						"method":"post",
+						"action":"/booking/bookingInsert"
+					});
+					$("#frm_bdata").submit();
+				}else{
+					location.reload();
+				}
+			});
+		});//최종 함수
 		
 		</script>
 	</head>
 	<body>
 		
 	<div class="contentContainer container-fluidA">		
-		<div>
+		<div>			
+			<form id="frm_bdata" class="form-horizontal">	
 			<table class="table">
 				<colgroup>
                      <col width="50%" />
@@ -58,40 +64,40 @@
 				</colgroup>
 				<tr>
 					<td>						
-							<img id="detailimg" src="/uploadStorage/roomGrade/${detail.image1}" width="300px" /><br/>
-						<form class="form-horizontal">						
+							<img id="detailimg" src="/uploadStorage/roomGrade/${detail.image1}" width="300px" /><br/>					
 							<div class="form-group">
-								${data.b_indate}~${data.b_outdate} 총 ${data.b_inday} 박
-							</div>
+								<input type="text" id="b_indate" name="b_indate" value="${data.b_indate}" readonly="readonly"/>~
+								<input type="text" id="b_outdate" name="b_outdate" value="${data.b_outdate}" readonly=readonly/>
+								총 <input type="text" id="b_inday" name="b_inday" value="${data.b_inday}"/> 박
+							</div>	
 							<div class="form-group">
 								<label class="col-sm-2 control-label">1박 가격:</label>
 								<div class="col-sm-10">
-									<input type="text"	value="${detail.rg_grade} ${detail.rg_price} KRW" readonly="readonly"/>
+									<input type="text"	id="rg_grade" name="rg_grade" value="${detail.rg_grade}" readonly="readonly"/>
+									<input type="text" id="rg_price" name="rg_price" value="${detail.rg_price}" />KRW
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">객실 수 : </label>
 								 <div class="col-sm-10">
-									<input type="text"	value="${data.b_roomcnt}" readonly="readonly" />
+									<input type="text"	id="b_roomcnt" name="b_roomcnt" value="${data.b_roomcnt}" readonly="readonly" />
 								</div>	
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">객실 당 인원 수 :</label> 
 								 <div class="col-sm-10">
-									<input type="text" value="${data.b_persons}" readonly="readonly" />
+									<input type="text" id="b_persons" name="b_persons" value="${data.b_persons}" readonly="readonly" />
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">총 가격:</label>
 							 	<div class="col-sm-10"> 
-									<input type="text" value="${data.b_roomcnt * detail.rg_price * data.b_inday} KRW" readonly="readonly" />
+									<input type="text" id="b_payment" name="b_payment" value="${data.b_roomcnt * detail.rg_price * data.b_inday} KRW" readonly="readonly" />
 								</div>
 							</div>
-						</form>
 					</td>
 					<td>
 						<div>
-							<form id="f_writeForm" name="f_writeForm" class="form-horizontal">			            
 				               	<table class="table table-bordered">
 					                 <colgroup>
 					                    <col width="20%" />
@@ -99,33 +105,39 @@
 					                  </colgroup>
 					                <c:if test="${member.m_name != null and member.m_name != '' }">
 				                  	<tbody>
-					                  	<tr>
-					                  		<th>고객 성명 : </th>
-					                  		<td>${member.m_name }</td>
+				                  		
+					                  	<tr>						        				             
+					                  		<th>예약 성명 : </th>					                  		
+					                  		<td><input type="text" id="b_name" name="b_name" value="${member.m_name}"/>
+					                  		<input type="hidden" id="m_no" name="m_no" value="${member.m_no}"/>
+					                  		<input type="hidden" id="b_ismember" name="b_ismember" value="회원" />
+					                  		</td>
 					                  	</tr>	
 					                    <tr>
-					                    	<th>고객 번호 : </th>
-					                    	<td>${member.m_phone }</td>
+					                    	<th>고객 전화번호 : </th>
+					                    	<td><input type="text" id="b_phone" name="b_phone" value="${member.m_phone}" /></td>
 					                    </tr>
 					                    <tr>
 					                    	<th>이 &nbsp;메&nbsp; 일 : </th>
-					                    	<td>${member.m_email }</td>
+					                    	<td><input type="text" id="b_email" name="b_email" value="${member.m_email}" /></td>
 					                    </tr>
 				                  </tbody>
 				                  </c:if>
 				                  <c:if test="${member.m_name == null or member.m_name == ''}">
 				                  <tbody>
 					                  	<tr>
-					                  		<th>고객 성명 : </th>
-					                  		<td><input type="text" id="b_name" name="b_name"/></td>
+					                  		<th>예약 성명 : </th>
+					                  		<td><input type="text" id="b_name" name="b_name"/>
+					                  		<input type="hidden" id="b_ismember" name="b_ismember" value="비회원" />
+					                  		</td>
 					                  	</tr>	
 					                    <tr>
-					                    	<th>고객 번호 : </th>
-					                    	<td>${member.m_phone }</td>
+					                    	<th>고객 전화번호 : </th>
+					                    	<td><input type="text" id="b_phone" name="b_phone"/></td>
 					                    </tr>
 					                    <tr>
 					                    	<th>이 &nbsp;메&nbsp; 일 : </th>
-					                    	<td>${member.m_email }</td>
+					                    	<td><input type="text" id="b_email" name="b_email"/></td>
 					                    </tr>
 				                  </tbody>
 				                  </c:if>
@@ -147,8 +159,8 @@
 					                  		</td>
 					                  	</tr>
 					                  	<tr>
-					                  		<th>총 결제금액 : </th>
-					                  		<td><input type="text" name="p_pay" id="p_pay" value="${data.b_roomcnt * detail.rg_price * data.b_inday}" readonly="readonly"></td>
+					                  		<th>총 결제금액 : </th>	
+					                  		<td><input type="text" name="b_pay" id="b_pay" value="${data.b_roomcnt * detail.rg_price * data.b_inday} KRW" readonly="readonly"></td>
 					                  	</tr>
 					                  </tbody>
 					               </table>
@@ -157,11 +169,11 @@
 				                  <input type="button" value="결제 및 예약" id="goPayment"  class="btn btn-primary">
 				                  <input type="reset" value="취소" id="cancelPayment"  class="btn btn-primary">
 				               </div>
-			            	</form>
 						</div>	
 					</td>								
-				</tr>
-			</table>
+				</tr>			
+			</table>		
+			</form>
 		</div>	
 	</div> 
 	</body>

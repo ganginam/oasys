@@ -9,4 +9,10 @@ public interface BookingClientService {
 	public List<BookingVO> roomList(BookingVO bvo);	
 	
 	public BookingVO bookingClientDetail(BookingVO bvo);
+	
+	public List<Integer> randomcnt(BookingVO bvo);
+	
+	public int bookingInsert(BookingVO bvo);
+	
+	public int bookingNum();
 }

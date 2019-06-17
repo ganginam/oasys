@@ -37,4 +37,32 @@ public class BookingClientServiceImpl implements BookingClientService{
 		return detail;
 	}
 
+	@Override
+	public List<Integer> randomcnt(BookingVO bvo) {
+		List<Integer> result = null;
+		
+		result = bookingDao.randomcnt(bvo);
+		
+		return result;
+	}
+
+	@Override
+	public int bookingInsert(BookingVO bvo) {
+		int result = 0;
+		
+		result = bookingDao.bookingInsert(bvo);
+		
+		return  result;
+		
+	}
+
+	@Override
+	public int bookingNum() {
+		int b_num=0;
+		
+		b_num = bookingDao.bookingNum();
+		
+		return b_num;
+	}
+
 }

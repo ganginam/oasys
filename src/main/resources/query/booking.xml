@@ -92,5 +92,29 @@
 		WHERE rg_grade = #{rg_grade}
 	</select>
 	
+	<!--  랜덤 호수 뽑기 -->
+	<select id="randomcnt" parameterType="booking" resultType="int">
+		select  r_number 
+		from 
+		(select r.* , rg.rg_price from room r inner join roomgrade rg on r.rg_grade = rg.rg_grade 
+		where r_number not in 
+		<![CDATA[
+		(select r_number 
+			     FROM booking where b_indate<= #{b_indate} and #{b_indate} <b_outdate or b_indate<=#{b_outdate} and #{b_outdate}<b_outdate) 
+			     order by DBMS_RANDOM.RANDOM)
+		where rg_grade=#{rg_grade} and rownum<=#{b_roomcnt}
+		]]>
+	</select>
+	
+	<!-- 예약번호 배부 -->
+	<select id="bookingNum" resultType="int">
+		select booking_seq.nextval from dual
+	</select>
+	
+	<!-- 예약 인서트 -->
+	<insert id="bookingInsert" parameterType="booking">
+		INSERT INTO booking(b_num, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, m_no, rg_grade, r_number, b_persons)
+		VALUES(#{b_num},#{b_indate}, #{b_outdate}, #{b_ismember}, #{b_name}, #{b_phone}, #{b_email}, #{b_payment}, #{m_no}, #{rg_grade}, #{r_number}, #{b_persons})
+	</insert>
 	
 </mapper>

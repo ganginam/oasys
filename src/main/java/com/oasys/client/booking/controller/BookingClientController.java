@@ -50,8 +50,26 @@ public class BookingClientController {
 		model.addAttribute("detail", detail);
 		
 		return "client/booking/bookingClientDetail";
+						
+	}
+	
+	@RequestMapping(value="/bookingInsert", method = RequestMethod.POST)
+	public String bookingInsert(@ModelAttribute("data") BookingVO bvo, Model model) {
+		log.info("bvo : " + bvo);
+		List<Integer> roomcnt = null;
 		
+		int b_num = bookingClientService.bookingNum();
+		bvo.setB_num(b_num);
 		
+		roomcnt = bookingClientService.randomcnt(bvo);
 		
+		for(Integer b_room : roomcnt) {
+			bvo.setR_number(b_room);
+			bookingClientService.bookingInsert(bvo);
+		}
+		
+		model.addAttribute("r_number", roomcnt);
+		
+		return "client/booking/complete";
 	}
 }
