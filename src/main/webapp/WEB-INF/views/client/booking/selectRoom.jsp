@@ -22,7 +22,7 @@
 		<link href="/resources/include/css/common.css" rel="stylesheet">
 		
 		<link href="/resources/include/css/default.css" rel="stylesheet">
-      
+      	<!-- <link href="/resources/include/css/selectroom.css" rel="stylesheet" type="text/css"> -->
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
 		<!-- <link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/> -->
@@ -36,7 +36,7 @@
 		<script type="text/javascript" src="/resources/include/js/jquery-ui.js"></script>
 		<script type="text/javascript">
 		$(function(){
-			$(".selectRoomBtn").click(function(){
+			$(".goDetail").click(function(){
 				var rg_grade = $(this).parents("div").attr("data-name");
 				$("#rg_grade").val(rg_grade);
 				
@@ -50,8 +50,53 @@
 			$("#reBooking").click(function(){
 				location.href="/booking/booking";
 			});
+			$(".goJSP").click(function(){
+				
+				var grade = $(this).parents("tr").attr("data-name");
+				console.log(grade);
+				if(grade=="디럭스(CITY)"||grade=="디럭스(RIVER)"){
+					location.href="/roomGrade/showDeluxe";
+				}else if(grade=="디럭스 트윈(CITY)"||grade=="디럭스 트윈(RIVER)"){
+					location.href="/roomGrade/showDeluxeDubble";
+				}else if(grade=="스위트(CITY)"||grade=="스위트(RIVER)"){
+					location.href ="/roomGrade/showSuite"
+				}else if(grade=="스위트 패밀리(CITY)"||grade=="스위트 패밀리(RIVER)"){
+					location.href = "/roomGrade/showSuiteFamilly";
+				}
+			})
 		}); //$최종		
 	</script>
+	<style type="text/css">
+	table {
+			  font-family: 'Arial';
+			  border-collapse: collapse;
+			  border: 1px solid #eee;
+			  border-bottom: 2px solid #00cccc;
+			  box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
+			     0px 10px 20px rgba(0,0,0,0.05),
+			     0px 20px 20px rgba(0,0,0,0.05),
+			     0px 30px 20px rgba(0,0,0,0.05);
+			}
+			 tr:hover{background: #f4f4f4;}			  
+			th, td {
+			    color: #999;
+			    border: 1px solid #eee;
+			    padding: 12px 35px;
+			    border-collapse: collapse;
+			  }
+			th {
+			    background: black;
+			    color: #fff;
+			    text-transform: uppercase;
+			    font-size: 12px;
+			    &.last {
+			      border-right: none;
+			    }
+			  }
+			  .reset{
+			  	margin-bottom:30px
+			  }
+	</style>
 	</head>
 	<body>
 		<div class="contentContainer container-fluidA">
@@ -63,17 +108,52 @@
 				<input type="hidden" id="b_roomcnt" name="b_roomcnt" value="${data.b_roomcnt}"/>
 				<input type="hidden" id="b_persons" name="b_persons" value="${data.b_persons}" />
 			</form>
-			<label>${data.b_indate} ~ ${data.b_outdate} </label>
-			<input type="button" id="reBooking" name="reBooking" value="다시 선택" />
 			<div>
+			<div class="reset">
+			<table>
+				<thead>
+					<tr>
+						<th>입실일자</th>
+						<th>퇴실일자</th>
+						<th>뒤로가기</th>
+					</tr>
+					<tr>
+						<td>${data.b_indate}</td>
+						<td>${data.b_outdate}</td>
+						<td><input type="button" id="reBooking" name="reBooking" value="다시 선택" class="btn btn-success"/> </td>
+					</tr>
+				</thead>
+			</table>
+			</div>
+			
 				<c:choose>
 					<c:when test="${not empty roomList}">
+					<table>
+						<thead>
+							<tr>
+								<th>객실 등급</th>
+								<th>남은 객실 수</th>
+								<th>1박당 가격</th>
+								<th>대표 이미지</th>
+								<!-- <th>선택하세요</th> -->
+								
+							</tr>
+						</thead>
+						<tbody>
 						<c:forEach var="room" items="${roomList}" varStatus="status">
-							<div class="goDetail" data-name="${room.rg_grade}">${room.rg_grade} 남은 객실 수 : ${room.b_roomcnt} <br/>
-							${room.rg_price}KRW 1박 가격
-							<input type="button" class="selectRoomBtn btn btn-primary" value="선택" />
-							</div>
+							<tr data-name="${room.rg_grade}">
+								<td class="goDetail" >${room.rg_grade}</td>
+								<td class="goDetail" >${room.b_roomcnt}</td>
+								<td class="goDetail" >${room.rg_price}</td>
+								<td class="goJSP">
+									<img alt="로딩중.." src="/resources/images/roomImage/${room.image1}" width="300px">
+									<p>이미지 클릭시 해당 객실 상세페이지로 이동합니다.</p>
+								</td>
+								<!-- <td><input type="button" class="selectRoomBtn btn btn-primary" value="선택" /></td> -->
+							</tr>
 						</c:forEach>
+						</tbody>
+					</table>
 					</c:when>
 					<c:otherwise>
 						<div>예약 가능한 방이 존재하지 않습니다.</div>				
@@ -83,3 +163,9 @@
 		</div>
 	</body>
 </html>
+<%-- 
+<div class="goDetail" data-name="${room.rg_grade}">
+${room.rg_grade} 남은 객실 수 : ${room.b_roomcnt} <br/>
+${room.rg_price}KRW 1박 가격
+<input type="button" class="selectRoomBtn btn btn-primary" value="선택" />
+</div> --%>
