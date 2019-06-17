@@ -22,9 +22,10 @@
 		<link href="/resources/include/css/common.css" rel="stylesheet">
 		
 		<link href="/resources/include/css/default.css" rel="stylesheet">
-      	<!-- <link href="/resources/include/css/selectroom.css" rel="stylesheet" type="text/css"> -->
+      	
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
+		<link href="/resources/include/css/selectroom.css" rel="stylesheet" type="text/css">
 		<!-- <link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/> -->
 		<!-- Custom styles for this template -->
     	<link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
@@ -37,7 +38,7 @@
 		<script type="text/javascript">
 		$(function(){
 			$(".goDetail").click(function(){
-				var rg_grade = $(this).parents("div").attr("data-name");
+				var rg_grade = $(this).parents("tr").attr("data-name");
 				$("#rg_grade").val(rg_grade);
 				
 				$("#b_data").attr({
@@ -67,35 +68,7 @@
 		}); //$최종		
 	</script>
 	<style type="text/css">
-	table {
-			  font-family: 'Arial';
-			  border-collapse: collapse;
-			  border: 1px solid #eee;
-			  border-bottom: 2px solid #00cccc;
-			  box-shadow: 0px 0px 20px rgba(0,0,0,0.10),
-			     0px 10px 20px rgba(0,0,0,0.05),
-			     0px 20px 20px rgba(0,0,0,0.05),
-			     0px 30px 20px rgba(0,0,0,0.05);
-			}
-			 tr:hover{background: #f4f4f4;}			  
-			th, td {
-			    color: #999;
-			    border: 1px solid #eee;
-			    padding: 12px 35px;
-			    border-collapse: collapse;
-			  }
-			th {
-			    background: black;
-			    color: #fff;
-			    text-transform: uppercase;
-			    font-size: 12px;
-			    &.last {
-			      border-right: none;
-			    }
-			  }
-			  .reset{
-			  	margin-bottom:30px
-			  }
+		
 	</style>
 	</head>
 	<body>

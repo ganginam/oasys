@@ -24,6 +24,7 @@
 		<link href="/resources/include/css/default.css" rel="stylesheet">
       
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="/resources/include/css/bookingClientDetail.css" />
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
 		<!-- <link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/> -->
 		<!-- Custom styles for this template -->
@@ -34,6 +35,7 @@
 		<script type="text/javascript" src="/resources/include/js/common.js"></script>
 		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="/resources/include/js/jquery-ui.js"></script>
+		
 		<script type="text/javascript">
 		$(function(){
 
@@ -50,123 +52,103 @@
 
 	</head>
 	<body>
-		
-	<div class="contentContainer container-fluidA">		
-		<div>
-
-			<table class="table">
-				<colgroup>
-                     <col width="50%" />
-                     <col width="50%" />
-				</colgroup>
+	<div class="main">
+	<div class="Leftbar">
+	<div class="tbl mb50">
+	<div class="imgdiv">
+		<img alt="asdasd" src="/resources/images/roomImage/${detail.image1}" width="500px">
+		<p>이미지 클릭시 해당 객실 상세페이지로 이동합니다.</p>
+	</div>
+		<table>
+			<caption>고객정보</caption>
+			<colgroup>
+				<col width="20%" />
+			</colgroup>
 				<tr>
-					<td>						
-							<img id="detailimg" src="/resources/images/roomImage/${detail.image1}" width="300px" /><br/>
-						<form class="form-horizontal">						
-							<div class="form-group">
-								${data.b_indate}~${data.b_outdate} 총 ${data.b_inday} 박
-							</div>
-							<div class="form-group">
-								<label class="col-sm-2 control-label">1박 가격:</label>
-								<div class="col-sm-10">
-									<input type="text"	value="${detail.rg_grade} ${detail.rg_price} KRW" readonly="readonly"/>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-2 control-label">객실 수 : </label>
-								 <div class="col-sm-10">
-									<input type="text"	value="${data.b_roomcnt}" readonly="readonly" />
-								</div>	
-							</div>
-							<div class="form-group">
-								<label class="col-sm-2 control-label">객실 당 인원 수 :</label> 
-								 <div class="col-sm-10">
-									<input type="text" value="${data.b_persons}" readonly="readonly" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-2 control-label">총 가격:</label>
-							 	<div class="col-sm-10"> 
-									<input type="text" value="${data.b_roomcnt * detail.rg_price * data.b_inday} KRW" readonly="readonly" />
-								</div>
-							</div>
-						</form>
+					<th scope="row"><label for="res_cust_nm">성명(한글)</label></th>
+					<td><input type="text" name="res_cust_nm" maxlength="5"/></td>
+				</tr>
+				<tr>
+					<th scope="row"><label for="email">이메일</label></th>
+					<td>					
+						<input type="text"name="mb_email" id="mb_email"/> 
 					</td>
+				</tr>
+				<tr>
+					<th scope="row"><label for="mb_phone">휴대폰</label></th>
 					<td>
-						<div>
-							<form id="f_writeForm" name="f_writeForm" class="form-horizontal">			            
-				               	<table class="table table-bordered">
-					                 <colgroup>
-					                    <col width="20%" />
-					                    <col width="80%" />
-					                  </colgroup>
-					                <c:if test="${member.m_name != null and member.m_name != '' }">
-				                  	<tbody>
-					                  	<tr>
-					                  		<th>고객 성명 : </th>
-					                  		<td>${member.m_name }</td>
-					                  	</tr>	
-					                    <tr>
-					                    	<th>고객 번호 : </th>
-					                    	<td>${member.m_phone }</td>
-					                    </tr>
-					                    <tr>
-					                    	<th>이 &nbsp;메&nbsp; 일 : </th>
-					                    	<td>${member.m_email }</td>
-					                    </tr>
-				                  </tbody>
-				                  </c:if>
-				                  <c:if test="${member.m_name == null or member.m_name == ''}">
-				                  <tbody>
-					                  	<tr>
-					                  		<th>고객 성명 : </th>
-					                  		<td><input type="text" id="b_name" name="b_name"/></td>
-					                  	</tr>	
-					                    <tr>
-					                    	<th>고객 번호 : </th>
-					                    	<td>${member.m_phone }</td>
-					                    </tr>
-					                    <tr>
-					                    	<th>이 &nbsp;메&nbsp; 일 : </th>
-					                    	<td>${member.m_email }</td>
-					                    </tr>
-				                  </tbody>
-				                  </c:if>
-				               </table>
-					              <div>
-					               <table class="table table-bordered">
-					                  <colgroup>
-					                     <col width="20%" />
-					                     <col width="80%" />
-					                  </colgroup>
-					                  <tbody>
-					                  	<tr>
-					                  		<th>결제 수단 선택 : </th>
-					                  		<td>
-					                  			<select name="p_method">
-					                  				<option value="card">카드</option>
-					                  				<option value="cash">무통장입금</option>
-					                  			</select>
-					                  		</td>
-					                  	</tr>
-					                  	<tr>
-					                  		<th>총 결제금액 : </th>
-					                  		<td><input type="text" name="p_pay" id="p_pay" value="${data.b_roomcnt * detail.rg_price * data.b_inday}" readonly="readonly"></td>
-					                  	</tr>
-					                  </tbody>
-					               </table>
-					             </div>
-				               <div class="text-right">
-				                  <input type="button" value="결제 및 예약" id="goPayment"  class="btn btn-primary">
-				                  <input type="reset" value="취소" id="cancelPayment"  class="btn btn-primary">
-				               </div>
-			            	</form>
-						</div>	
-					</td>								
+						<input type="text"name="mb_phone1" id="mb_phone1">
+					</td>
 				</tr>
 			</table>
-		</div>	
-
-	</div> 
+	</div>
+	</div>
+	<div class="RightBar">
+	<div id="_tip_box_item"></div>
+	<ul class="summary">
+		<li>
+			<div class="tit">01. 일정</div>
+			<div class="cont">
+				<table class="normal">
+				<caption>일정 선택</caption>
+				<colgroup>
+					<col width="23%" />
+					<col width="34%" />
+					<col width="43%" />
+				</colgroup>
+					<tr>
+						<th scope="row"><label for="">체크인</label></th>
+						<td colspan="2"><input type="text" value="${data.b_indate}" readonly /></td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="">체크아웃</label></th>
+						<td colspan="2"><input type="text" value="${data.b_outdate}" readonly /></td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="">박수</label></th>
+						<td colspan="2"><input type="text" value="${data.b_inday}" class="w03" readonly /> 박</td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="room_cnt">객실수</label></th>
+						<td colspan="2">
+							<input type="text" name="room_cnt" id="room_cnt" style="width:80px" value="${data.b_roomcnt}" readonly>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="room_adult_num">인원수</label></th>
+						<td>
+							<input type="text" name="room_adult_num" class="w30" value="${data.b_persons}" readonly>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</li>
+		<li>
+			<div class="tit">02. 객실</div>
+			<div class="cont">
+				<strong class="rooms">${detail.rg_grade}</strong>
+				<ul class="lr">
+					<li>
+						<span></span>						
+					</li>
+					<li>
+						<strong>${data.b_indate}&nbsp;&nbsp;</strong>
+						<strong class="ri_charge">${detail.rg_price}원&nbsp;</strong>
+						<br />
+					</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+	<div class="totalPrice">
+		<span>요금합계</span>
+		<strong id="price_total">${data.b_roomcnt * detail.rg_price * data.b_inday}원</strong>
+	</div>
+	<div class="btnCenterGroup">
+		<a href="" class="btn powderblue btn_s">이전</a>
+		<a href="" class="btn powderblue btn_s">결제하기</a>
+	</div>
+	</div>
+	</div>
 	</body>
 </html>

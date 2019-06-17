@@ -1,0 +1,35 @@
+			div .imgdiv{
+				margin-bottom:30px;
+			}
+			input[type=text]{
+				padding:5px;
+			}
+			.tbl{position:relative;padding:0}
+			.tbl table{border-top:2px solid #000}
+			.tbl th{border-bottom:1px solid #c9c9c9;font-size:17px;font-family:'nSquare';color:#4d7b9c;letter-spacing:-1px}
+			.tbl thead th{padding:20px 0 18px 0px;text-align:center;}
+			.tbl tbody th{padding:20px 0 18px 25px;vertical-align:top}
+			.tbl td{padding:20px 0 18px 35px;border-left:1px solid #c9c9c9;border-bottom:1px solid #c9c9c9;background:#fbfbfb;line-height:1.7}
+			.tbl input[type=text]{border:1px solid #999;background-color:#fbfbfb}
+			
+			 
+			.LeftBox	{ float:left; position:relative; width:300px}
+			.RightBar{float:right;right:70%;top:0;width:260px;margin-top:-528px;margin-right:200px}
+			ul.summary	{border:3px solid #4d7b9c; margin-bottom:10px; background:#fff }
+			ul.summary li	{ position:relative}
+			ul.summary li .tit	{ padding:10px 15px; font-weight:600; color: #7595ab; border-bottom:1px dotted #4d7b9c; background:#f9f9f9}
+			ul.summary li .cont	{ padding:15px 13px; border-bottom:1px solid #4d7b9c}
+			table.normal th	{	font-size:13px; font-weight:400; padding:5px 0;}
+			table.normal td	{	font-size:13px; font-weight:400; padding:5px 0;}
+			table.normal input[type=text]	{ width:85%; font-size:13px; color:#666; padding-left:5px; border:1px solid #ddd}
+			ul.lr li	{ position:relative; font-size:13px; color:#555}
+			
+			.totalPrice	{ padding:20px 25px; border:3px solid #4d7b9c; background:#f9f9f9; margin-bottom:10px;}
+			.totalPrice span	{ float:left; font-weight:600; color: #7595ab;}
+			.totalPrice strong	{ float:right; font-weight:500; color:#e84c3d; font-size:15px}
+			
+			.btnCenterGroup{padding:30px 0 0;background:#fff;text-align:center}
+			.btnCenterGroup a{display:inline-block}
+			a.btn.powderblue{border:2px solid #a4a4a4;background:#fff;line-height:56px;color:#474747; width: 126px; margin-top:-30px;}
+			a.btn.powderblue:focus,a.btn.powderblue:hover{border-color:#4d7b9c;background:#4d7b9c;color:#fff}
+		
