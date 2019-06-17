@@ -100,7 +100,7 @@
    					</table>
    					
    					<div class="text-center">
-		   				<input type="button" id="btn_update" value="회원 정보 수정" class="btn btn-default"/>
+		   				<input type="button" id="btn_update" value="회원 정보 수정" class="btn btn-primary"/>
 		   				<input type="button" id="btn_back" value="뒤로 가기"  class="btn btn-default"/>
 		   				
    					</div>
