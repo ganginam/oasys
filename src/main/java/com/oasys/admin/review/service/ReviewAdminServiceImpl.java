@@ -1,4 +1,4 @@
-package com.oasys.client.review.service;
+package com.oasys.admin.review.service;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import lombok.extern.log4j.Log4j;
 
 @Service
 @Log4j
-public class ReviewServiceImpl implements ReviewService{
+public class ReviewAdminServiceImpl implements ReviewAdminService {
 	@Setter(onMethod_ = @Autowired)
 	private ReviewDao reviewDao;
 	
@@ -62,5 +62,4 @@ public class ReviewServiceImpl implements ReviewService{
 		// TODO Auto-generated method stub
 		return reviewDao.reviewListCnt(rvo);
 	}
-
 }

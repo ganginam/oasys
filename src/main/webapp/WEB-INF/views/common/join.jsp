@@ -176,7 +176,7 @@
                 <ul>
                     <li><a href='/'><img src="/resources/images/hotelImages/logo.png" alt="home" class="logoImage" width="25" height="25"></a></li>
                     <li> > </li>
-                    <li><a href=''> 메뉴대분류이름 </a></li>
+                    <li><a href='/common/check'>약관동의 </a></li>
                     <li> > </li>
                     <li class="current"><a href='#'>회원가입</a></li>
                 </ul>
@@ -185,13 +185,13 @@
        <br/><br/><br/><br/><br/>
    <div id="content" class="content content-suite">
       <div class="container">
-   			<div>
+   			<div> 
    				<form id="frm_join" name="frm_join" class="form-inline">
-   					<table class="table">
+   					<table class="table table-hover">
    						<tr>
    							<td>아이디</td>
    							<td><input type="text" id="m_id" name="m_id" placeholder="아이디를 입력해주세요"/>
-   								<input type="button" id="idCheck" value="중복확인"/>
+   								<input type="button" id="idCheck" value="중복확인" class="btn btn-sm"/> 
    							</td> 
    						</tr>
    						<tr>
@@ -240,7 +240,7 @@
    								
    								
    								<!-- <input type="button" value="전달" onclick="send()"/> -->
-   								<input type="button" id="emailCheck" name="emailCheck" value="인증하기" onclick="showPopUp()"/>
+   								<input type="button" id="emailCheck" name="emailCheck" value="인증하기" onclick="showPopUp()" class="btn btn-sm"/>
    								
    								<!-- 이메일 인증 여부 표시 -->
    								<input type="text" id="emailSuccess" name="emailSuccess" readonly="readonly"/>
@@ -284,9 +284,9 @@
    							</td>
    						</tr>
    					</table>
-   					
+   					 
    					<div class="text-center">
-		   				<input type="button" id="btn_joinSuccess" class="btn btn-default" value="회원가입"/>
+		   				<input type="button" id="btn_joinSuccess" class="btn btn-primary" value="회원가입"/>
 		   				<input type="reset" id="reset" value="초기화" class="btn btn-default"/>
 		   				<input type="button" id="btn_back" value="뒤로 가기"  class="btn btn-default"/>
    					</div>

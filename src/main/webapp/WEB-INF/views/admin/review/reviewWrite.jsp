@@ -30,17 +30,25 @@
          
       </style>
       <script type="text/javascript">
+      		$(function(){
+      			$("#btn_back").click(function(){
+      				window.history.back();
+      			});
+      			
+      			$("#btn_insert").click(function(){
+      				if(!chkData("#re_title", "제목을")) return;
+      				else if(!chkData("#re_content", "내용을")) return;
+      				else {
+      					$("#f_reviewWrite").attr({
+      						"method":"post",
+      						"action":"/admin/review/reviewInsert"
+      					});
+      					$("#f_reviewWrite").submit();
+      				}
+      			});
+      		});
       
-      	$(function(){
-      		$("#btn_back").click(function(){
-      			window.history.back();
-      		});
-      		
-      		$("#btn_update").click(function(){
-      			location.href="/common/update";
-      		});
-      	});
-   	</script>
+		</script>
    </head>
    <body>
       <div class="location">
@@ -49,65 +57,44 @@
                     <li> > </li>
                     <li><a href=''> 메뉴대분류이름 </a></li>
                     <li> > </li>
-                    <li class="current"><a href='#'>INFO</a></li>
+                    <li class="current"><a href='/'>메뉴소분류이름</a></li>
                 </ul>
-                <h1 class="text-center">회원정보</h1>
+                <h1 class="text-center">후기</h1>
        </div>
        <br/><br/><br/><br/><br/>
    <div id="content" class="content content-suite">
- 				<div class="container">
-
-   			<div>
-   				<form class="form-inline">
-   					<table class="table">
-   						<tr> 
-   							<td><strong>아이디</strong></td>
-   							<td>${member.m_id }</td> 
-   						</tr>
-   						
-   						<tr>
-   							<td><strong>이름</strong></td>
-   							<td>${member.m_name }</td>
-   						</tr> 
-   						<tr>
-   							<td><strong>핸드폰</strong></td>
-   							<td>${member.m_phone }</td>
-   						</tr>
-   						<tr>
-   							<td><strong>이메일</strong></td>
-   							<td>${member.m_email }</td>
-   						</tr>
-   						<tr>
-   							<td><strong>생년월일</strong></td>
-   							<td>${member.m_birth }</td>
-   						</tr>
-   						<tr>
-   							<td><strong>성별</strong></td>
-   							<td>${member.m_gender }</td>
-   						</tr>
-   						<tr>
-   							<td><strong>회원 등급</strong></td>
-   							<td>${member.mg_grade}</td>
-   						</tr>
-   						<tr>
-   							<td><strong>총 이용 금액</strong></td>
-   							<td>${member.m_total }</td>
-   						</tr>
-   						<tr>
-   							<td><strong>올해 이용 금액</strong></td>
-   							<td>${member.m_ytotal }</td>
-   						</tr>
-   					</table>
-   					
-   					<div class="text-center">
-		   				<input type="button" id="btn_update" value="회원 정보 수정" class="btn btn-default"/>
-		   				<input type="button" id="btn_back" value="뒤로 가기"  class="btn btn-default"/>
-		   				
-   					</div>
-   				</form>
-
-   			</div>
-   		</div>
+		<div class="container">
+			<form id="f_reviewWrite" name="f_reviewWrite" class="form-horizontal">
+				<table class="table table-bordered">
+					<colgroup>
+						<col width="20%">
+						<col width="80%">
+					</colgroup>
+					<tbody>
+						<tr>
+							<td>작성자</td>
+							<td class="text-left"><input type="text" name="re_name" value="${member.m_name}" readonly="readonly"/>(${member.m_id })</td>
+						</tr>
+						<tr>
+							<td>제목</td>
+							<td class="text-left"><input type="text" name="re_title" id="re_title" class="form-control"></td>
+						</tr>
+						<tr>
+							<td>내용</td>
+							<td class="text-left">
+								<textarea rows="8" name="re_content" id="re_content" class="form-control"></textarea>
+							</td>
+						</tr>
+					</tbody>
+				</table> 
+				
+				<div class="text-right">
+					<input type="button" value="저장" id="btn_insert" class="btn btn-default"/>
+					<input type="reset" value="초기화" class="btn btn-default"/>
+					<input type="button" value="뒤로가기" id="btn_back" class="btn btn-default"/>
+				</div>
+			</form>
+		</div>
    </div>
    </body>
 </html>

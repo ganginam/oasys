@@ -119,7 +119,7 @@
 							<td><input type="text" name="m_email" id="searchId_email" placeholder="이메일을 입력해주세요"/></td>
 						</tr>
 					</table>
-					<input type="button" id="btn_searchId" name="btn_searchId" value="확인" class="btn btn-default"/>
+					<input type="button" id="btn_searchId" name="btn_searchId" value="확인" class="btn btn-primary"/>
 					<input type="button" id="btn_back" value="취소" class="btn btn-default"/>
 				</form>
 			</div>
@@ -141,7 +141,7 @@
 							<td><input type="text" name="m_email" id="searchPw_email" placeholder="이메일을 입력해주세요"/></td>
 						</tr>
 					</table>
-					<input type="button" id="btn_pwSearch" name="btn_pwsearch" value="확인" class="btn btn-default"/>
+					<input type="button" id="btn_pwSearch" name="btn_pwsearch" value="확인" class="btn btn-primary"/>
 					<input type="button" id="btn_back2" value="취소" class="btn btn-default"/>
 				</form>
 			</div>

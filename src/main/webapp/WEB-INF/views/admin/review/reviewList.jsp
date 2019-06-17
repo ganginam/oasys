@@ -50,14 +50,18 @@
 					// 상세 페이지로 이동하기 위해 form 추가 (id : detailForm)
 					$("#detailForm").attr({
 						"method":"get",
-						"action":"/review/reviewDetail"
+						"action":"/admin/review/reviewDetail"
 					});
 					$("#detailForm").submit();
 				});
       			
       			$("#btn_write").click(function(){
-      				location.href="/review/reviewWrite";
+      				location.href="/admin/review/reviewWrite";
       			});
+      			
+      			$(".paginate_button a").click(function(e){
+    		    	e.preventDefault();
+    			});
       		});
       
 		</script>
@@ -67,10 +71,10 @@
                 <ul>
                     <li><a href='/'><img src="/resources/images/hotelImages/logo.png" alt="home" class="logoImage" width="25" height="25"></a></li>
                     <li> > </li>
-                    <li><a href=''> 메뉴대분류이름 </a></li>
+                    <li><a href=''>컨시어지 </a></li>
                     <li> > </li>
-                    <li class="current"><a href='/'>메뉴소분류이름</a></li>
-                </ul>
+                    <li class="current"><a href='#'>후기</a></li>
+                </ul> 
                 <h1 class="text-center">후기</h1>
        </div>
        <br/><br/><br/><br/><br/> 
@@ -78,6 +82,8 @@
 		<div class="container">
 			<form id="detailForm">
    				<input type="hidden" id="re_num" name="re_num"/>
+   				<input type="hidden" name="pageNum" id="pageNum" value="${pageMaker .cvo.pageNum}" />
+				<input type="hidden" name="amount" id="amount" value="${pageMaker.cvo.amount}" />
    			</form>
    			
 			<div id="reviewList">
@@ -117,26 +123,27 @@
 			
 			<!-- 페이징 처리 -->
    			<div class="text-center">
-   				<ul class="pagination">
-   					<c:if test="${pageMaker.prev }">
-   						<li class="paginate_button previous">
-   							<a href="${pageMaker.startPage -1 }">Previous</a>
-   						</li>
-   					</c:if>
-   					
-   					<c:forEach var="num" begin="${pageMaker.startPage }" end="${pageMaker.endPage }">
-   						<li class="paginate_button ${pageMaker.cvo.pageNum == num ? 'active' : '' }">
-   							<a href="${num }">${num }</a>
-   						</li>
-   					</c:forEach>
-   					
-   					<c:if test="${pageMaker.next }">
-   						<li class="paginate_button next">
-   							<a href="${pageMaker.endPage +1 }">Next</a>
-   						</li>
-   					</c:if>
-   				</ul>
-   			</div>
+				<ul class="pagination">
+					<c:if test="${pageMaker.prev}">
+						<li class="paginate_button previous">
+							<a href="${pageMaker.startPage -1}">Previous</a>
+						</li>
+					</c:if>
+					
+					<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+						<li class="paginate_button ${pageMaker.cvo.pageNum == num ? 'active' : ''}">	<!-- 선택된 페이지 색깔 주기 -->
+							<a href="${num}">${num}</a>
+						</li>
+					</c:forEach>
+					
+				<c:if test="${pageMaker.next}">
+					<li class="paginate_button next">
+						<a href="${pageMaker.endPage +1}">Next</a>
+					</li>
+				</c:if>
+				</ul>
+			</div>
+   			
 			<c:if test="${member.m_id != null and member.m_id != '' }">
 			<div class="contentBtn text-right">
 				<input type="button" id="btn_write" class="btn btn-default" value="글쓰기"/>

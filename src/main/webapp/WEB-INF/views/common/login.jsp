@@ -18,17 +18,17 @@
       <link rel="stylesheet" type="text/css" href="/resources/include/css/lightbox.css"/>
       <link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
       <link rel="stylesheet" type="text/css" href="/resources/include/css/showroom.css"/>
-      
+      <style type="text/css">
+  		.container {
+  			.center-block();
+  			width:300px;
+		}
+      </style>
       <!-- Custom styles for this template -->
        <link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
       <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
       <script type="text/javascript" src="/resources/include/js/common.js"></script>
       <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
-      <style type="text/css">
-         
-         
-         
-      </style>
       
 	<script type="text/javascript">
 			function errorCodeCheck(){
@@ -82,14 +82,16 @@
                     <li> > </li>
                     <li class="current"><a href='login'>로그인</a></li>
                 </ul>
+                <c:if test="${member.m_id == null or member.m_id=='' }">
                 <h1 class="text-center">로그인</h1> 
+                </c:if>
        </div>
        <br/><br/><br/><br/><br/>
    <div id="content" class="content content-suite">
       <div class="container">
-			<div>
+			<div> 
 				<c:if test="${member.m_id == null or member.m_id == '' }">
-					<form id="frm_login" class="form-horizontal">
+					<form id="frm_login">  
 					
 						<div class="form-group">
 							<label>아이디</label>
@@ -106,8 +108,9 @@
 						</div>
 						
 						<div class="form-group">
-							<input type="button" id="btn_login" name="btn_login" value="로그인" class="btn btn-default"/>
-							<input type="button" id="btn_join" name="btn_join" value="회원가입" class="btn btn-default"/>
+							<input type="button" id="btn_login" name="btn_login" value="로그인" class="btn btn-primary"/>  
+							<input type="button" id="btn_join" name="btn_join" value="회원가입" class="btn btn-success"/> 
+							<br/><br/> 
 							<input type="button" id="btn_search" name="btn_search" value="아이디/패스워드 찾기" class="btn btn-default"/>
 						</div>	
 					</form>
@@ -116,9 +119,9 @@
 				<c:if test="${member.m_id != null and member.m_id != '' }">
 					<fieldset>
 						<legend>
-							<strong>${member.m_name }님 환영합니다. [${member.m_type }]</strong>
+							<strong>${member.m_name }님 환영합니다. <span style="color:orange;">[${member.m_type }]</span></strong>
 						</legend>
-						<input type="button" id="btn_logout" name="btn_logout" value="로그아웃" class="btn btn-default"/>
+						<input type="button" id="btn_logout" name="btn_logout" value="로그아웃" class="btn btn-danger"/>
 						<!-- <input type="button" id="btn_updateForm" name="btn_updateForm" value="회원 정보 수정" class="btn btn-default"/> -->
 						<input type="button" id="btn_home" name="btn_home" value="홈" class="btn btn-default"/>
 					</fieldset>

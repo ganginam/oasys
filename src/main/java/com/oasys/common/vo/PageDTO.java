@@ -17,7 +17,7 @@ public class PageDTO {
 		this.cvo = cvo;
 		this.total = total;
 		
-		//������ ����ȣ ���ϱ�
+	
 		this.endPage = (int) (Math.ceil(cvo.getPageNum()/10.0)) * 10;
 		
 		this.startPage = this.endPage-9;

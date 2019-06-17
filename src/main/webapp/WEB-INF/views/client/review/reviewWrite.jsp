@@ -25,33 +25,29 @@
       <script type="text/javascript" src="/resources/include/js/common.js"></script>
       <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
       <style type="text/css">
-         
+         span{
+         	font-style:italic;
+         	
+         }
          
          
       </style>
       <script type="text/javascript">
-      		var re_num = ${detail.re_num};
       		$(function(){
       			$("#btn_back").click(function(){
-      				location.href="/review/reviewList";
+      				window.history.back();
       			});
       			
-      			$("#btn_delete").click(function(){
-      				$.ajax({
-      					url:"/review/reviewDelete",
-      					type:"post",
-      					data:"re_num="+re_num,
-      					dataType:"text",
-      					error:function(){
-      						alert("오류발생");
-      					},
-      					success:function(data){
-      						if(data!=null){
-      							alert("삭제완료");
-      							location.href="/review/reviewList";
-      						}
-      					}
-      				});
+      			$("#btn_insert").click(function(){
+      				if(!chkData("#re_title", "제목을")) return;
+      				else if(!chkData("#re_content", "내용을")) return;
+      				else {
+      					$("#f_reviewWrite").attr({
+      						"method":"post",
+      						"action":"/review/reviewInsert"
+      					});
+      					$("#f_reviewWrite").submit();
+      				}
       			});
       		});
       
@@ -66,45 +62,44 @@
                     <li> > </li>
                     <li class="current"><a href='/'>메뉴소분류이름</a></li>
                 </ul>
-                <h1 class="text-center">제목</h1>
+                <h1 class="text-center">후기</h1>
+                <span>* 후기는 작성하게 되면 수정 및 삭제가 불가능합니다.
+                		신중하게 적어주세요.
+                </span>
        </div>
        <br/><br/><br/><br/><br/>
    <div id="content" class="content content-suite">
 		<div class="container">
-
-			<form id="f_data" name="f_data" method="post">
-   				<input type="hidden" name="re_num" value="${detail.re_num }"/>
-   			</form>
-   			
-   			<table class="table table-bordered">
-   				<colgroup>
-   						<col width="17%"/>
-   						<col width="33%"/>
-   						<col width="17%"/>
-   						<col width="33%"/>
-   				</colgroup>
-   				<tbody>
-   					<tr>
-   						<td>작성자</td>
-   						<td class="text-left">${detail.re_name }</td>
-   						<td>작성일</td>
-   						<td class="text-left">${detail.re_date }</td>
-   					</tr>
-   					<tr>
-   						<td>제목</td>
-   						<td colspan="3" class="text-left">${detail.re_title }</td>
-   					</tr>
-   					<tr class="table-height">
-   						<td>내용</td>
-   						<td colspan="3" class="text-left">${detail.re_content }</td>
-   					</tr>
-   				</tbody>
-   			</table>
-   			
-   			<div class="btnArea text-right">
-   				<input type="button" value="목록" id="btn_back" class="btn btn-default"/>
-   				<input type="button" value="삭제" id="btn_delete" class="btn btn-default"/>
-   			</div>	
+			<form id="f_reviewWrite" name="f_reviewWrite" class="form-horizontal">
+				<table class="table table-bordered">
+					<colgroup>
+						<col width="20%">
+						<col width="80%">
+					</colgroup>
+					<tbody>
+						<tr>
+							<td>작성자</td>
+							<td class="text-left"><input type="text" name="re_name" value="${member.m_name}" readonly="readonly"/>(${member.m_id })</td>
+						</tr>
+						<tr>
+							<td>제목</td>
+							<td class="text-left"><input type="text" name="re_title" id="re_title" class="form-control"></td>
+						</tr>
+						<tr>
+							<td>내용</td>
+							<td class="text-left">
+								<textarea rows="8" name="re_content" id="re_content" class="form-control"></textarea>
+							</td>
+						</tr>
+					</tbody>
+				</table> 
+				
+				<div class="text-right">
+					<input type="button" value="저장" id="btn_insert" class="btn btn-default"/>
+					<input type="reset" value="초기화" class="btn btn-default"/>
+					<input type="button" value="뒤로가기" id="btn_back" class="btn btn-default"/>
+				</div>
+			</form>
 		</div>
    </div>
    </body>

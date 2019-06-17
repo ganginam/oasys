@@ -19,6 +19,8 @@
       <link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
       <link rel="stylesheet" type="text/css" href="/resources/include/css/showroom.css"/>
       
+      <link href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap" rel="stylesheet">
+      
       <!-- Custom styles for this template -->
        <link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
       <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
@@ -29,8 +31,9 @@
          textarea{
          	width:1000px; height:150px;
          	border: solid 1px;
+         	font-family: 'Gothic A1', sans-serif;
          } 
-          
+           
       </style>
   		 <script type="text/javascript">
 	      $(function(){
@@ -66,8 +69,8 @@
                     <li> > </li>
                     <li><a href=''> 메뉴대분류이름 </a></li>
                     <li> > </li>
-                    <li class="current"><a href='/'>메뉴소분류이름</a></li>
-                </ul>
+                    <li class="current"><a href='#'>약관동의</a></li>
+                </ul> 
                 <h1 class="text-center">약관 동의</h1>
        </div>
        <br/><br/><br/><br/><br/>
@@ -77,7 +80,7 @@
    			<form id="frm" class="form-inline">
    				
    				<h4><strong>이용약관</strong></h4>
-   				<textarea> 
+   				<textarea readonly="readonly"> 
    					제 1장. 총칙
 제 1 조 (목적)
 이 약관은 오아시스(이하 "호텔"이라 합니다)가 제공하는 오아시스 온라인 서비스(이하 "서비스"라 한다)의 이용 조건 및 절차에 관한 기본적인 사항을 규정함을 목적으로 합니다.
@@ -190,7 +193,8 @@
    				<p>위의 약관에 동의합니다.<input type="checkbox" id="check1" name="check1" class="allCheck"></p>
    				<br/><br/>
    				<h4><strong>개인정보수집</strong></h4>
-   				<textarea>개인정보의 수집항목
+   				<textarea readonly="readonly">개인정보의 수집항목
+   				
 오아시스는 별도의 회원가입 절차 없이 대부분의 컨텐츠에 자유롭게 접근할 수 있습니다. 오아시스의 서비스를 이용하시고자 할 경우 다음의 정보를 입력해주셔야 하며, 선택항목을 입력하시지 않았다 하여 서비스 이용에 제한은 없습니다.
 1) 고객 문의 시 수집하는 개인정보의 항목
 - 필수항목: 성명, 이메일, 전화번호, 주소, 휴대폰, 문의사항
@@ -219,7 +223,8 @@
    				<p>위의 약관에 동의합니다.<input type="checkbox" id="check2" name="check2" class="allCheck"></p>
    				<br/><br/>
    				<h4><strong>개인정보제공</strong></h4>
-   				<textarea>개인정보 제공
+   				<textarea readonly="readonly">개인정보 제공
+   				
 회사는 이용자의 개인정보를 원칙적으로 외부에 제공하지 않습니다. 다만, 아래의 경우에는 예외로 합니다.
 - 이용자들이 사전에 동의한 경우
 - 법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우
@@ -228,7 +233,7 @@
    				<p>위의 약관에 동의합니다.<input type="checkbox" id="check3" name="check3" class="allCheck"></p>
    				<br/><br/>
    				<h4><strong>기본정보 안내</strong></h4>
-   				<textarea>기본정보 안내 
+   				<textarea readonly="readonly">기본정보 안내 
 
 체크인:오후15:00 / 체크아웃 12:00
 전 객실 금연객실로 운영

@@ -21,4 +21,10 @@
 	<delete id="reviewDelete" parameterType="review">
 		delete from review where re_num = #{re_num}
 	</delete>
+	
+	<select id="reviewListCnt" parameterType="review" resultType="int">
+		select count(*) from review
+		<trim prefix=" where (" suffix=")">
+		</trim>
+	</select>
 </mapper>
