@@ -38,8 +38,9 @@
 		
 		<script type="text/javascript">
 		$(function(){
-
+			
 			$("#goPayment").click(function(){
+				console.log("이쿠욧");
 				var result = confirm("예약 및 결제를 하시겠습니까?");
 				if(result){
 					$("#frm_bdata").attr({
@@ -52,11 +53,11 @@
 				}
 			});
 		});//최종 함수
-		
 		</script>
 
 	</head>
 	<body>
+	<form id="frm_bdata">
 	<div class="main">
 	<div class="Leftbar">
 	<div class="tbl mb50">
@@ -69,23 +70,50 @@
 			<colgroup>
 				<col width="20%" />
 			</colgroup>
-
-				<tr>
-					<th scope="row"><label for="res_cust_nm">성명(한글)</label></th>
-					<td><input type="text" name="res_cust_nm" maxlength="5"/></td>
-				</tr>
-				<tr>
-					<th scope="row"><label for="email">이메일</label></th>
-					<td>					
-						<input type="text"name="mb_email" id="mb_email"/> 
-					</td>
-				</tr>
-				<tr>
-					<th scope="row"><label for="mb_phone">휴대폰</label></th>
-					<td>
-						<input type="text"name="mb_phone1" id="mb_phone1">
-					</td>
-				</tr>
+				<c:if test="${member.m_id != null and member.m_id != '' }">
+				<tbody>
+					<tr>
+						<th scope="row"><label for="res_cust_nm">성명(한글)</label></th>
+						<td><input type="text" id="b_name" name="b_ name res_cust_nm" maxlength="5"/>
+							<input type="hidden" id="m_no" name="m_no" value="${member.m_no}"/>
+						</td>
+						
+					</tr>
+					<tr>
+						<th scope="row"><label for="email">이메일</label></th>
+						<td>					
+							<input type="text" id="b_email" name="b_email"/> 
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="b_phone">휴대폰</label></th>
+						<td>
+							<input type="text"name="b_phone" id="b_phone">
+						</td>
+					</tr>
+				</tbody>
+				</c:if>
+				
+				<c:if test="${member.m_id == null or member.m_id == '' }">
+				<tbody>
+					<tr>
+						<th scope="row"><label for="res_cust_nm">성명(한글)</label></th>
+						<td><input type="text" id="b_name" name="b_ name res_cust_nm" maxlength="5"/></td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="email">이메일</label></th>
+						<td>					
+							<input type="text" id="b_email" name="b_email"/> 
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><label for="b_phone">휴대폰</label></th>
+						<td>
+							<input type="text"name="b_phone" id="b_phone">
+						</td>
+					</tr>
+				</tbody>
+				</c:if>
 			</table>
 	</div>
 	</div>
@@ -152,9 +180,10 @@
 	</div>
 	<div class="btnCenterGroup">
 		<a href="" class="btn powderblue btn_s">이전</a>
-		<a href="" class="btn powderblue btn_s">결제하기</a>
+		<a href="/roomGrade/showDeluxe" class="btn powderblue btn_s">결제하기</a></span>
 	</div>
 	</div>
 	</div>
+	</form>
 	</body>
 </html>
