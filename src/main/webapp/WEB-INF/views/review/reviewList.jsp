@@ -60,6 +60,7 @@
 	</head>
 	<body>
 		<div class="container">
+			<br /><br /><br />
 			<h1>후기</h1>
 			
 			<form id="detailForm">

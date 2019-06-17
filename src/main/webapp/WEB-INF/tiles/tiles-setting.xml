@@ -16,11 +16,6 @@
 		<put-attribute name="footer" value="/WEB-INF/views/template/client/footer.jsp"/>
 	</definition>
 	
-	<definition name="admin/booking/*" extends="a_content">
-		<put-attribute name="title" value="예약 관리" />
-		<put-attribute name="body" value="/WEB-INF/views/admin/booking/{1}.jsp" />
-	</definition>
-
 	<!-- 관리자 페이지 -->
 	<definition name="admin" template="/WEB-INF/views/template/admin/mainLayout.jsp">
 		<put-attribute name="title" value="3조_프로젝트_관리자"/>
@@ -41,6 +36,12 @@
 		<put-attribute name="body" value=""/>
 		<put-attribute name="footer" value="/WEB-INF/views/template/admin/footer.jsp"/>
 	</definition>
+	
+	<definition name="admin/booking/*" extends="a_content">
+		<put-attribute name="title" value="예약 관리" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/booking/{1}.jsp" />
+	</definition>
+
 	
 	<definition name="admin/member/*" extends="a_content">
 		<put-attribute name="title" value="회원관리"></put-attribute>
@@ -75,6 +76,16 @@
 	<definition name="client/faq/*" extends="content">
 		<put-attribute name="title" value="자주 묻는 질문"/>
 		<put-attribute name="body" value="/WEB-INF/views/client/faq/{1}.jsp"/>
+	</definition>
+	
+	<definition name="admin/qna/*" extends="a_content">
+		<put-attribute name="title" value="문의하기"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/admin/qna/{1}.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="client/qna/*" extends="content">
+		<put-attribute name="title" value="문의하기"></put-attribute>
+		<put-attribute name="body" value="/WEB-INF/views/client/qna/{1}.jsp"></put-attribute>
 	</definition>
 	
 	<definition name="common/*" extends="content">

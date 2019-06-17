@@ -136,7 +136,7 @@
 						<div class="depth2">
 							<div class="depth2_8_2"><a href="">층별 안내</a></div>
 							<div class="depth2_8_4"><a href="/faq/faqList">자주하는 질문</a></div>
-							<div class="depth2_8_3"><a href="">문의하기</a></div>
+							<div class="depth2_8_3"><a href="/qna/qnaList">문의하기</a></div>
 							<div class="depth2_8_4"><a href="/review/reviewList">후기</a></div>
 						</div>
 					</li>
