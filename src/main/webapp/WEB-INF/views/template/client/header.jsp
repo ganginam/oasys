@@ -87,7 +87,7 @@
 							<div class="depth2_1_1"><a href="">소개</a></div>
 							<div class="depth2_1_3"><a href="">오시는 길</a></div>
 							<div class="depth2_1_4"><a href="">여행 가이드</a></div>
-							<div class="depth2_1_5"><a href="">공지사항</a></div>
+							<div class="depth2_1_5"><a href="/notice/noticeList">공지사항</a></div>
 						</div>
 					</li>
 	
@@ -136,7 +136,7 @@
 						<div class="depth2">
 							<div class="depth2_8_2"><a href="">층별 안내</a></div>
 							<div class="depth2_8_4"><a href="/faq/faqList">자주하는 질문</a></div>
-							<div class="depth2_8_3"><a href="">문의하기</a></div>
+							<div class="depth2_8_3"><a href="/qna/qnaList">문의하기</a></div>
 							<div class="depth2_8_4"><a href="/review/reviewList">후기</a></div>
 						</div>
 					</li>

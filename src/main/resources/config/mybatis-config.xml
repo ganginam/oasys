@@ -9,5 +9,8 @@
 		<typeAlias type="com.oasys.admin.room.vo.RoomVO" alias="room"/>	
 <!-- 		<typeAlias alias="login" type="com.oasys.common.login.vo.LoginVO"/> -->
 		<typeAlias type="com.oasys.common.review.vo.ReviewVO" alias="review"/>
+		<typeAlias alias="notice" type="com.oasys.common.notice.vo.NoticeVO"/>
+		<typeAlias alias="qna" type="com.oasys.common.qna.vo.QnaVO"/>
+		<typeAlias alias="reply" type="com.oasys.common.reply.vo.ReplyVO"/>
 	</typeAliases>
 </configuration>

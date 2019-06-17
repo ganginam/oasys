@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.oasys.common.qna.dao.QnaDao">
+
+
+
+	<sql id="qnaSearch">
+		<if test="search=='qa_title'">
+			<![CDATA[ qa_title LIKE '%' ||#{keyword} ||'%']]>
+		</if>
+		<if test="search=='qa_author'">
+			<![CDATA[ qa_author LIKE '%' || #{keyword} ||'%']]>
+		</if>
+	</sql>
+	
+	  
+	
+	<!-- 게시판 리스트 기본 조회(페이징 처리와 검색 처리) -->
+	<select id="qnaList" parameterType="qna" resultType="qna">
+		<![CDATA[
+SELECT
+	qa_num, qa_title, qa_author, to_char(qa_date, 'YYYY-MM-DD') as qa_date,
+	qa_cnt, qa_anstatus, (select count(r_num) from reply where qa_num = qnalist.qa_num) 
+	as r_cnt
+FROM(
+	select /*+ INDEX_DESC(qna qna_pk)*/
+					rownum as rnum, qa_num, qa_title, qa_author, qa_date, 
+					qa_cnt, qa_anstatus
+				FROM qna
+				WHERE]]>
+				<trim prefix="(" suffix=") AND " prefixOverrides="AND">
+					<include refid="qnaSearch"></include>
+				</trim>	
+				<![CDATA[ rownum <= #{pageNum} * #{amount}
+			) qnalist
+		WHERE rnum > (#{pageNum} - 1) * #{amount}
+	]]>
+</select>
+	
+<!-- 게시물 등록 -->
+<insert id="qnaInsert" parameterType="qna">
+	/* Qna - qnaInsert */
+	<selectKey keyProperty="qa_num" resultType="int" order="BEFORE">
+		SELECT qna_seq.nextval FROM dual
+	</selectKey>
+	
+	INSERT INTO qna(qa_num, qa_title, qa_content, qa_author, qa_cnt, qa_anstatus, qa_pwd)
+	VALUES(#{qa_num}, #{qa_title}, #{qa_content}, #{qa_author}, #{qa_cnt}, #{qa_anstatus}, #{qa_pwd})
+</insert>
+<!-- 상세페이지를 위한 게시물 조회 -->
+
+<select id="qnaDetail" parameterType="int" resultType="qna">
+	/* Qna - qnaDetail */
+	SELECT
+		qa_num, qa_title, qa_content, qa_author,qa_anstatus,
+		to_char(qa_date, 'YYYY-MM-DD HH24:MI:SS') AS qa_date
+	FROM qna
+	WHERE qa_num = #{qa_num}
+</select>
+
+<!-- 해당 글번호의 비밀번호 확인 -->
+<select id="pwdConfirm" parameterType="qna" resultType="int">
+	/* Qna - pwdConfirm */
+	SELECT NVL((
+				SELECT 1 FROM qna
+				WHERE qa_num = #{qa_num} AND qa_pwd = #{qa_pwd}
+				), 0) as state
+	FROM dual
+</select>
+
+<!-- 게시물 수정 -->
+<update id="qnaUpdate" parameterType="qna">
+	/* Qna - qnaUpdate */
+	UPDATE qna
+		SET   qa_title = #{qa_title}
+			, qa_content = #{qa_content}
+			, qa_date = sysdate 
+			, qa_anstatus = #{qa_anstatus}
+			<if test="qa_pwd != ''">
+			, qa_pwd = #{qa_pwd}
+			</if>
+	WHERE qa_num = #{qa_num}
+</update>
+
+<!-- 게시물 삭제 VO의 변수 값과 매개변수의 이름이 같다면 파라미터 타입은 두개다 사용 가능 -->
+<delete id="qnaDelete" parameterType="qna">
+	/* Qna - qnaDelete */
+	DELETE FROM qna WHERE qa_num = #{qa_num}
+</delete>
+
+<!--  전체 레코드 수 조회 -->
+	<select id="qnaListCnt" parameterType="qna" resultType="int">
+	SELECT count(*) FROM qna
+		<trim prefix=" where (" suffix=")">
+			<include refid="qnaSearch"></include>
+		</trim>
+	</select>
+	
+	<update id="qnaStatus" parameterType="qna">
+	UPDATE qna
+		SET qa_anstatus = #{qa_anstatus}  WHERE qa_num = #{qa_num}
+	</update>
+</mapper>
+
+
+	
