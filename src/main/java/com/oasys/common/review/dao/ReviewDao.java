@@ -10,4 +10,10 @@ public interface ReviewDao {
 
 	public ReviewVO reviewDetail(ReviewVO rvo);
 
+	public int reviewInsert(ReviewVO rvo);
+
+	public int reviewDelete(ReviewVO rvo);
+
+	public int reviewListCnt(ReviewVO rvo);
+
 }

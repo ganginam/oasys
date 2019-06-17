@@ -64,9 +64,9 @@
 	</select>
 	
 	<select id="memberDetail" parameterType="int" resultType="member">
-		SELECT m.m_no, m_name, m_id, m_pwd, m_phone, m_email, to_char(m_birth, 'yyyy.mm.dd') m_birth,
-			 m_ytotal, m_total, to_char(m_joindate, 'yyyy.mm.dd HH:MI:SS') m_joindate, m_gender, m_type,
-			 to_char(m_pwdchanged, 'yyyy.mm.dd HH:MI:SS') m_pwdchanged, m_agreement, mg_grade, to_char(mg_date, 'yyyy.mm.dd HH:MI:SS') mg_date, mg_discount
+		SELECT m.m_no, m_name, m_id, m_pwd, m_phone, m_email, to_char(m_birth, 'yyyy-mm-dd') m_birth,
+			 m_ytotal, m_total, to_char(m_joindate, 'yyyy-mm-dd HH:MI:SS') m_joindate, m_gender, m_type,
+			 to_char(m_pwdchanged, 'yyyy-mm-dd HH:MI:SS') m_pwdchanged, m_agreement, mg_grade, to_char(mg_date, 'yyyy-mm-dd HH:MI:SS') mg_date, mg_discount
 		FROM 
 			member m, 
 			(SELECT m_no, mg.mg_grade, mg_date, mg_discount 
@@ -119,11 +119,12 @@
 	<!-- 로그인 처리 -->
 	<select id="loginCheck" resultType="member" parameterType="member">
 
-		select m_no, m_id, m_pwd, m_name, m_type, m_phone, m_email, m_gender, m_birth from member where m_id = #{m_id} and m_pwd = #{m_pwd}
+		select m_no, m_id, m_pwd, m_name, m_type, m_phone, m_email, m_gender, to_char(m_birth, 'YYYY-MM-DD'), m_total, m_ytotal from member where m_id = #{m_id} and m_pwd = #{m_pwd}
+
 	</select>
 	
 	<select id="memberSelect" parameterType="String" resultType="member">
-		select m_no, m_id, m_pwd, m_name, m_phone, m_email, m_birth, m_gender, m_type from member where m_id = #{m_id}
+		select m_no, m_id, m_pwd, m_name, m_phone, m_email, m_birth, m_gender from member where m_id = #{m_id}
 	</select>
 	
 	<select id="memberNo" resultType="int">
@@ -163,6 +164,8 @@
 	
 	<!-- 비밀번호찾기 -->
 	<select id="pwSearch" parameterType="member" resultType="member">
-		select m_pwd from member where m_name = #{m_name} and m_email = #{m_email} and m_id = #{m_id}
+		select m_id, m_pwd from member where m_name = #{m_name} and m_email = #{m_email} and m_id = #{m_id}
 	</select>
+	
+
 </mapper>

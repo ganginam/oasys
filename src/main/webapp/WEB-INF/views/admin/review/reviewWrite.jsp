@@ -29,14 +29,26 @@
          
          
       </style>
-       <script type="text/javascript">
-      
-      	$(function(){
-      		$("#send").click(function(){
-      			location.href="/mail/mailIdSearch";
+      <script type="text/javascript">
+      		$(function(){
+      			$("#btn_back").click(function(){
+      				window.history.back();
+      			});
+      			
+      			$("#btn_insert").click(function(){
+      				if(!chkData("#re_title", "제목을")) return;
+      				else if(!chkData("#re_content", "내용을")) return;
+      				else {
+      					$("#f_reviewWrite").attr({
+      						"method":"post",
+      						"action":"/admin/review/reviewInsert"
+      					});
+      					$("#f_reviewWrite").submit();
+      				}
+      			});
       		});
-      	});
-   </script>
+      
+		</script>
    </head>
    <body>
       <div class="location">
@@ -45,20 +57,44 @@
                     <li> > </li>
                     <li><a href=''> 메뉴대분류이름 </a></li>
                     <li> > </li>
-                    <li class="current"><a href='/'>ID/PW 찾기</a></li>
+                    <li class="current"><a href='/'>메뉴소분류이름</a></li>
                 </ul>
-                <h1 class="text-center">ID/PW 찾기</h1>
+                <h1 class="text-center">후기</h1>
        </div>
        <br/><br/><br/><br/><br/>
    <div id="content" class="content content-suite">
-		<c:if test="${member.m_pwd == null }">
-			<h1>귀하의 아이디는  <span style="color:orange;">[${member.m_id }]</span> 입니다.</h1>
-		</c:if>
-			 
-		<c:if test="${member.m_id != null and member.m_pwd != null }">
-			<h1><span style="color:oragne;">[${member.m_id }]</span>의 비밀번호는 <span style="color:oragne;">[${member.m_pwd }]</span> 입니다.</h1>
-		</c:if>
-		<!-- <input type="button" id="send" value="전송"/> -->
+		<div class="container">
+			<form id="f_reviewWrite" name="f_reviewWrite" class="form-horizontal">
+				<table class="table table-bordered">
+					<colgroup>
+						<col width="20%">
+						<col width="80%">
+					</colgroup>
+					<tbody>
+						<tr>
+							<td>작성자</td>
+							<td class="text-left"><input type="text" name="re_name" value="${member.m_name}" readonly="readonly"/>(${member.m_id })</td>
+						</tr>
+						<tr>
+							<td>제목</td>
+							<td class="text-left"><input type="text" name="re_title" id="re_title" class="form-control"></td>
+						</tr>
+						<tr>
+							<td>내용</td>
+							<td class="text-left">
+								<textarea rows="8" name="re_content" id="re_content" class="form-control"></textarea>
+							</td>
+						</tr>
+					</tbody>
+				</table> 
+				
+				<div class="text-right">
+					<input type="button" value="저장" id="btn_insert" class="btn btn-default"/>
+					<input type="reset" value="초기화" class="btn btn-default"/>
+					<input type="button" value="뒤로가기" id="btn_back" class="btn btn-default"/>
+				</div>
+			</form>
+		</div>
    </div>
    </body>
 </html>

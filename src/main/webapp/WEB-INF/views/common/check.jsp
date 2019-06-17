@@ -1,33 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-      
       <title>Insert title here</title>
-      
       <link rel="shortcut icon" href="/resources/images/icon.png" />
       <link rel="apple-touch-icon" href="/resources/images/icon.png" />
-      
       <!-- [if lt IE 9]>
       <script src="../js/html5shiv.js"></script> 
       <![endif]-->
-      
       <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
       <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
+      <link rel="stylesheet" type="text/css" href="/resources/include/css/lightbox.css"/>
       <link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
+      <link rel="stylesheet" type="text/css" href="/resources/include/css/showroom.css"/>
       
-      <style type="text/css">
-      	textarea{width:500px; height:150px;}
-      </style>
+      <link href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap" rel="stylesheet">
+      
+      <!-- Custom styles for this template -->
+       <link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
       <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
       <script type="text/javascript" src="/resources/include/js/common.js"></script>
       <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
-      <script type="text/javascript">
+      <style type="text/css">
+         
+         textarea{
+         	width:1000px; height:150px;
+         	border: solid 1px;
+         	font-family: 'Gothic A1', sans-serif;
+         } 
+           
+      </style>
+  		 <script type="text/javascript">
 	      $(function(){
 				//모두 동의
 				$("#allCheck").click(function(){
@@ -54,16 +62,28 @@
 			});  	
   	</script>
    </head>
-	<body>
-		<div class="container">
-   			<h1>약관 동의</h1>
+   <body>
+      <div class="location">
+                <ul>
+                    <li><a href='/'><img src="/resources/images/hotelImages/logo.png" alt="home" class="logoImage" width="25" height="25"></a></li>
+                    <li> > </li>
+                    <li><a href=''> 메뉴대분류이름 </a></li>
+                    <li> > </li>
+                    <li class="current"><a href='#'>약관동의</a></li>
+                </ul> 
+                <h1 class="text-center">약관 동의</h1>
+       </div>
+       <br/><br/><br/><br/><br/>
+   <div id="content" class="content content-suite">
+      <div class="container">
+
    			<form id="frm" class="form-inline">
    				
    				<h4><strong>이용약관</strong></h4>
-   				<textarea> 
+   				<textarea readonly="readonly"> 
    					제 1장. 총칙
 제 1 조 (목적)
-이 약관은 히든 클리프 호텔 & 네이쳐(이하 "호텔"이라 합니다)가 제공하는 히든 클리프 호텔 & 네이쳐 온라인 서비스(이하 "서비스"라 한다)의 이용 조건 및 절차에 관한 기본적인 사항을 규정함을 목적으로 합니다.
+이 약관은 오아시스(이하 "호텔"이라 합니다)가 제공하는 오아시스 온라인 서비스(이하 "서비스"라 한다)의 이용 조건 및 절차에 관한 기본적인 사항을 규정함을 목적으로 합니다.
 제 2 조 (약관의 효력 및 변경)
 ① 이 약관은 서비스 메뉴 및 호텔에 게시하여 공시함으로써 효력을 발생합니다.
 ② 호텔은 이 약관의 내용을 변경할 수 있으며, 변경된 약관은 제1항과 같은 방법으로 공지 또는 통지함으로써 효력을 발생합니다.
@@ -171,10 +191,11 @@
 본 약관은 2016년 7월 부터 시행합니다.
    				</textarea>
    				<p>위의 약관에 동의합니다.<input type="checkbox" id="check1" name="check1" class="allCheck"></p>
-   				
+   				<br/><br/>
    				<h4><strong>개인정보수집</strong></h4>
-   				<textarea>개인정보의 수집항목
-히든 클리프 호텔 & 네이쳐는 별도의 회원가입 절차 없이 대부분의 컨텐츠에 자유롭게 접근할 수 있습니다. 히든 클리프 호텔 & 네이쳐의 서비스를 이용하시고자 할 경우 다음의 정보를 입력해주셔야 하며, 선택항목을 입력하시지 않았다 하여 서비스 이용에 제한은 없습니다.
+   				<textarea readonly="readonly">개인정보의 수집항목
+   				
+오아시스는 별도의 회원가입 절차 없이 대부분의 컨텐츠에 자유롭게 접근할 수 있습니다. 오아시스의 서비스를 이용하시고자 할 경우 다음의 정보를 입력해주셔야 하며, 선택항목을 입력하시지 않았다 하여 서비스 이용에 제한은 없습니다.
 1) 고객 문의 시 수집하는 개인정보의 항목
 - 필수항목: 성명, 이메일, 전화번호, 주소, 휴대폰, 문의사항
 2) 객실 예약시 수집하는 개인정보의 항목
@@ -192,26 +213,27 @@
 - 계약 또는 청약철회 등에 관한 기록 : 5년
 - 대금결제 및 재화등의 공급에 관한 기록 : 5년
 - 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년
-② 귀하의 동의를 받아 보유하고 있는 거래정보 등을 귀하께서 열람을 요구하는 경우 히든 클리프 호텔 & 네이쳐는 지체없이 그 열람,확인 할 수 있도록 조치합니다.
+② 귀하의 동의를 받아 보유하고 있는 거래정보 등을 귀하께서 열람을 요구하는 경우 오아시스는 지체없이 그 열람,확인 할 수 있도록 조치합니다.
 개인정보의 수집목적 및 이용목적
-히든 클리프 호텔 & 네이쳐는 개인정보보호 관련 주요 법률인 ‘정보통신망 이용촉진 및 정보보호 등에 관한 법률’을 준수하기 위하여 개인정보취급방침을 제정하고 이를 준수하고 있습니다.
+오아시스는 개인정보보호 관련 주요 법률인 ‘정보통신망 이용촉진 및 정보보호 등에 관한 법률’을 준수하기 위하여 개인정보취급방침을 제정하고 이를 준수하고 있습니다.
 ① 수집 항목: 개인 식별 정보 (성명, 성별, 생년월일), 서비스 제공 연락 정보 (휴대폰, 이메일)
 * 인터넷 서비스 이용과정에서IP주소, 쿠키, 방문기록, 등 개인정보가 자동으로 생성되어 수집될 수 있습니다.
 ② 이용 목적: 본인 확인 절차에 활용, 고객 불만 처리
-③ 히든 클리프 호텔 & 네이쳐는 개인정보의 이용목적의 달성 및 해지 시까지 개인정보를 보유, 이용하되 개인정보의 수집 및 이용 목적이 달성된 때에는 고객의 개인정보를 지체없이 파기합니다.</textarea>
+③ 오아시스는 개인정보의 이용목적의 달성 및 해지 시까지 개인정보를 보유, 이용하되 개인정보의 수집 및 이용 목적이 달성된 때에는 고객의 개인정보를 지체없이 파기합니다.</textarea>
    				<p>위의 약관에 동의합니다.<input type="checkbox" id="check2" name="check2" class="allCheck"></p>
-   				
+   				<br/><br/>
    				<h4><strong>개인정보제공</strong></h4>
-   				<textarea>개인정보 제공
+   				<textarea readonly="readonly">개인정보 제공
+   				
 회사는 이용자의 개인정보를 원칙적으로 외부에 제공하지 않습니다. 다만, 아래의 경우에는 예외로 합니다.
 - 이용자들이 사전에 동의한 경우
 - 법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우
 수집한 개인정보의 위탁
 회사는 고객님의 동의없이 고객님의 정보를 외부 업체에 위탁하지 않습니다. 향후 그러한 필요가 생길 경우, 위탁 대상자와 위탁 업무 내용에 대해 고객님에게 통지하고 필요한 경우 사전 동의를 받도록 하겠습니다.</textarea>
    				<p>위의 약관에 동의합니다.<input type="checkbox" id="check3" name="check3" class="allCheck"></p>
-   				
+   				<br/><br/>
    				<h4><strong>기본정보 안내</strong></h4>
-   				<textarea>기본정보 안내 
+   				<textarea readonly="readonly">기본정보 안내 
 
 체크인:오후15:00 / 체크아웃 12:00
 전 객실 금연객실로 운영
@@ -229,16 +251,20 @@
 - 범퍼침대 (유료)
 
 
-취소 및 변경은 업무시간(09:00~18:00) 내에만 가능하며, 예약변경은 취소와 동일하게 간주됩니다.
+취소 및 변경은 업무시간(09:00~18:00) 내에만 가능하며, 예약변경은 취소와 동일하게 간주됩니다. 
 기타 궁금하신 사항은  이메일 (info@hiddencliff.kr ), 전화 (02 2277 9999)로 문의 바랍니다.</textarea>
-   				<p>위의 약관에 동의합니다.<input type="checkbox" id="check4" name="check4" class="allCheck"></p>
+<p>위의 약관에 동의합니다.<input type="checkbox" id="check4" name="check4" class="allCheck"></p>  
+<br/><br/><br/>
+   				
    				<p>모두 동의<input type="checkbox" id="allCheck" name="allCheck"/></p>
    				
-   				
-   				
-   				<input type="button" id="cancel" name="cancel" value="취소"/>
-   				<input type="button" id="next" name="next" value="다음"/>
+<br/><br/>   				
+   			<div class="text-center">
+   				<input type="button" id="cancel" name="cancel" value="취소" class="btn btn-default"/>
+   				<input type="button" id="next" name="next" value="다음" class="btn btn-default"/>
+   			</div>	
    			</form>
    		</div>
-	</body>
+   </div>
+   </body>
 </html>

@@ -1,34 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%
-	request.setCharacterEncoding("UTF-8");
-	String tomail = request.getParameter("tomail");
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-      
       <title>Insert title here</title>
-      
       <link rel="shortcut icon" href="/resources/images/icon.png" />
       <link rel="apple-touch-icon" href="/resources/images/icon.png" />
-      
       <!-- [if lt IE 9]>
       <script src="../js/html5shiv.js"></script> 
       <![endif]-->
-      
       <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
       <link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
+      <link rel="stylesheet" type="text/css" href="/resources/include/css/lightbox.css"/>
       <link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
+      <link rel="stylesheet" type="text/css" href="/resources/include/css/showroom.css"/>
       
+      <!-- Custom styles for this template -->
+       <link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
       <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
       <script type="text/javascript" src="/resources/include/js/common.js"></script>
       <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
+      <style type="text/css">
+         
+         
+         
+      </style>
       <script type="text/javascript">
 	      $(function(){
 	    	  
@@ -171,16 +171,27 @@
 		
    		</script>
    </head>
-	<body>
-		<div class="container">
-   			<h1>회원가입</h1>
-   			<div>
+   <body>
+      <div class="location">
+                <ul>
+                    <li><a href='/'><img src="/resources/images/hotelImages/logo.png" alt="home" class="logoImage" width="25" height="25"></a></li>
+                    <li> > </li>
+                    <li><a href='/common/check'>약관동의 </a></li>
+                    <li> > </li>
+                    <li class="current"><a href='#'>회원가입</a></li>
+                </ul>
+                <h1 class="text-center">회원가입</h1>
+       </div>
+       <br/><br/><br/><br/><br/>
+   <div id="content" class="content content-suite">
+      <div class="container">
+   			<div> 
    				<form id="frm_join" name="frm_join" class="form-inline">
-   					<table class="table">
+   					<table class="table table-hover">
    						<tr>
    							<td>아이디</td>
    							<td><input type="text" id="m_id" name="m_id" placeholder="아이디를 입력해주세요"/>
-   								<input type="button" id="idCheck" value="중복확인"/>
+   								<input type="button" id="idCheck" value="중복확인" class="btn btn-sm"/> 
    							</td> 
    						</tr>
    						<tr>
@@ -229,7 +240,7 @@
    								
    								
    								<!-- <input type="button" value="전달" onclick="send()"/> -->
-   								<input type="button" id="emailCheck" name="emailCheck" value="인증하기" onclick="showPopUp()"/>
+   								<input type="button" id="emailCheck" name="emailCheck" value="인증하기" onclick="showPopUp()" class="btn btn-sm"/>
    								
    								<!-- 이메일 인증 여부 표시 -->
    								<input type="text" id="emailSuccess" name="emailSuccess" readonly="readonly"/>
@@ -273,9 +284,9 @@
    							</td>
    						</tr>
    					</table>
-   					
+   					 
    					<div class="text-center">
-		   				<input type="button" id="btn_joinSuccess" class="btn btn-default" value="회원가입"/>
+		   				<input type="button" id="btn_joinSuccess" class="btn btn-primary" value="회원가입"/>
 		   				<input type="reset" id="reset" value="초기화" class="btn btn-default"/>
 		   				<input type="button" id="btn_back" value="뒤로 가기"  class="btn btn-default"/>
    					</div>
@@ -283,6 +294,6 @@
 
    			</div>
    		</div>
-		
-	</body>
+   </div>
+   </body>
 </html>

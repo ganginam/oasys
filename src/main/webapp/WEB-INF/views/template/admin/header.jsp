@@ -41,14 +41,34 @@
 					setInterval( nowTime, 1000 * 60 );
 				</script>
 				<div class="login">
-					<a href="common/logout">
-						<span class="login_str">LOGOUT</span>
-					</a>
+					<c:choose>
+						<c:when test="${member.m_id != null and member.m_id != ''}">
+							<a href="/common/logout">
+								<span class="login_str">LOGOUT</span>
+							</a>
+						</c:when>
+						
+						<c:otherwise>
+							<a href="/common/login">
+								<span class="login_str">LOGIN</span>
+							</a>
+						</c:otherwise>
+					</c:choose>
 				</div>
 				<div class="login join">
-					<a href="common/info">
-						<span class="login_str">INFO</span>
-					</a>
+					<c:choose>
+						<c:when test="${member.m_id != null and member.m_id != '' }">
+							<a href="/common/info">
+								<span class="login_str">INFO</span>
+							</a>
+						</c:when>
+						
+						<c:otherwise>
+							<a href="/common/check">
+								<span class="login_str">JOIN</span>
+							</a>
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 		</div>

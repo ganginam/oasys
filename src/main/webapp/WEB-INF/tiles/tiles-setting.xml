@@ -97,8 +97,15 @@
 		<put-attribute name="title" value="오아시스 객실 상세정보"/>
 		<put-attribute name="body" value="/WEB-INF/views/client/room/{1}.jsp"/>
    </definition>
-   <definition name="review/*" extends="content">
-		<put-attribute name="title" value="후기"/>
-		<put-attribute name="body" value="/WEB-INF/views/review/{1}.jsp"/>
+   
+   <definition name="client/review/*" extends="content">
+		<put-attribute name="title" value="후기"/>	
+		<put-attribute name="body" value="/WEB-INF/views/client/review/{1}.jsp"/>
 	</definition>
+	
+	 <definition name="admin/review/*" extends="a_content">
+		<put-attribute name="title" value="후기"/>
+		<put-attribute name="body" value="/WEB-INF/views/admin/review/{1}.jsp"/>
+	</definition>
+
 </tiles-definitions>

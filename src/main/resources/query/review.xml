@@ -8,8 +8,23 @@
 	</select>
 	
 	<select id="reviewDetail" parameterType="review" resultType="review">
-		select re_num, re_name, re_title, TO_CHAR(re_date, 'YYYY-MM-DD HH24:MI:SS') AS re_date
+		select re_num, re_name, re_title, re_content, TO_CHAR(re_date, 'YYYY-MM-DD') AS re_date
 		from review
 		where re_num = #{re_num}
+	</select>
+	
+	<insert id="reviewInsert" parameterType="review">
+		insert into review(re_num, re_name, re_title, re_content)
+		values(review_seq.nextval, #{re_name}, #{re_title}, #{re_content})
+	</insert>
+	
+	<delete id="reviewDelete" parameterType="review">
+		delete from review where re_num = #{re_num}
+	</delete>
+	
+	<select id="reviewListCnt" parameterType="review" resultType="int">
+		select count(*) from review
+		<trim prefix=" where (" suffix=")">
+		</trim>
 	</select>
 </mapper>

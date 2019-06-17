@@ -140,4 +140,12 @@ public class MemberClientServiceImpl implements MemberClientService {
 		
 		return vo;
 	}
+
+
+	@Override
+	public MemberVO memberDetail(int m_no) {
+		MemberVO mvo = memberDao.memberDetail(m_no);
+		
+		return mvo;
+	}
 }
