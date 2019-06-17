@@ -75,14 +75,14 @@
 	
 	<!-- 예약 가능한 방 조회 -->
 	<select id="roomList" parameterType="booking" resultType="booking">
-		SELECT  rg_grade, count(*) as b_roomcnt, rg_price 
-		FROM (select r.* , rg.rg_price from room r inner join roomgrade rg on r.rg_grade = rg.rg_grade 
+		SELECT  rg_grade, count(*) as b_roomcnt, rg_price,image1 
+		FROM (select r.* , rg.rg_price,rg.image1 from room r inner join roomgrade rg on r.rg_grade = rg.rg_grade 
 			  WHERE r_number 
 			  NOT IN 
 			  <![CDATA[	
 			  	(select r_number 
 			     FROM booking where b_indate<= #{b_indate} and #{b_indate} <b_outdate or b_indate<=#{b_outdate} and #{b_outdate}<b_outdate))
-		GROUP BY rg_grade, rg_price having count(*) >= #{b_roomcnt} order by rg_grade
+		GROUP BY rg_grade, rg_price,image1 having count(*) >= #{b_roomcnt} order by rg_price
 		]]>
 	</select>
 	
