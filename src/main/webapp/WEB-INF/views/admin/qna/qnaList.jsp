@@ -51,6 +51,17 @@
 			});
 		});
 		
+		//검색을 위한 실질적인 처리함수
+		function goPage(){
+			if($("#search").val()=="all"){
+				$("#keyword").val("");
+			}
+			$("#f_search").attr({
+				"method":"get",
+				"action":"/admin/qna/qnaList"
+			});
+			$("#f_search").submit();
+		}
 		
 		
 		</script>
@@ -63,17 +74,34 @@
 						<input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cvo.pageNum}" />
 						<input type="hidden" name="amount" id="amount" value="${pageMaker.cvo.amount}" />
 				</form>
-					
+		<!-- 검색기능시작 -->
+		
+		<div id="boardSearch" class="text-right">
+			<form id="f_search" name="f_search" class="form-inline">
+				<input type="hidden" name="pageNum" value="${pageMaker.cvo.pageNum}">
+				<input type="hidden" name="amount" value="${pageMaker.cvo.amount}">
+				<div class="form-group">
+				<label>검색 조건</label>
+				<select id="search" name="search" class="form-control">
+					<option value="all">전체</option>
+					<option value="qa_title">제목</option>
+					<option value="qa_content">내용</option>
+					<option value="qa_author">작성자</option>
+				</select>
+				<input type="text" name="keyword" id="keyword" class="form-control" />
+				<button type="button" id="searchData" class="btn btn-primary">검색</button>
+			</div>
+		</form>
+	</div>
+	
+	
 				<div id="qnaList">
 				<table class="table table-bordered">
 					<colgroup>
-						<col width="8%">
-						<col width="52%">
 						<col width="10%">
-						<col width="10%">
-						<col width="10%">
-						<col width="10%">
-						
+						<col width="50%">
+						<col width="20%">
+						<col width="20%">
 					</colgroup>
 					<thead>
 						<tr>
@@ -81,9 +109,6 @@
 							<th>제목</th>
 							<th>작성자</th>
 							<th>날짜</th>
-							<th>조회수</th>
-							<th>답변상태</th>
-							
 						</tr>
 				</thead>
 				<tbody id="list" class="table-striped">
@@ -100,8 +125,6 @@
 									<td class="author">${qna.qa_author}</td>
 									<td>${qna.qa_date}</td>
 									
-									<td></td>
-									<td></td>
 								</tr>
 							</c:forEach>
 						</c:when>

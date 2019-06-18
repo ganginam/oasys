@@ -4,7 +4,7 @@
 			input[type=text]{
 				padding:5px;
 			}
-			.tbl{position:relative;padding:0}
+			.tbl{padding:0}
 			.tbl table{border-top:2px solid #000}
 			.tbl th{border-bottom:1px solid #c9c9c9;font-size:17px;font-family:'nSquare';color:#4d7b9c;letter-spacing:-1px}
 			.tbl thead th{padding:20px 0 18px 0px;text-align:center;}
@@ -30,6 +30,6 @@
 			
 			.btnCenterGroup{padding:30px 0 0;background:#fff;text-align:center}
 			.btnCenterGroup a{display:inline-block}
-			a.btn.powderblue{border:2px solid #a4a4a4;background:#fff;line-height:56px;color:#474747; width: 126px; margin-top:-30px;}
-			a.btn.powderblue:focus,a.btn.powderblue:hover{border-color:#4d7b9c;background:#4d7b9c;color:#fff}
+			.btn.powderblue{border:2px solid #a4a4a4;background:#fff;line-height:56px;color:#474747; width: 126px; margin-top:-30px;}
+			.btn.powderblue:focus,a.btn.powderblue:hover{border-color:#4d7b9c;background:#4d7b9c;color:#fff}
 		

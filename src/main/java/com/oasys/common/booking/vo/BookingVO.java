@@ -30,4 +30,7 @@ public class BookingVO extends CommonVO{
 	private int rg_price =0;
 	private int b_inday=0;
 	private String image1 = "";
+	private String p_method ="";
+	private double p_pay = 0;
+	private int p_no;
 }

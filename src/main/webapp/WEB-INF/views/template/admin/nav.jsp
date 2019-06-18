@@ -5,7 +5,7 @@
 <div class="col-sm-3 col-md-2 sidebar">
 
 		<ul class="nav nav-sidebar">
-         <li class="active mainDepth"><a href="/admin">관리자 Home<span class="sr-only">(current)</span></a></li>
+         <li class="active mainDepth"><a href="/">관리자 Home<span class="sr-only">(current)</span></a></li>
        </ul>
        <ul class="nav nav-sidebar">
          <li class="mainDepth"><a href="/room/roomList">객실</a></li>

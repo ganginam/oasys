@@ -65,4 +65,11 @@ public class BookingClientServiceImpl implements BookingClientService{
 		return b_num;
 	}
 
+	@Override
+	public int bookingPayment(BookingVO bvo) {
+		int result = 0;
+		result = bookingDao.bookingPayment(bvo);
+		return result;
+	}
+
 }

@@ -129,6 +129,7 @@
 							<option value="all">전체</option>
 							<option value="b_num">예약번호</option>
 							<option value="b_name">예약자명</option>
+							<option value="b_state">예약상태</option>
 						</select>		
 					<input type="text" name="keyword" id="keyword" class="form-control" />
 					<button type="button" id="searchData" class="btn btn-primary">검색</button>

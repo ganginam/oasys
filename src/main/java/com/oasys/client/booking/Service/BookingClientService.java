@@ -15,4 +15,6 @@ public interface BookingClientService {
 	public int bookingInsert(BookingVO bvo);
 	
 	public int bookingNum();
+	
+	public int bookingPayment(BookingVO bvo);
 }

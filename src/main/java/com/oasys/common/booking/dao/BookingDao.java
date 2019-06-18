@@ -26,4 +26,6 @@ public interface BookingDao {
 	public int bookingNum();
 	
 	public int bookingInsert(BookingVO bvo);
+	
+	public int bookingPayment(BookingVO bvo);
 }

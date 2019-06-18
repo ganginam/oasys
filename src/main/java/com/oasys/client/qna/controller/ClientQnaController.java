@@ -27,7 +27,7 @@ public class ClientQnaController {
 	private ClientQnaService clientQnaService;
 	
 	//글목록 구현하기
-		@RequestMapping(value="qnaList", method = RequestMethod.GET)
+		@RequestMapping(value="/qnaList", method = RequestMethod.GET)
 		public String qnaList(@ModelAttribute("data") QnaVO qvo, Model model) {
 			log.info("qnaList 호출성공");
 			log.info("keyword: " + qvo.getKeyword());
@@ -40,14 +40,14 @@ public class ClientQnaController {
 			int total = clientQnaService.qnaListCnt(qvo);
 			model.addAttribute("pageMaker", new PageDTO(qvo, total));
 			
-			return "/client/qna/qnaList";
+			return "client/qna/qnaList";
 		}
 		
 	//글쓰기 폼 출력하기
 		@RequestMapping(value="/qnaWrite")
 		public String qnaWrite(@ModelAttribute("data") QnaVO qvo, Model model) {
 			
-			return "/client/qna/qnaWrite";
+			return "client/qna/qnaWrite";
 		
 		}
 	//글쓰기 구현
@@ -75,7 +75,7 @@ public class ClientQnaController {
 		QnaVO detail = clientQnaService.qnaDetail(qvo);
 		model.addAttribute("detail", detail);
 		
-		return "/client/qna/qnaDetail";
+		return "client/qna/qnaDetail";
 		}
 
 	//패스워드 확인

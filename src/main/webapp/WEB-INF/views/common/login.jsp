@@ -25,6 +25,7 @@
 		}
       </style>
       <!-- Custom styles for this template -->
+      	<link href="/resources/include/css/common.css" rel="stylesheet">
        <link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
       <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
       <script type="text/javascript" src="/resources/include/js/common.js"></script>

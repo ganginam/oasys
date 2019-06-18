@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.oasys.client.booking.Service.BookingClientService;
 import com.oasys.common.booking.vo.BookingVO;
@@ -53,9 +53,12 @@ public class BookingClientController {
 					
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="/bookingInsert", method = RequestMethod.POST)
-	public String bookingInsert(@ModelAttribute("data") BookingVO bvo, Model model) {
+	public String bookingInsert(@ModelAttribute("data") BookingVO bvo) {
 		log.info("bvo : " + bvo);
+		String value = "";
+		
 		List<Integer> roomcnt = null;
 
 		int b_num = bookingClientService.bookingNum();
@@ -68,9 +71,18 @@ public class BookingClientController {
 			bookingClientService.bookingInsert(bvo);
 		}
 		
-		model.addAttribute("r_number", roomcnt);
+		bookingClientService.bookingPayment(bvo);
+		
+		value= "1," + b_num;
+		
+		
+		return value;
+	}
+	
+	@RequestMapping(value="/complete", method = RequestMethod.POST)
+	public String complete(@ModelAttribute("data") BookingVO bvo) {
 		
 		return "client/booking/complete";
-
 	}
+	
 }

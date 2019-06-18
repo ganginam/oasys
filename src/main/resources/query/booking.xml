@@ -10,6 +10,9 @@
 		<if test="search == 'b_name'">
 			<![CDATA[ b_name LIKE '%' || #{keyword} ||'%' ]]>
 		</if>
+		<if test="search == 'b_state'">
+			<![CDATA[ b_state LIKE '%' || #{keyword} ||'%' ]]>
+		</if>
 	</sql>
 	
 	
@@ -30,7 +33,7 @@
 				<![CDATA[ rownum <= #{pageNum} * #{amount}
 			) bookList
 			WHERE rnum > (#{pageNum} - 1) * #{amount}
-			]]>
+			]]> order by b_date
 	</select>	
 	
 	<!--  전체 레코드 조회 -->
@@ -115,6 +118,17 @@
 	<insert id="bookingInsert" parameterType="booking">
 		INSERT INTO booking(b_num, b_indate, b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, m_no, rg_grade, r_number, b_persons)
 		VALUES(#{b_num},#{b_indate}, #{b_outdate}, #{b_ismember}, #{b_name}, #{b_phone}, #{b_email}, #{b_payment}, #{m_no}, #{rg_grade}, #{r_number}, #{b_persons})
+	</insert>
+	
+	<!-- 결제 인서트 -->
+	<insert id="bookingPayment" parameterType="booking">
+		/* Board - boardInsert */
+		<selectKey keyProperty="p_no" resultType="int" order="BEFORE">
+			SELECT payment_seq.nextval FROM dual
+		</selectKey>
+		
+		INSERT INTO payment(p_no, p_method, p_pay, b_num) 
+		VALUES(#{p_no}, #{p_method}, #{p_pay}, #{b_num})
 	</insert>
 	
 </mapper>
