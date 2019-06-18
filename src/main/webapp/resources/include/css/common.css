@@ -120,7 +120,7 @@ select::-ms-expand {
 #gnb .depth1_box .reservation{position: relative;float:right;height:100%;}
 #gnb .depth1_box .reservation a{display: block;width:267px;height:100%;background-color: #3c1650;line-height: 67px;color:#ffffff;padding-left:72px;box-sizing: border-box;transition:background-color 0.3s; letter-spacing: 2px; font-size: 15px;}
 #gnb .depth1_box .reservation a:hover {background-color:#4b285e;}
-#gnb .depth1_box .reservation a:before{content: '';display:inline-block;position:absolute;right:64px;top:24px;width:27px;height:19px;}
+#gnb .depth1_box .reservation a:before{content: '';display:inline-block;position:absolute;right:64px;top:24px;width:27px;height:19px;background: url('/resources/images/hotelImages/ico_reservation.png') no-repeat right top;}
 
 #gnb .depth1_box .depth2_bg {position:absolute; top:67px; width:100%; height:62px; background-color:rgba(247,247,247,0.95); border-bottom:1px solid rgba(0,0,0,0.08);visibility: hidden;opacity:0; transition:all 0.3s;}
 #gnb .depth1_box .depth2_bg.active {visibility:visible;opacity:1;}
