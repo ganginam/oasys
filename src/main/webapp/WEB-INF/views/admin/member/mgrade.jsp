@@ -76,14 +76,14 @@
 				});
 				
 				$("#mbGradeUpdateBtn").click(function(){
-					location.href="/admin/member/upateMembergrade";
+					location.href="/admin/member/updateMembergrade";
 				});
 				
 				$("#yearTotalResetBtn").click(function(){
-					location.href="/admin/member/upateMembergrade";
+					if(confirm("전체회원의 연간 누적금액을 초기화하시겠습니까?")){
+						location.href="/admin/member/yearTotalReset";
+					}
 				});
-				
-				
 				
 			}); //최상위 function 종료 
 			

@@ -50,6 +50,7 @@
        </div>
        <br/><br/><br/><br/><br/>
    <div id="content" class="content content-suite">
+   <div class="contentContainer container-fluidC">
  		<div class="tbl mb50">
 		<table>
 			<caption>고객정보</caption>
@@ -87,6 +88,7 @@
 	</div>
 	<div class="btnCenterGroup">
      <input type="button"  id="home" name="home" value="홈" class="btn powderblue">
+   </div>
    </div>
    </div>
    </body>

@@ -2,6 +2,7 @@ package com.oasys.common.member.dao;
 
 import java.util.List;
 
+import com.oasys.common.booking.vo.BookingVO;
 import com.oasys.common.member.vo.MemberVO;
 
 public interface MemberDao {
@@ -41,6 +42,9 @@ public interface MemberDao {
 	
 	public int adminDelete(int m_no);
 	
+	//회원 누적금액 관리
+	public int memberTotalUpdate(BookingVO bvo);
+	
 	//회원등급관리
 	public List<MemberVO> memberGradeList(MemberVO mvo);
 	
@@ -49,11 +53,13 @@ public interface MemberDao {
 	public int gradeDataUpgradeToVVIP();
 	
 	public int updateGrade();
+	public int yearTotalReset();
 
 	public MemberVO adminCheck(MemberVO mvo);
 
 	public MemberVO idSearch(MemberVO mvo);
 
 	public MemberVO pwSearch(MemberVO mvo);
+
 
 }

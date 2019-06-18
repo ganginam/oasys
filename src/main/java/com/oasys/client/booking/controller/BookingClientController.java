@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import com.oasys.client.booking.Service.BookingClientService;
+import com.oasys.client.member.service.MemberClientService;
 import com.oasys.common.booking.vo.BookingVO;
 
 import lombok.AllArgsConstructor;
@@ -24,6 +25,7 @@ import lombok.extern.log4j.Log4j;
 public class BookingClientController {
 	
 	private BookingClientService bookingClientService;
+	private MemberClientService memberClientservice;
 
 	
 	/*�삁�빟 �럹�씠吏� �씠�룞*/
@@ -84,6 +86,10 @@ public class BookingClientController {
 
 	@RequestMapping(value="/complete", method = RequestMethod.POST)
 	public String complete(@ModelAttribute("data") BookingVO bvo) {
+		//TODO 누적금액 insert
+		log.info("bvo : " + bvo.getM_no() + "," + bvo.getP_pay());
+		
+		memberClientservice.memberTotalUpdate(bvo);
 		
 		return "client/booking/complete";
 	}

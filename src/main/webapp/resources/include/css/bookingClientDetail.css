@@ -14,7 +14,7 @@
 			
 			 
 			.LeftBox	{ float:left; position:relative; width:300px}
-			.RightBar{float:right;right:70%;top:0;width:260px;margin-top:-528px;margin-right:200px}
+			.RightBar{float:right;right:70%;top:0;width:260px;margin-top:-528px;margin-right:100px}
 			ul.summary	{border:3px solid #4d7b9c; margin-bottom:10px; background:#fff }
 			ul.summary li	{ position:relative}
 			ul.summary li .tit	{ padding:10px 15px; font-weight:600; color: #7595ab; border-bottom:1px dotted #4d7b9c; background:#f9f9f9}

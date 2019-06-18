@@ -79,6 +79,10 @@
 		DELETE FROM member WHERE m_no = #{m_no}
 	</delete>	
 	
+	<update id="memberTotalUpdate" parameterType="booking" >
+		update member set m_total=m_total+#{p_pay}, m_ytotal=m_ytotal+#{p_pay} where m_no=#{m_no}
+	</update>
+	
 	<select id="memberGradeList" parameterType="member" resultType="member">
 		SELECT m_no, m_name, m_gender, m_id, m_phone, mg_grade, mg_upgrade, m_ytotal, m_total, mg_date, m_joindate
 		FROM (
@@ -110,6 +114,10 @@
 	
 	<update id="updateGrade">
 		UPDATE membergrade SET mg_grade=mg_upgrade WHERE mg_grade!=mg_upgrade
+	</update>
+	
+	<update id="yearTotalReset">
+		UPDATE member SET m_ytotal=0
 	</update>
 	
 	

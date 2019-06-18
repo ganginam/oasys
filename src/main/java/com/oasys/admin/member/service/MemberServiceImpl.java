@@ -102,4 +102,11 @@ public class MemberServiceImpl implements MemberService{
 		return result;
 	}
 
+	@Override
+	public int yearTotalReset() {
+		int result = 0;
+		result = memberDao.yearTotalReset();
+		return result;
+	}
+
 }

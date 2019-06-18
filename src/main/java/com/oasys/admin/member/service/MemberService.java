@@ -26,4 +26,6 @@ public interface MemberService {
 	
 	public int updateGrade();
 
+	public int yearTotalReset();
+
 }

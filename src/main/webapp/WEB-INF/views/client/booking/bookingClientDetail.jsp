@@ -84,6 +84,7 @@
        </div>
        <br/><br/><br/><br/><br/>
    <div id="content" class="content content-suite">
+   	<div class="contentContainer container-fluidB">
     		<form id="frm_bdata">
 	<div class="main">
 	<div class="Leftbar">
@@ -236,7 +237,7 @@
 	</div>
 	</div>
 	</form>
-    
+    </div>
    </div>
    </body>
 </html>

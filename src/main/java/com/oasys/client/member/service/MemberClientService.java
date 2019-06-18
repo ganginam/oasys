@@ -1,5 +1,6 @@
 package com.oasys.client.member.service;
 
+import com.oasys.common.booking.vo.BookingVO;
 import com.oasys.common.member.vo.MemberVO;
 
 public interface MemberClientService {
@@ -19,6 +20,8 @@ public interface MemberClientService {
 	//public void updateAuthstatus(MemberVO mvo);
 
 	public int memberGradeInsert(MemberVO mvo);
+	
+	public int memberTotalUpdate(BookingVO bvo);
 	
 	public int memberNo();
 	public MemberVO memberDetail(int m_no);

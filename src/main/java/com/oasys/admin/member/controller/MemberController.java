@@ -115,7 +115,7 @@ public class MemberController {
 		return "redirect:/admin/member/mgrade";
 	}
 	
-	@RequestMapping(value="/upateMembergrade")
+	@RequestMapping(value="/updateMembergrade")
 	public String updateMembergrade() {
 		log.info("updateMembergrade 호출..");
 		
@@ -133,6 +133,26 @@ public class MemberController {
 		
 		return "redirect:/admin/member/mgrade";
 	}
+	
+	@RequestMapping(value="/yearTotalReset")
+	public String yearTotalReset() {
+		log.info("yearTotalReset 호출..");
+		
+		String result = "";
+		
+		try {
+			memberService.yearTotalReset();
+			
+			result = "성공";
+		}catch (SqlSessionException e) {
+			log.info("연간누적금액 초기화 오류..");
+		}
+		
+		log.info("result = " + result);
+		
+		return "redirect:/admin/member/mgrade";
+	}
+
 	
 //	@RequestMapping(value="login", method=RequestMethod.POST)
 //	public ModelAndView adminCheck(@ModelAttribute MemberVO mvo, ModelAndView mav) {

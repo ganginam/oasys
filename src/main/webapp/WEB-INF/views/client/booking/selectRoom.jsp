@@ -73,7 +73,7 @@
        </div>
        <br/><br/><br/><br/><br/>
    <div id="content" class="content content-suite">
-      		<div class="contentContainer container-fluidA">
+      		<div class="contentContainer container-fluidB">
 			<form id="b_data" name="b_data">
 				<input type="hidden" id="rg_grade" name="rg_grade" />
 				<input type="hidden" id="b_indate" name="b_indate" value="${data.b_indate}" />

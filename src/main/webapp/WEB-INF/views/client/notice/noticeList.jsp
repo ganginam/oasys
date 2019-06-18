@@ -61,7 +61,7 @@
 				//상세 페이지로 이동하기 위해 form 추가 (id : detailForm)
 				$("#detailForm").attr({
 					"method" : "get" ,
-					"action" : "/notice/noticeDetail"
+					"action" : "/client/notice/noticeDetail"
 				});
 				$("#detailForm").submit();
 			});
@@ -100,7 +100,7 @@
 			}
 			$("#f_search").attr({
 				"method":"get",
-				"action":"/client/notice/noticeList"
+				"action":"/notice/noticeList"
 			});
 			$("#f_search").submit();
 		}	

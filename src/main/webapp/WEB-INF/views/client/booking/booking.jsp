@@ -111,7 +111,7 @@
        </div>
        <br/><br/><br/><br/><br/>
    		<div id="content" class="content content-suite">
-			<div class="contentContainer container-fluidA">
+			<div class="contentContainer container-fluidB">
 		
 			<form id="f_date" class="form-inline">
 			<input type="hidden" id="b_inday" name="b_inday" />

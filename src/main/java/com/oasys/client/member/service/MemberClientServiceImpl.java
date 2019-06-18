@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
+import com.oasys.common.booking.vo.BookingVO;
 import com.oasys.common.member.dao.MemberDao;
 import com.oasys.common.member.vo.MemberVO;
 
@@ -147,5 +147,12 @@ public class MemberClientServiceImpl implements MemberClientService {
 		MemberVO mvo = memberDao.memberDetail(m_no);
 		
 		return mvo;
+	}
+
+
+	@Override
+	public int memberTotalUpdate(BookingVO bvo) {
+		int result = memberDao.memberTotalUpdate(bvo);
+		return result;
 	}
 }
