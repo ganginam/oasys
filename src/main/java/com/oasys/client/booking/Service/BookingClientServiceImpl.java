@@ -38,6 +38,7 @@ public class BookingClientServiceImpl implements BookingClientService{
 	}
 
 	@Override
+
 	public List<Integer> randomcnt(BookingVO bvo) {
 		List<Integer> result = null;
 		
@@ -69,6 +70,21 @@ public class BookingClientServiceImpl implements BookingClientService{
 	public int bookingPayment(BookingVO bvo) {
 		int result = 0;
 		result = bookingDao.bookingPayment(bvo);
+		return result;
+	}
+	
+	public BookingVO bookingClientSearch(BookingVO bvo) {
+		BookingVO detail = null;
+		detail = bookingDao.bookingClientSearch(bvo);
+		
+		return detail;
+	}
+
+	@Override
+	public int bookingClientCancel(BookingVO bvo) {
+		int result = 0;
+		result = bookingDao.bookingClientCancel(bvo);
+
 		return result;
 	}
 

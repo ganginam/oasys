@@ -20,6 +20,7 @@ public interface BookingDao {
 	public List<BookingVO> roomList(BookingVO bvo);
 	
 	public BookingVO bookingClientDetail(BookingVO bvo);
+
 	
 	public List<Integer> randomcnt(BookingVO bvo);
 	
@@ -28,4 +29,10 @@ public interface BookingDao {
 	public int bookingInsert(BookingVO bvo);
 	
 	public int bookingPayment(BookingVO bvo);
+
+
+	public BookingVO bookingClientSearch(BookingVO bvo);
+
+	public int bookingClientCancel(BookingVO bvo);
+
 }

@@ -110,7 +110,7 @@
 						<a href="/booking/booking">예약</a>
 						<div class="depth2">
 							<div class="depth2_5_1"><a href="/booking/booking">예약하기</a></div>
-							<div class="depth2_5_3"><a href="">예약조회</a></div>
+							<div class="depth2_5_3"><a href="/booking/goSearchForm">예약조회</a></div>
 						</div>
 					</li>
 	

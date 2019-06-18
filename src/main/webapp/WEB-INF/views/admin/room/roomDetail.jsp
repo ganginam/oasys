@@ -106,23 +106,18 @@
 							<td>${detail.rg_grade}</td>	
 						</tr>
 						<tr>
-							<%-- <td>전망</td>
-							<td>${detail.r_view}</td> --%>
 							<td>가격</td>
 							<td>${detail.rg_price}</td>
-						</tr>
-						<tr>
-							<td>수용인원</td>
-							<td>${detail.rg_peoples}</td>
 							<td>크기(평수)</td>
 							<td>${detail.rg_area}</td>
 						</tr>
 						<tr>
+							<td>수용인원</td>
+							<td>${detail.rg_peoples}</td>
 							<td>이상유무</td>
 							<td>${detail.r_strange}</td>
-							<%-- <td>사용유무</td>
-							<td>${detail.r_used}</td> --%>
 						</tr>
+						
 						<tr class="table-height">
 							<td>정보</td>
 							<td colspan="3" class="text-left">${detail.rg_explain}</td>

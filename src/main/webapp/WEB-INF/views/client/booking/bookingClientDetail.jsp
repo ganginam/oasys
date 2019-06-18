@@ -19,6 +19,7 @@
       <link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
       <link rel="stylesheet" type="text/css" href="/resources/include/css/bookingClientDetail.css" />
       
+
       <!-- Custom styles for this template -->
        <link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
       <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
@@ -28,8 +29,7 @@
   
       </style>
       <script type="text/javascript">
-  	$(function(){
-		
+  	$(function(){		
 		$("#goPayment").click(function(){
 			if(!chkSubmit($('#b_name'), "예약명을")) return;
 			else if(!chkSubmit($('#b_email'), "이메일을")) return;
@@ -87,7 +87,7 @@
     		<form id="frm_bdata">
 	<div class="main">
 	<div class="Leftbar">
-	<div class="tbl mb50">
+	<div class="tbl">
 	<div class="imgdiv">
 		<img alt="asdasd" src="/resources/images/roomImage/${detail.image1}" width="500px">	
 	</div>
@@ -148,7 +148,6 @@
 	</div>
 	</div>
 	<div class="RightBar">
-	<div id="_tip_box_item"></div>
 	<ul class="summary">
 		<li>
 			<div class="tit">01. 일정</div>
@@ -229,8 +228,10 @@
 		</c:if>
 	</div>
 	<div class="btnCenterGroup">
+
 		<input type="reset" value="취소" class="btn powderblue">
 		<input type="button" id="goPayment" value="예약 및 결제" class="btn powderblue">
+
 	</div>
 	</div>
 	</div>
