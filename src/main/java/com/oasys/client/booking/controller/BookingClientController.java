@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import com.oasys.client.booking.Service.BookingClientService;
@@ -23,6 +24,7 @@ import lombok.extern.log4j.Log4j;
 public class BookingClientController {
 	
 	private BookingClientService bookingClientService;
+
 	
 	/*�삁�빟 �럹�씠吏� �씠�룞*/
 	@RequestMapping(value="/booking", method = RequestMethod.GET)
@@ -59,4 +61,36 @@ public class BookingClientController {
 		model.addAttribute("detail",detail);*/
 		return "client/booking/paymentForm";
 	}
+	
+	@RequestMapping(value="/goSearchForm",method=RequestMethod.GET)
+	public String goSearchForm() {
+		return "client/booking/bookingSearchForm";
+	}
+	
+	@RequestMapping(value="/bookingSearch",method=RequestMethod.POST)
+	public String bookingSearch(@ModelAttribute BookingVO bvo,Model model) {
+		
+		BookingVO detail = bookingClientService.bookingClientSearch(bvo);
+		model.addAttribute("detail", detail);
+		
+		return "client/booking/bookingSearchDetail";
+				
+	}
+	@ResponseBody
+	@RequestMapping(value="/bookingCancel",method=RequestMethod.POST)
+	public String bookingCancel(@ModelAttribute BookingVO bvo) {
+		String value="";
+		int result=0;
+		
+		result = bookingClientService.bookingClientCancel(bvo);
+		
+		if(result==1) {
+			value="Y";
+		}else {
+			value="N";
+		}
+		
+		return value;
+	}
+	
 }

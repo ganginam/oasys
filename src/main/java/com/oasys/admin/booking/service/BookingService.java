@@ -13,5 +13,6 @@ public interface BookingService {
 	public BookingVO bookingUpdateForm(BookingVO bvo); 
 	public int bookingUpdate(BookingVO bvo);
 	public List<BookingVO> memberBookingList(int m_no);
+	
 
 }

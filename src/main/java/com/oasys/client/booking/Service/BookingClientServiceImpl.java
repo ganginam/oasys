@@ -37,4 +37,19 @@ public class BookingClientServiceImpl implements BookingClientService{
 		return detail;
 	}
 
+	@Override
+	public BookingVO bookingClientSearch(BookingVO bvo) {
+		BookingVO detail = null;
+		detail = bookingDao.bookingClientSearch(bvo);
+		
+		return detail;
+	}
+
+	@Override
+	public int bookingClientCancel(BookingVO bvo) {
+		int result = 0;
+		result = bookingDao.bookingClientCancel(bvo);
+		return result;
+	}
+
 }

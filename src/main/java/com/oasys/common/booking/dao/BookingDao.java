@@ -20,4 +20,8 @@ public interface BookingDao {
 	public List<BookingVO> roomList(BookingVO bvo);
 	
 	public BookingVO bookingClientDetail(BookingVO bvo);
+
+	public BookingVO bookingClientSearch(BookingVO bvo);
+
+	public int bookingClientCancel(BookingVO bvo);
 }

@@ -24,7 +24,7 @@
 		<link href="/resources/include/css/default.css" rel="stylesheet">
       
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="/resources/include/css/bookingClientDetail.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="/resources/include/css/bookingClientDetail.css" /> -->
 		<link rel="stylesheet" type="text/css" href="/resources/include/dist/css/bootstrap-theme.min.css" />
 		<!-- <link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/> -->
 		<!-- Custom styles for this template -->
@@ -49,12 +49,48 @@
 		});
 		
 		</script>
+		<style type="text/css">
+						div .imgdiv{
+				margin-bottom:30px;
+			}
+			input[type=text]{
+				padding:5px;
+			}
+			.tbl{padding:0}
+			.tbl table{border-top:2px solid #000}
+			.tbl th{border-bottom:1px solid #c9c9c9;font-size:17px;font-family:'nSquare';color:#4d7b9c;}
+			.tbl thead th{padding:20px 0 18px 0px;text-align:center;}
+			.tbl tbody th{padding:20px 0 18px 25px;vertical-align:top}
+			.tbl td{padding:20px 0 18px 35px;border-left:1px solid #c9c9c9;border-bottom:1px solid #c9c9c9;background:#fbfbfb;line-height:1.7}
+			.tbl input[type=text]{border:1px solid #999;background-color:#fbfbfb}
+			
+			 
+			.LeftBox	{ float:left; position:relative; width:200px}
+			.RightBar{float:right;right:70%;top:0;width:260px;margin-top:-528px;margin-right:200px;}
+			ul.summary	{border:3px solid #4d7b9c; margin-bottom:10px; background:#fff }
+			ul.summary li	{ position:relative}
+			ul.summary li .tit	{ padding:10px 15px; font-weight:600; color: #7595ab; border-bottom:1px dotted #4d7b9c; background:#f9f9f9}
+			ul.summary li .cont	{ padding:15px 13px; border-bottom:1px solid #4d7b9c}
+			table.normal th	{	font-size:13px; font-weight:400; padding:5px 0;}
+			table.normal td	{	font-size:13px; font-weight:400; padding:5px 0;}
+			table.normal input[type=text]	{ width:85%; font-size:13px; color:#666; padding-left:5px; border:1px solid #ddd}
+			ul.lr li	{ position:relative; font-size:13px; color:#555}
+			
+			.totalPrice	{ padding:20px 25px; border:3px solid #4d7b9c; background:#f9f9f9; margin-bottom:10px;}
+			.totalPrice span	{ float:left; font-weight:600; color: #7595ab;}
+			.totalPrice strong	{ float:right; font-weight:500; color:#e84c3d; font-size:15px}
+			
+			.btnCenterGroup{padding:30px 0 0;background:#fff;text-align:center}
+			.btnCenterGroup a{display:inline-block}
+			.btn.powderblue{border:2px solid #a4a4a4;background:#fff;line-height:56px;color:#474747; width: 126px; margin-top:-30px;}
+			.btn.powderblue:hover{border-color:#4d7b9c;background:#4d7b9c;color:#fff}
 
+		</style>
 	</head>
 	<body>
 	<div class="main">
 	<div class="Leftbar">
-	<div class="tbl mb50">
+	<div class="tbl">
 	<div class="imgdiv">
 		<img alt="asdasd" src="/resources/images/roomImage/${detail.image1}" width="500px">
 		<p>이미지 클릭시 해당 객실 상세페이지로 이동합니다.</p>
@@ -84,7 +120,6 @@
 	</div>
 	</div>
 	<div class="RightBar">
-	<div id="_tip_box_item"></div>
 	<ul class="summary">
 		<li>
 			<div class="tit">01. 일정</div>
@@ -145,8 +180,10 @@
 		<strong id="price_total">${data.b_roomcnt * detail.rg_price * data.b_inday}원</strong>
 	</div>
 	<div class="btnCenterGroup">
-		<a href="" class="btn powderblue btn_s">이전</a>
-		<a href="" class="btn powderblue btn_s">결제하기</a>
+		<!-- <a href="" class="btn powderblue">이전</a> -->
+		<input type="button" class="btn powderblue" value="이전">
+		<!-- <a href="" class="btn powderblue">결제하기</a> -->
+		<input type="button"id="goPayment" class="btn powderblue" value="결제하기">
 	</div>
 	</div>
 	</div>

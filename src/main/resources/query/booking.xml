@@ -92,5 +92,16 @@
 		WHERE rg_grade = #{rg_grade}
 	</select>
 	
+	 <!-- 예약조회(상세) -->
+	<select id="bookingClientSearch" parameterType="booking" resultType="booking">
+			SELECT
+			b_num, to_char(b_date, 'YYYY-MM-DD') as b_date, to_char(b_indate, 'YYYY-MM-DD') as b_indate, to_char(b_outdate, 'YYYY-MM-DD') as b_outdate, b_ismember, b_name, b_phone, b_email, b_payment, b_state, m_no, rg_grade, r_number
+		FROM booking
+		WHERE b_num = #{b_num} and b_name = #{b_name} and b_phone = #{b_phone}	 		
+	</select>
 	
+	<!-- 예약취소 -->
+	<update id="bookingClientCancel" parameterType="booking">
+	 	update booking set b_state ='예약대기' where b_num = #{b_num}
+	</update>
 </mapper>
