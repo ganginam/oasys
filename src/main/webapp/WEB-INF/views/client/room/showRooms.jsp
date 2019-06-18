@@ -71,9 +71,9 @@
 
       <div class="row featurette" id="deluxeGoDetail">
         <div class="col-md-7">
-          <h2 class="featurette-heading">Deluxe.. <span class="text-muted"> It'll blow your mind.</span></h2>
-          <p class="lead">계곡과 바다, 한라산을 모두 조망하는 <em>오아시스 디럭스</em>에서 기운을 재충전하고 차분한 휴식을 만끽해보세요.<br>
-			숲을 맴도는 촉촉한 공기와 상쾌하게 차가운 늦은 밤의 미풍까지…</p>
+          <h2 class="featurette-heading"><span class="text-muted"> Deluxe</span></h2>
+          <p class="lead"><em>디럭스</em>룸에서 보이는 이 특별한 조망은 마치 도시가 이 객실을<br>
+			위해 조경을 한 것 같은 느낌을 들게 할 것입니다.</p>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive" src="/resources/images/roomImage/${deluxe.image1}" alt="Generic placeholder image">
@@ -87,11 +87,10 @@
           <img class="featurette-image img-responsive" src="/resources/images/roomImage/${deluxeDouble.image1}" alt="Generic placeholder image">
         </div>
         <div class="col-md-7">
-          <h2 class="featurette-heading">Deluxe Double... <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">멀리 본다는 것의 의미. 마음이 한결 가벼워집니다.<br>
-			<em>디럭스 트윈룸</em>은 아늑한 공간으로 디자인 되었습니다.<br>
-			뷰에 따라 푸른 정원, 숲, 계곡, 바다가 시원하게 펼쳐지는 발코니에서는 <br>
-			얼굴 위로 쏟아지는 햇살을 받으며 자연의 달콤한 정적을 느끼실 수 있습니다.</p>
+
+          <h2 class="featurette-heading"><span class="text-muted">Deluxe Premium </span></h2>
+          <p class="lead"><em>디럭스 프리미엄</em>은 비즈니스와 휴식이라는 두 가지 키워드 조합을 <br>
+			가장 잘 보여주는 객실입니다. 가장 합리적이면서도 스타일리시한 객실로 기대 그 이상의 경험을 즐겨보세요.</p>
         </div>
       </div>
 		<br/><br/><br/>
@@ -99,10 +98,11 @@
 
       <div class="row featurette" id="suiteGoDetail">
         <div class="col-md-7">
-          <h2 class="featurette-heading">Suite <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">계곡과 바다, 한라산을 모두 조망하는 <em>오아시스 스위트</em>에서 기운을 재충전하고 차분한 휴식을 만끽해보세요.<br>
-			숲을 맴도는 촉촉한 공기와 상쾌하게 차가운 늦은 밤의 미풍까지…<br>
-			180만년 동안 예래가 숨겨놓은 비경을 오롯이 당신의 시간으로 품을 수 있는 공간입니다.</p>
+
+          <h2 class="featurette-heading"><span class="text-muted">Suite </span></h2>
+          <p class="lead"><em>스위트</em>객실 벽면의 반 이상이 창으로 된 훌륭한 구조의 이 객실은 <br>
+			프리즘처럼 반짝이는 따뜻하고 아름다운 객실입니다.</p>
+
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive" src="/resources/images/roomImage/${suite.image1}" alt="Generic placeholder image">
@@ -116,9 +116,9 @@
           <img class="featurette-image img-responsive" src="/resources/images/roomImage/${suiteFamilly.image1}" alt="Generic placeholder image">
         </div>
         <div class="col-md-7">
-          <h2 class="featurette-heading">Suite Familly ... <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead"><em>패밀리 스위트 룸</em>가족과 함께 최고의 시간을 보낼 수 있도록 <br>오아시스가 준비한 특별한 공간입니다.<br>
-			아이와 부모 모두 여유롭게 휴식을 취할 수 있도록 편안함을 가장 중요시한 공간입니다. 
+          <h2 class="featurette-heading"> <span class="text-muted">Loyal Suite</span></h2>
+          <p class="lead">최고의 귀빈만을 위한 <em>로열 스위트</em>는 오아시스의 전통적인 디자인 컨셉을 가지고 있는 최고급 객실입니다.<br>
+			촉촉한 공기와 상쾌하게 차가운 늦은 밤의 미풍까지…</p>
         </div>
       </div>
 

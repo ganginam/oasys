@@ -113,14 +113,14 @@ select::-ms-expand {
 #gnb .depth1_box ul li:first-child .depth2 {left:0;}
 #gnb .depth1_box ul li:hover .depth2 {visibility: visible; opacity:1; }
 #gnb .depth1_box ul li.over .depth2 {visibility: visible; opacity:1; }
-#gnb .depth1_box ul li > a {transition:all 0.3s;text-transform:uppercase;}
+#gnb .depth1_box ul li > a {transition:all 0.3s;}
 #gnb .depth1_box ul li > a:hover {color:#5b2f7a;}
 #gnb .depth1_box ul li.depth1_8 .depth2 {left:-228px;}
 
 #gnb .depth1_box .reservation{position: relative;float:right;height:100%;}
 #gnb .depth1_box .reservation a{display: block;width:267px;height:100%;background-color: #3c1650;line-height: 67px;color:#ffffff;padding-left:72px;box-sizing: border-box;transition:background-color 0.3s; letter-spacing: 2px; font-size: 15px;}
 #gnb .depth1_box .reservation a:hover {background-color:#4b285e;}
-#gnb .depth1_box .reservation a:before{content: '';display:inline-block;position:absolute;right:64px;top:24px;width:27px;height:19px;background: url('/resources/images/hotelImages/ico_reservation.png') no-repeat right top;  }
+#gnb .depth1_box .reservation a:before{content: '';display:inline-block;position:absolute;right:64px;top:24px;width:27px;height:19px;background: url('/resources/images/hotelImages/ico_reservation.png') no-repeat right top;}
 
 #gnb .depth1_box .depth2_bg {position:absolute; top:67px; width:100%; height:62px; background-color:rgba(247,247,247,0.95); border-bottom:1px solid rgba(0,0,0,0.08);visibility: hidden;opacity:0; transition:all 0.3s;}
 #gnb .depth1_box .depth2_bg.active {visibility:visible;opacity:1;}
@@ -287,7 +287,7 @@ select::-ms-expand {
 .location{display:block;position: relative;padding-top:28px;color:#666666; overflow: hidden;}
 .location ul{ text-align: right;overflow: hidden; margin: 0 auto;font-size: 0;letter-spacing: 0;word-spacing: 0; padding-right:37px;}
 .location ul li{display:inline-block;line-height:17px;font-size: 12px;text-transform:capitalize;}
-.location ul li:after{content: '';display:inline-block;position:relative;top:-2px;left:0px;margin:0 10px;width:4px;height:6px;background: url(../images/common/ico_location.png) center center;}
+.location ul li:after{content: '';display:inline-block;position:relative;top:-2px;left:0px;margin:0 10px;width:4px;height:6px;}
 .location ul li:last-child:after{content:none;}
 .location ul li img{margin-top:2px;}
 .location ul li.current{font-weight: 700;color: #282828;}

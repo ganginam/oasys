@@ -172,7 +172,7 @@ public class RoomGradeController {
 		log.info(detail);
 		return "client/room/showDeluxe";
 	}
-	@RequestMapping(value="/showDeluxeDubble",method=RequestMethod.GET)
+	@RequestMapping(value="/showDeluxeDouble",method=RequestMethod.GET)
 	public String showDeluxeDubble(@ModelAttribute("data") RoomGradeVO gvo,Model model) {
 		log.info("roomGradeDetail ȣ�� ����");
 		gvo.setRg_num(4);
@@ -181,7 +181,7 @@ public class RoomGradeController {
 		detail.getRg_num();
 		log.info(gvo);
 		log.info(detail);
-		return "client/room/showDeluxeDubble";
+		return "client/room/showDeluxeDouble";
 	}
 	@RequestMapping(value="/showSuite",method=RequestMethod.GET)
 	public String showSuite(@ModelAttribute("data") RoomGradeVO gvo,Model model) {

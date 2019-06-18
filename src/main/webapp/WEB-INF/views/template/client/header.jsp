@@ -79,14 +79,12 @@
 				<div class="depth2_bg"></div>
 				<div class="logo"><h3><a href="/"><img src="/resources/images/hotelImages/logo2.png" alt="호텔 로고" width="45%"></a></h3></div>
 				<ul>
-					<li class="depth1_1">
-
-						<a href="/">Oasis</a>
-
+					<li class="depth1_2">
+						<a href="/hotelInfo/aboutUs">The Oasis</a>
 						<div class="depth2">
-							<div class="depth2_1_1"><a href="">소개</a></div>
-							<div class="depth2_1_3"><a href="">오시는 길</a></div>
-							<div class="depth2_1_4"><a href="">여행 가이드</a></div>
+							<div class="depth2_1_1"><a href="/hotelInfo/aboutUs">소개</a></div>
+							<div class="depth2_1_3"><a href="/hotelInfo/location">오시는 길</a></div>
+							<div class="depth2_1_4"><a href="/hotelInfo/trevelGuide">여행 가이드</a></div>
 							<div class="depth2_1_5"><a href="/notice/noticeList">공지사항</a></div>
 						</div>
 					</li>
@@ -98,9 +96,9 @@
 						<div class="depth2">
 							<div class="depth2_3_1"><a href="/roomGrade/showRooms">전체보기</a></div>
 							<div class="depth2_3_2"><a href="/roomGrade/showDeluxe">디럭스</a></div>
-							<div class="depth2_3_3"><a href="/roomGrade/showDeluxeDubble">디럭스 트윈</a></div>
+							<div class="depth2_3_3"><a href="/roomGrade/showDeluxeDouble">디럭스 프리미엄</a></div>
 							<div class="depth2_3_3"><a href="/roomGrade/showSuite">스위트</a></div>
-							<div class="depth2_3_4"><a href="/roomGrade/showSuiteFamilly">스위트 패밀리</a></div>
+							<div class="depth2_3_4"><a href="/roomGrade/showSuiteFamilly">로열 스위트</a></div>
 						</div>
 					</li>
 	
@@ -117,24 +115,20 @@
 					<li class="line"></li>
 	
 					<li class="depth1_6">
-						<a href="">부대시설</a>
+						<a href="/hotelInfo/fitnessClub">부대시설</a>
 						<div class="depth2">
-							<div class="depth2_6_3"><a href="">휘트니스클럽</a></div>
-							<div class="depth2_6_4"><a href="">스파</a></div>
-							<div class="depth2_6_5"><a href="">수영장</a></div>
+							<div class="depth2_6_3"><a href="/hotelInfo/fitnessClub">휘트니스클럽</a></div>
+							<div class="depth2_6_4"><a href="/hotelInfo/spaClub">스파</a></div>
+							<div class="depth2_6_5"><a href="/hotelInfo/swimmingPool">수영장</a></div>
 						</div>
 					</li>
 	
 					<li class="line"></li>
 	
-					<li class="depth1_7"><a href="">멤버십</a></li>
-	
-					<li class="line"></li>
-	
 					<li class="depth1_8">
-						<a href="/faq/faqList">컨시어지</a>
+						<a href="/hotelInfo/floorGuide">컨시어지</a>
 						<div class="depth2">
-							<div class="depth2_8_2"><a href="">층별 안내</a></div> 
+							<div class="depth2_8_2"><a href="/hotelInfo/floorGuide">층별 안내</a></div>
 							<div class="depth2_8_4"><a href="/faq/faqList">자주하는 질문</a></div>
 							<div class="depth2_8_3"><a href="/qna/qnaList">문의하기</a></div>
 							<div class="depth2_8_4"><a href="/review/reviewList">후기</a></div>

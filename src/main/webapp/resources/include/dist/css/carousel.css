@@ -76,6 +76,9 @@ body {
 .marketing .col-lg-4 p {
   margin-right: 10px;
   margin-left: 10px;
+  font-weight: bold;
+  color: DimGray;
+  padding-bottom: 8px;
 }
 
 
