@@ -51,30 +51,18 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img src="/resources/images/hotelImages/o1.jpg" alt="First slide" >
+          <img src="/resources/images/hotelImages/bg_360.jpg" alt="First slide" >
           <div class="container">
-            <div class="carousel-caption">
-              <h1>Oasys Hotel</h1>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-            </div>
           </div>
         </div>
         <div class="item">
-          <img src="/resources/images/hotelImages/o2.jpg" alt="Second slide">
+          <img src="/resources/images/hotelImages/tit_bg_service.jpg" alt="Second slide">
           <div class="container">
-            <div class="carousel-caption">
-              <h1>Oasys Hotel2</h1>             
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-            </div>
           </div>
         </div>
         <div class="item">
-          <img src="/resources/images/hotelImages/o3.jpg" alt="Third slide">
+          <img src="/resources/images/hotelImages/tit_bg_logo.jpg" alt="Third slide">
           <div class="container">
-            <div class="carousel-caption">
-              <h1>Oasys Hotel3</h1>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-            </div>
           </div>
         </div>
       </div>
@@ -98,22 +86,22 @@
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <img class="img-circle" src="/resources/images/hotelImages/lotte.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <img class="img-circle" src="/resources/images/hotelImages/home/thumb_deluxe.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+          <h2>Deluxe</h2>
+          <p>"디럭스 룸에서 보이는 이 특별한 조망은 마치 도시가 이 객실을 위해 조경을 한 것 같은 느낌을 들게 할 것입니다."</p>
+          <p><a class="btn btn-default" href="/roomGrade/showDeluxe" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="/resources/images/hotelImages/lotte.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <img class="img-circle" src="/resources/images/hotelImages/home/thumb_premier_suite.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+          <h2>Deluxe Premium</h2>
+          <p>"침실과 거실 공간이 분리된 디럭스 프리미엄은 비즈니스와 휴식이라는 두가지 키워드의 조합을 가장 잘보여주는 객실입니다."</p>
+          <p><a class="btn btn-default" href="/roomGrade/showDeluxeDouble" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="/resources/images/hotelImages/lotte.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <img class="img-circle" src="/resources/images/hotelImages/home/thumb_royal_plaza_suite.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
+          <h2>Suite</h2>
+          <p>"세상 단 하나의 스위트룸, 그만큼 특별하고 설레고 화려한 단어가 있을까요. 누구나 동경하는 오아시스 스위트가 갖는 특별함입니다."</p>
+          <p><a class="btn btn-default" href="/roomGrade/showSuite" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
@@ -121,40 +109,46 @@
       <!-- START THE FEATURETTES -->
 
       <hr class="featurette-divider">
-
+      <br/><br/>
+      <br/><br/>
+	
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">무더운 여름 <span class="text-muted">오아시스와 함께</span></h2>
+          <p class="lead">한강이 한눈에 펼쳐지는 수영장과 유니크한 인테리어의 객실에서 스타일리시한 여름 휴가를 즐겨보세요!</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="/resources/images/hotelImages/lotte.jpg" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive" src="/resources/images/hotelImages/concierge/f_guide_img3.jpg" alt="Generic placeholder image">
         </div>
       </div>
+      <br/><br/>
 
       <hr class="featurette-divider">
 
       <div class="row featurette">
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="/resources/images/hotelImages/lotte.jpg" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive" src="/resources/images/hotelImages/home/image01.jpg" alt="Generic placeholder image">
         </div>
         <div class="col-md-7">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">여름을 부탁해! <span class="text-muted">보양식으로 기운찬 하루</span></h2>
+          <p class="lead">버라이어티 다이닝에서 여름 제철 식재료를 활용한 보양 메뉴를 선보입니다. 기대 그 이상의 맛을 경험해보시기 바랍니다.</p>
         </div>
       </div>
-
+      <br/><br/>
+      
       <hr class="featurette-divider">
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">오아시스호텔 근처에서 다양한 경험을 즐기세요!</h2>
+          <p class="lead">여의도 공원과 한강공원, 물빛광장, 유람선 선착장, IFC쇼핑몰, 63빌딩 등을 만나보세요.</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="/resources/images/hotelImages/lotte.jpg" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive" src="/resources/images/hotelImages/tourGuide/tour_img_02_02.jpg" alt="Generic placeholder image">
         </div>
       </div>
+      <br/><br/><br/><br/>
+      <br/><br/><br/><br/>
 
       <hr class="featurette-divider">
 

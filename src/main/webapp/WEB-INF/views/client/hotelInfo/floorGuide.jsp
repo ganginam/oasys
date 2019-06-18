@@ -21,6 +21,8 @@
 		
 		<!-- Custom styles for this template -->
     	<link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
+    	<link href="/resources/include/css/customer_center.css" rel="stylesheet">
+    	
 		<script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
 		<script type="text/javascript" src="/resources/include/js/common.js"></script>
 		<script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
@@ -42,39 +44,24 @@
                     <li> > </li>
                     <li><a href=''> 컨시어지 </a></li>
                     <li> > </li>
-                    <li class="current"><a href='/'>층별 안내</a></li>
+                    <li class="current"><a href='/'>층별안내</a></li>
                 </ul>
-                <h1 class="text-center">오시는 길</h1>
+                <h1 class="text-center">층별안내</h1>
     	</div>
     	<br/><br/><br/><br/><br/>
-	<div id="content" class="content content-suite">
-		<div id="contents">
-
-        <div class="about_content floorguide ">
-            <div class="location">
-                <ul>
-                    <li><a href='/kr/'><img src="/_resource/images/common/icon_home.png" alt="home"></a></li>
-                    <li><a href='/kr/customer_center/contactus.jsp'>온라인 컨시어지</a></li>
-                    <li class="current"><a href='/kr/customer_center/floorguide.jsp'>층별 안내</a></li>
-                </ul>
-            </div>
-            <div class="section_content">
-                <h1>층별 안내</h1>
-                <p>
-                    총 410개의 객실과 6개의 레스토랑, 비즈니스 센터, 연회장, 휘트니스 클럽, 스파까지 갖춘 특급 호텔 더 플라자는<br>
-                    비즈니스와 레저 고객을 모두 충족시키면서 새로운 차원의 유니크 &amp; 스타일리시한 라이프 스타일을 제시합니다.
-                </p>
-
-                <div class="content_inner">
-                    <img src="/_resource/images/customer_center/floorguide_img.jpg" alt=""/>
-                </div>
-            </div>
-
-
-        </div>
-        
-	<div class="top_btn"><a href="#">TOP</a></div>
-    </div>
+	<div id="content" class="content content-suite text-center">
+		<div class="about_content floorguide">
+			<div class="section_content">
+	                <p>
+	                    총 410개의 객실과 6개의 레스토랑, 비즈니스 센터, 연회장, 휘트니스 클럽, 스파까지 갖춘 특급 호텔 더 플라자는<br>
+	                    비즈니스와 레저 고객을 모두 충족시키면서 새로운 차원의 유니크 &amp; 스타일리시한 라이프 스타일을 제시합니다.
+	                </p>
+	                <div class="content_inner">
+	                    <img src="/resources/images/hotelImages/concierge/floorguide_img.jpg" alt=""/>
+	                </div>
+	            </div>
+		</div>
+		
 	</div>
 	</body>
 </html>
