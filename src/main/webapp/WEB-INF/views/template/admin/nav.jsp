@@ -29,9 +29,5 @@
 
          <li><a href="">문의게시판</a></li>
          <li><a href="/admin/review/reviewList">후기</a></li>
-
-       </ul>
-       <ul class="nav nav-sidebar">
-         <li class="mainDepth"><a href="">매출</a></li>
        </ul>
 </div>
