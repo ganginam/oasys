@@ -48,6 +48,8 @@ public interface MemberDao {
 	//회원등급관리
 	public List<MemberVO> memberGradeList(MemberVO mvo);
 	
+	
+	public int gradeDataUpgradeToSilver();
 	public int gradeDataUpgradeToGold();
 	public int gradeDataUpgradeToVIP();
 	public int gradeDataUpgradeToVVIP();
