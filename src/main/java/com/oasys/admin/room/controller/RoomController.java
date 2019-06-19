@@ -28,7 +28,7 @@ public class RoomController {
 	
 	@RequestMapping(value="/roomList",method=RequestMethod.GET)
 	public String roomList(@ModelAttribute RoomVO rvo,RoomGradeVO gvo,Model model) {
-		log.info("roomList È£Ãâ ¼º°ø");
+		log.info("roomList È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		List<RoomVO> roomList = roomService.roomList(rvo);
 		List<RoomGradeVO> roomGradeList = roomGradeService.roomGradeList(gvo);
 		RoomVO detail = roomService.roomDetail(rvo);
@@ -42,7 +42,7 @@ public class RoomController {
 	@ResponseBody
 	@RequestMapping(value="/roomInsert",method=RequestMethod.POST,produces="text/plain; charset=UTF-8")
 	public String roomInsert(@ModelAttribute("data") RoomVO rvo,Model model) {
-		log.info("roomInsert È£Ãâ");
+		log.info("roomInsert È£ï¿½ï¿½");
 		log.info("roomInsert : "+rvo);
 		String value="";
 		int result = 0;
@@ -50,15 +50,15 @@ public class RoomController {
 		result=roomService.roomInsert(rvo);
 		
 		if(result==1) {
-			value="¼º°ø";
+			value="ì„±ê³µ";
 		}else {
-			value="½ÇÆÐ";
+			value="ì‹¤íŒ¨";
 		}
 		return value;
 	}
 	@RequestMapping(value="/roomDetail",method=RequestMethod.GET)
 	public String roomDetail(@ModelAttribute RoomVO rvo,Model model) {
-		log.info("roomDetail È£Ãâ ¼º°ø");
+		log.info("roomDetail È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		RoomVO detail = roomService.roomDetail(rvo);
 		model.addAttribute("detail",detail);
 		return "admin/room/roomDetail";
@@ -70,9 +70,9 @@ public class RoomController {
 		int result = 0;
 		result = roomService.roomDelete(rvo);
 		if(result==1) {
-			value="¼º°ø";
+			value="ì„±ê³µ";
 		}else {
-			value="½ÇÆÐ";
+			value="ì‹¤íŒ¨";
 		}
 		return value;
 	}
@@ -80,16 +80,16 @@ public class RoomController {
 	@ResponseBody
 	@RequestMapping(value="/roomUpdate",method=RequestMethod.GET,produces="text/plain;charset=UTF-8")
 	public String roomUpdate(@ModelAttribute("data") RoomVO rvo) {
-		log.info("roomUpdate È£Ãâ");
+		log.info("roomUpdate È£ï¿½ï¿½");
 		String value = "";
 		int result = 0;
 		log.info(rvo);
 		result = roomService.roomUpdate(rvo);
 		log.info(result);
 		if(result==1) {
-			value="¼º°ø";
+			value="ì„±ê³µ";
 		}else {
-			value="½ÇÆÐ";
+			value="ì‹¤íŒ¨";
 		}
 		return value;
 	}

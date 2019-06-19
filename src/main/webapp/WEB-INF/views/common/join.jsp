@@ -240,10 +240,10 @@
    								
    								
    								<!-- <input type="button" value="전달" onclick="send()"/> -->
-   								<input type="button" id="emailCheck" name="emailCheck" value="인증하기" onclick="showPopUp()" class="btn btn-sm"/>
+   								<!-- <input type="button" id="emailCheck" name="emailCheck" value="인증하기" onclick="showPopUp()" class="btn btn-sm"/> -->
    								
    								<!-- 이메일 인증 여부 표시 -->
-   								<input type="text" id="emailSuccess" name="emailSuccess" readonly="readonly"/>
+   								<!-- <input type="text" id="emailSuccess" name="emailSuccess" readonly="readonly"/> -->
    								
    							</td>
    						</tr>

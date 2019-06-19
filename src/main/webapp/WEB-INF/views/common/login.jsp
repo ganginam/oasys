@@ -119,9 +119,9 @@
 				
 				<c:if test="${member.m_id != null and member.m_id != '' }">
 					<fieldset>
-						<legend>
+						<div class="welcom">
 							<strong>${member.m_name}님 환영합니다. <span style="color:orange;">[${member.m_type}]</span></strong>
-						</legend>
+						</div>
 						<input type="button" id="btn_logout" name="btn_logout" value="로그아웃" class="btn btn-danger"/>
 						<!-- <input type="button" id="btn_updateForm" name="btn_updateForm" value="회원 정보 수정" class="btn btn-default"/> -->
 						<input type="button" id="btn_home" name="btn_home" value="홈" class="btn btn-default"/>

@@ -46,7 +46,7 @@
                     <li> > </li>
                     <li class="current"><a href='/'>결제완료</a></li>
                 </ul>
-                <h1 class="text-center">결제가 완료 되었습니다.</h1>
+                <h1 class="text-center">예약 및 결제가 완료 되었습니다.</h1>
        </div>
        <br/><br/><br/><br/><br/>
    <div id="content" class="content content-suite">
@@ -87,7 +87,7 @@
 			</table>
 	</div>
 	<div class="btnCenterGroup">
-     <input type="button"  id="home" name="home" value="홈" class="btn powderblue">
+     <input type="button"  id="home" name="home" value="홈" class="btn btn-primary">
    </div>
    </div>
    </div>
