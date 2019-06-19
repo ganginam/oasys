@@ -102,6 +102,7 @@ public class MemberController {
 		String result = "";
 		
 		try {
+			memberService.gradeDataUpgradeToSilver();
 			memberService.gradeDataUpgradeToGold();
 			memberService.gradeDataUpgradeToVIP();
 			memberService.gradeDataUpgradeToVVIP();

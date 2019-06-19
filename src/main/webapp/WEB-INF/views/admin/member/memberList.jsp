@@ -100,20 +100,22 @@
 					if(admin_no==0){
 						alert("탈퇴 처리할 관리자를 선택하세요.");
 					}else{
-						$.ajax({
-							url : "/admin/member/adminDelete",
-							type : "post",
-							data : "m_no=" + admin_no,
-							error : function(){
-								alert('시스템 오류입니다. 관리자에게 문의하세요.');
-							},
-							success : function(resultData){
-								//console.log(resultData);
-								alert("선택된 관리자가 탈퇴 완료되었습니다.");
-								location.reload();
-							}
-						});
-						admin_no = 0;
+						if(confirm("선택한 관리자를 삭제하시겠습니까?")){
+							$.ajax({
+								url : "/admin/member/adminDelete",
+								type : "post",
+								data : "m_no=" + admin_no,
+								error : function(){
+									alert('시스템 오류입니다. 관리자에게 문의하세요.');
+								},
+								success : function(resultData){
+									//console.log(resultData);
+									alert("선택된 관리자가 탈퇴 완료되었습니다.");
+									location.reload();
+								}
+							});
+							admin_no = 0;
+						}
 					}
 				});
 				
