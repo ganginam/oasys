@@ -89,65 +89,44 @@ public class RoomGradeServiceImpl implements RoomGradeService{
 
 	@Override
 	public int roomGradeUpdate(RoomGradeVO gvo) {
-//		String oneFileName = "";
 		int result=0;
-		log.info("첫 로그 : "+gvo.getFile());
 		try {
 			if(gvo.getFile() != null) {
 				ArrayList<String> fileName = FileUploadUtil.fileUploads(gvo.getFile(),"roomGrade");
 				if(gvo.getFile().get(0).getSize()>0) {
-					//oneFileName = FileUploadUtil.fileUpload(gvo.getFile(),"roomGrade");
-					log.info("서비스단 입니다 제발제발 : "+gvo);
-					log.info("서비스 입니다"+gvo.getFile().get(0));
-					log.info("서비스입니다서비스빗버시브시;ㅓㅡ"+gvo.getImage1());
 					FileUploadUtil.fileDelete(gvo.getImage1());
-					log.info("삭제이미지명:"+gvo.getImage1());
 					gvo.setImage1(fileName.get(0));
-					log.info("추가이미지명:"+gvo.getImage1());
 				}
 				if(gvo.getFile().get(0).getSize()==0) {
 					FileUploadUtil.fileDelete(fileName.get(0));
-					log.info("삭제된 잉여파일 : "+fileName.get(0));
 				}
 				if(gvo.getFile().get(1).getSize()>0) {
 					FileUploadUtil.fileDelete(gvo.getImage2());
-					log.info("삭제이미지명:"+gvo.getImage2());
 					gvo.setImage2(fileName.get(1));
-					log.info("추가이미지명"+gvo.getImage2());
 				}
 				if(gvo.getFile().get(1).getSize()==0) {
 					FileUploadUtil.fileDelete(fileName.get(1));
-					log.info("삭제된 잉여파일 : "+fileName.get(1));
 				}
 				if(gvo.getFile().get(2).getSize()>0) {
 					FileUploadUtil.fileDelete(gvo.getImage3());
-					log.info("삭제이미지명:"+gvo.getImage5());
 					gvo.setImage3(fileName.get(2));
-					log.info("추가이미지명:"+gvo.getImage3());
 				}
 				if(gvo.getFile().get(2).getSize()==0) {
 					FileUploadUtil.fileDelete(fileName.get(2));
-					log.info("삭제된 잉여파일 : "+fileName.get(2));
 				}
 				if(gvo.getFile().get(3).getSize()>0) {
 					FileUploadUtil.fileDelete(gvo.getImage4());
-					log.info("삭제이미지명:"+gvo.getImage5());
 					gvo.setImage4(fileName.get(3));
-					log.info("추가이미지명:"+gvo.getImage4());
 				}
 				if(gvo.getFile().get(3).getSize()==0) {
 					FileUploadUtil.fileDelete(fileName.get(3));
-					log.info("삭제된 잉여파일 : "+fileName.get(3));
 				}
 				if(gvo.getFile().get(4).getSize()>0) {
 					FileUploadUtil.fileDelete(gvo.getImage5());
-					log.info("삭제이미지명:"+gvo.getImage5());
 					gvo.setImage5(fileName.get(4));
-					log.info("추가이미지명:"+gvo.getImage5());
 				}
 				if(gvo.getFile().get(4).getSize()==0) {
 					FileUploadUtil.fileDelete(fileName.get(4));
-					log.info("삭제된 잉여파일 : "+fileName.get(4));
 				}
 			}else {
 				gvo.setImage1("");
