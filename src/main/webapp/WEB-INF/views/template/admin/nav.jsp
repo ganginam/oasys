@@ -30,6 +30,8 @@
          <li><a href="/admin/qna/qnaList">문의게시판</a></li>
          <li><a href="/admin/review/reviewList">후기</a></li>
 
+
        </ul>
     
+
 </div>

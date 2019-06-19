@@ -19,7 +19,7 @@
       <link rel="stylesheet" type="text/css" href="/resources/include/css/default.css"/>
       <link rel="stylesheet" type="text/css" href="/resources/include/css/showroom.css"/>
       <style type="text/css">
-  		.container {
+  		.containers {
   			.center-block();
   			width:300px;
 		}
@@ -27,6 +27,7 @@
       <!-- Custom styles for this template -->
       	<link href="/resources/include/css/common.css" rel="stylesheet">
        <link href="/resources/include/dist/css/dashboard.css" rel="stylesheet">
+       <link href="/resources/include/css/customer_center.css" rel="stylesheet">
       <script type="text/javascript" src="/resources/include/js/jquery-1.12.4.min.js"></script>
       <script type="text/javascript" src="/resources/include/js/common.js"></script>
       <script type="text/javascript" src="/resources/include/dist/js/bootstrap.min.js"></script>
@@ -88,8 +89,8 @@
                 </c:if>
        </div>
        <br/><br/><br/><br/><br/>
-   <div id="content" class="content content-suite">
-      <div class="container">
+   <div id="content" class="contentA content-suite">
+      <div class="containers">
 			<div> 
 				<c:if test="${member.m_id == null or member.m_id == '' }">
 					<form id="frm_login">  
