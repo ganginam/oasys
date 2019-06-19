@@ -209,7 +209,8 @@
 	</ul>
 
 	<div class="totalPrice">
-		<br/><select id="p_method" name="p_method">
+		<br/><label>결제 수단</label>
+			<select id="p_method" name="p_method">
 			<option value="카드">카드</option>
 			<option value="무통장입급">무통장입금</option>
 		</select><br/>
