@@ -45,7 +45,7 @@
                 <h1 class="text-center">제목</h1>
        </div>
        <br/><br/><br/><br/><br/>
-   <div id="content" class="content content-suite">
+   <div id="content" class="content content-suite text-center">
       <h1>바로 위에 제목을 수정하시고 </h1>
       <h1>이부분에 내용을 넣어주세요</h1>
    </div>

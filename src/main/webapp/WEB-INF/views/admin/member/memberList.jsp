@@ -86,9 +86,9 @@
 				//관리자
 				var admin_no = 0;
 				
-				$("#adminInsertBtn").click(function(){
-					$("#adminModal").modal();
-				});
+				/* $("#adminInsertBtn").click(function(){
+					//$("#adminModal").modal();
+				}); */
 				
 				$(".adminRadio").click(function(){
 					admin_no = $(this).parents("tr").attr("data-num");
@@ -108,12 +108,9 @@
 								alert('시스템 오류입니다. 관리자에게 문의하세요.');
 							},
 							success : function(resultData){
-								if(resultData=="성공"){
-									alert("선택된 관리자가 탈퇴 완료되었습니다.")
-								}else{
-									alert("관리자 탈퇴 오류..");
-									return;
-								}
+								//console.log(resultData);
+								alert("선택된 관리자가 탈퇴 완료되었습니다.");
+								location.reload();
 							}
 						});
 						admin_no = 0;
@@ -333,55 +330,11 @@
 			</div>
 			
 			<div>
-				<input type="button" value="관리자 등록" id="adminInsertBtn" class="btn btn-default">
+				<!-- <input type="button" value="관리자 등록" id="adminInsertBtn" class="btn btn-default"> -->
 				<!-- <input type="button" value="수정" id="insertFormBtn" class="btn btn-default"> -->
-				<input type="button" value="삭제" id="adminDeleteBtn" class="btn btn-default">
+				<input type="button" value="관리자 삭제" id="adminDeleteBtn" class="btn btn-danger">
 			</div>
 		</div>
 		
-		<!-- 관리자 등록 화면 영역(modal) -->
-		<div class="modal fade" id="adminModal" tabindex="-1" role="dialog" aria-labelledby="adminModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="adminModalLabel">관리자 등록</h4>
-					</div>
-					<div class="modal-body">
-						<form id="comment_form" name="comment_form">
-							<div class="form-group">
-						    	<label for="m_name" class="control-label">이름</label>
-						    	<input type="text" class="form-control" name="m_name" id="m_name" />
-						    </div>
-						    <div class="form-group">
-						    	<label for="m_name" class="control-label">아이디</label>
-						    	<input type="text" class="form-control" name="m_id" id="m_id" />
-						    </div>
-						    <div class="form-group">
-								<label for="g_pwd" class="control-label">비밀번호</label>
-								<input type="password" class="form-control" name="m_pwd" id="m_pwd" />
-						    </div>
-						    <div class="form-group">
-						    	<label for="m_name" class="control-label">성별</label>
-						    	<select>
-						    		<option>남자</option>
-						    		<option>여자</option>
-						    	</select>
-						    </div>
-						    <div class="form-group">
-						    	<label for="m_name" class="control-label">전화번호</label>
-						    	<input type="text" value="010"> - 
-						    	<input type="text" name="m_phone1" id="m_phone1" /> - 
-						    	<input type="text" name="m_phone2" id="m_phone2" />
-						    </div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-						<button type="button" class="btn btn-primary" id="adminInsertBtn">등록</button>
-					</div>
-				</div>
-			</div>
-		</div>
 	</body>
 </html>

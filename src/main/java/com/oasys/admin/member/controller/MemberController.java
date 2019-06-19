@@ -76,6 +76,7 @@ public class MemberController {
 			result = "실패";
 		}
 		
+		log.info("관리자 삭제 결과 : " + result);
 		return result;
 	}
 	
